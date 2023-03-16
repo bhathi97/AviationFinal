@@ -22,27 +22,59 @@ Partial Class MAINFORM
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Panel1 = New Panel()
+        components = New ComponentModel.Container()
+        PanelMenu = New Panel()
+        Panel3 = New Panel()
+        btnMenu = New FontAwesome.Sharp.IconButton()
         btnCrew = New FontAwesome.Sharp.IconButton()
         btnFlight = New FontAwesome.Sharp.IconButton()
         btnShedule = New FontAwesome.Sharp.IconButton()
-        btnMenu = New FontAwesome.Sharp.IconButton()
         Panel2 = New Panel()
-        Panel1.SuspendLayout()
+        TimerMenu = New Timer(components)
+        PanelMenu.SuspendLayout()
+        Panel3.SuspendLayout()
         SuspendLayout()
         ' 
-        ' Panel1
+        ' PanelMenu
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        Panel1.Controls.Add(btnCrew)
-        Panel1.Controls.Add(btnFlight)
-        Panel1.Controls.Add(btnShedule)
-        Panel1.Controls.Add(btnMenu)
-        Panel1.Dock = DockStyle.Left
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(209, 450)
-        Panel1.TabIndex = 0
+        PanelMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        PanelMenu.Controls.Add(Panel3)
+        PanelMenu.Controls.Add(btnCrew)
+        PanelMenu.Controls.Add(btnFlight)
+        PanelMenu.Controls.Add(btnShedule)
+        PanelMenu.Dock = DockStyle.Left
+        PanelMenu.Location = New Point(0, 0)
+        PanelMenu.Name = "PanelMenu"
+        PanelMenu.Size = New Size(200, 450)
+        PanelMenu.TabIndex = 0
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Controls.Add(btnMenu)
+        Panel3.Dock = DockStyle.Top
+        Panel3.Location = New Point(0, 0)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(200, 49)
+        Panel3.TabIndex = 5
+        ' 
+        ' btnMenu
+        ' 
+        btnMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnMenu.BackgroundImageLayout = ImageLayout.None
+        btnMenu.Cursor = Cursors.Hand
+        btnMenu.Dock = DockStyle.Right
+        btnMenu.FlatAppearance.BorderSize = 0
+        btnMenu.FlatStyle = FlatStyle.Flat
+        btnMenu.ForeColor = Color.White
+        btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon
+        btnMenu.IconColor = Color.White
+        btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnMenu.IconSize = 40
+        btnMenu.Location = New Point(150, 0)
+        btnMenu.Name = "btnMenu"
+        btnMenu.Size = New Size(50, 49)
+        btnMenu.TabIndex = 1
+        btnMenu.UseVisualStyleBackColor = False
         ' 
         ' btnCrew
         ' 
@@ -55,7 +87,7 @@ Partial Class MAINFORM
         btnCrew.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnCrew.IconSize = 40
         btnCrew.ImageAlign = ContentAlignment.MiddleLeft
-        btnCrew.Location = New Point(3, 181)
+        btnCrew.Location = New Point(1, 167)
         btnCrew.Name = "btnCrew"
         btnCrew.Size = New Size(200, 50)
         btnCrew.TabIndex = 4
@@ -73,7 +105,7 @@ Partial Class MAINFORM
         btnFlight.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnFlight.IconSize = 40
         btnFlight.ImageAlign = ContentAlignment.MiddleLeft
-        btnFlight.Location = New Point(3, 125)
+        btnFlight.Location = New Point(1, 111)
         btnFlight.Name = "btnFlight"
         btnFlight.Size = New Size(200, 50)
         btnFlight.TabIndex = 3
@@ -91,30 +123,12 @@ Partial Class MAINFORM
         btnShedule.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnShedule.IconSize = 40
         btnShedule.ImageAlign = ContentAlignment.MiddleLeft
-        btnShedule.Location = New Point(3, 69)
+        btnShedule.Location = New Point(0, 55)
         btnShedule.Name = "btnShedule"
         btnShedule.Size = New Size(200, 50)
         btnShedule.TabIndex = 2
         btnShedule.Text = "IconButton1"
         btnShedule.UseVisualStyleBackColor = False
-        ' 
-        ' btnMenu
-        ' 
-        btnMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnMenu.BackgroundImageLayout = ImageLayout.None
-        btnMenu.Cursor = Cursors.Hand
-        btnMenu.FlatAppearance.BorderSize = 0
-        btnMenu.FlatStyle = FlatStyle.Flat
-        btnMenu.ForeColor = Color.White
-        btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon
-        btnMenu.IconColor = Color.White
-        btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnMenu.IconSize = 40
-        btnMenu.Location = New Point(162, 7)
-        btnMenu.Name = "btnMenu"
-        btnMenu.Size = New Size(41, 42)
-        btnMenu.TabIndex = 1
-        btnMenu.UseVisualStyleBackColor = False
         ' 
         ' Panel2
         ' 
@@ -125,23 +139,30 @@ Partial Class MAINFORM
         Panel2.Size = New Size(800, 450)
         Panel2.TabIndex = 0
         ' 
+        ' TimerMenu
+        ' 
+        TimerMenu.Interval = 50
+        ' 
         ' MAINFORM
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(Panel1)
+        Controls.Add(PanelMenu)
         Controls.Add(Panel2)
         Name = "MAINFORM"
-        Text = "MAINFORM"
-        Panel1.ResumeLayout(False)
+        Text = "CPC | AVIATION"
+        PanelMenu.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PanelMenu As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnMenu As FontAwesome.Sharp.IconButton
     Friend WithEvents btnCrew As FontAwesome.Sharp.IconButton
     Friend WithEvents btnFlight As FontAwesome.Sharp.IconButton
     Friend WithEvents btnShedule As FontAwesome.Sharp.IconButton
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents TimerMenu As Timer
 End Class
