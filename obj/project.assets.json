@@ -5490,24 +5490,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bhath\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\randi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj",
+      "projectUniqueName": "C:\\Users\\randi\\Source\\Repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj",
       "projectName": "CPCAviationDutyAssignManagement",
-      "projectPath": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj",
-      "packagesPath": "C:\\Users\\bhath\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\obj\\",
+      "projectPath": "C:\\Users\\randi\\Source\\Repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj",
+      "packagesPath": "C:\\Users\\randi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\randi\\Source\\Repos\\AviationFinal\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\bhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\randi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5569,7 +5564,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
