@@ -23,6 +23,11 @@ Partial Class UserControlAF
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
+        btnSaveFlight = New FontAwesome.Sharp.IconButton()
+        dpDate = New DateTimePicker()
+        Label9 = New Label()
+        cbDT = New ComboBox()
+        Label8 = New Label()
         Label6 = New Label()
         Label7 = New Label()
         Label5 = New Label()
@@ -36,14 +41,15 @@ Partial Class UserControlAF
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
-        Label8 = New Label()
-        cbDT = New ComboBox()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(btnSaveFlight)
+        Panel1.Controls.Add(dpDate)
+        Panel1.Controls.Add(Label9)
         Panel1.Controls.Add(cbDT)
         Panel1.Controls.Add(Label8)
         Panel1.Controls.Add(Label6)
@@ -64,6 +70,63 @@ Partial Class UserControlAF
         Panel1.Size = New Size(478, 475)
         Panel1.TabIndex = 0
         ' 
+        ' btnSaveFlight
+        ' 
+        btnSaveFlight.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnSaveFlight.Cursor = Cursors.Hand
+        btnSaveFlight.FlatAppearance.BorderColor = SystemColors.ButtonFace
+        btnSaveFlight.FlatAppearance.BorderSize = 0
+        btnSaveFlight.FlatAppearance.MouseDownBackColor = Color.White
+        btnSaveFlight.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
+        btnSaveFlight.FlatStyle = FlatStyle.Flat
+        btnSaveFlight.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnSaveFlight.ForeColor = Color.White
+        btnSaveFlight.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk
+        btnSaveFlight.IconColor = Color.White
+        btnSaveFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnSaveFlight.IconSize = 20
+        btnSaveFlight.Location = New Point(289, 339)
+        btnSaveFlight.Name = "btnSaveFlight"
+        btnSaveFlight.Size = New Size(150, 35)
+        btnSaveFlight.TabIndex = 17
+        btnSaveFlight.Text = "SAVE"
+        btnSaveFlight.TextAlign = ContentAlignment.MiddleRight
+        btnSaveFlight.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnSaveFlight.UseVisualStyleBackColor = False
+        ' 
+        ' dpDate
+        ' 
+        dpDate.Format = DateTimePickerFormat.Short
+        dpDate.Location = New Point(235, 267)
+        dpDate.Name = "dpDate"
+        dpDate.Size = New Size(204, 23)
+        dpDate.TabIndex = 16
+        dpDate.Value = New DateTime(2023, 3, 17, 11, 38, 27, 0)
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(99, 273)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(34, 15)
+        Label9.TabIndex = 15
+        Label9.Text = "DATE" ' 
+        ' cbDT
+        ' 
+        cbDT.FormattingEnabled = True
+        cbDT.Location = New Point(235, 223)
+        cbDT.Name = "cbDT"
+        cbDT.Size = New Size(204, 23)
+        cbDT.TabIndex = 14
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(98, 228)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(97, 15)
+        Label8.TabIndex = 13
+        Label8.Text = "DEPARTURE TIME" ' 
         ' Label6
         ' 
         Label6.BackColor = SystemColors.Window
@@ -180,22 +243,6 @@ Partial Class UserControlAF
         Panel2.Size = New Size(276, 475)
         Panel2.TabIndex = 1
         ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(99, 228)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(97, 15)
-        Label8.TabIndex = 13
-        Label8.Text = "DEPARTURE TIME" ' 
-        ' cbDT
-        ' 
-        cbDT.FormattingEnabled = True
-        cbDT.Location = New Point(235, 223)
-        cbDT.Name = "cbDT"
-        cbDT.Size = New Size(204, 23)
-        cbDT.TabIndex = 14
-        ' 
         ' UserControlAF
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
@@ -226,4 +273,7 @@ Partial Class UserControlAF
     Friend WithEvents Label6 As Label
     Friend WithEvents cbDT As ComboBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents dpDate As DateTimePicker
+    Friend WithEvents Label9 As Label
+    Friend WithEvents btnSaveFlight As FontAwesome.Sharp.IconButton
 End Class

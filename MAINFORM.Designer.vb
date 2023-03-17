@@ -30,8 +30,8 @@ Partial Class MAINFORM
         btnFlight = New FontAwesome.Sharp.IconButton()
         btnShedule = New FontAwesome.Sharp.IconButton()
         PanelLoad = New Panel()
-        TimerMenu = New Timer(components)
         PanelUC = New Panel()
+        TimerMenu = New Timer(components)
         PanelMenu.SuspendLayout()
         Panel3.SuspendLayout()
         PanelLoad.SuspendLayout()
@@ -66,6 +66,7 @@ Partial Class MAINFORM
         btnMenu.Cursor = Cursors.Hand
         btnMenu.Dock = DockStyle.Right
         btnMenu.FlatAppearance.BorderSize = 0
+        btnMenu.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         btnMenu.FlatStyle = FlatStyle.Flat
         btnMenu.ForeColor = Color.White
         btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon
@@ -82,16 +83,17 @@ Partial Class MAINFORM
         ' 
         btnCrew.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnCrew.FlatAppearance.BorderSize = 0
+        btnCrew.FlatAppearance.MouseDownBackColor = Color.White
+        btnCrew.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
         btnCrew.FlatStyle = FlatStyle.Flat
         btnCrew.ForeColor = Color.White
         btnCrew.IconChar = FontAwesome.Sharp.IconChar.User
         btnCrew.IconColor = Color.White
         btnCrew.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnCrew.IconSize = 28
-        btnCrew.ImageAlign = ContentAlignment.MiddleLeft
-        btnCrew.Location = New Point(7, 167)
+        btnCrew.IconSize = 25
+        btnCrew.Location = New Point(-20, 167)
         btnCrew.Name = "btnCrew"
-        btnCrew.Size = New Size(180, 50)
+        btnCrew.Size = New Size(225, 50)
         btnCrew.TabIndex = 4
         btnCrew.Text = "    CREWMEN"
         btnCrew.TextImageRelation = TextImageRelation.ImageBeforeText
@@ -101,16 +103,17 @@ Partial Class MAINFORM
         ' 
         btnFlight.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnFlight.FlatAppearance.BorderSize = 0
+        btnFlight.FlatAppearance.MouseDownBackColor = Color.White
+        btnFlight.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
         btnFlight.FlatStyle = FlatStyle.Flat
         btnFlight.ForeColor = Color.White
         btnFlight.IconChar = FontAwesome.Sharp.IconChar.Plane
         btnFlight.IconColor = Color.White
         btnFlight.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnFlight.IconSize = 30
-        btnFlight.ImageAlign = ContentAlignment.MiddleLeft
-        btnFlight.Location = New Point(7, 111)
+        btnFlight.Location = New Point(-25, 111)
         btnFlight.Name = "btnFlight"
-        btnFlight.Size = New Size(180, 50)
+        btnFlight.Size = New Size(225, 50)
         btnFlight.TabIndex = 3
         btnFlight.Text = "    FLIGHT"
         btnFlight.TextImageRelation = TextImageRelation.ImageBeforeText
@@ -120,16 +123,17 @@ Partial Class MAINFORM
         ' 
         btnShedule.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnShedule.FlatAppearance.BorderSize = 0
+        btnShedule.FlatAppearance.MouseDownBackColor = Color.White
+        btnShedule.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
         btnShedule.FlatStyle = FlatStyle.Flat
         btnShedule.ForeColor = Color.White
         btnShedule.IconChar = FontAwesome.Sharp.IconChar.Columns
         btnShedule.IconColor = Color.White
         btnShedule.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnShedule.IconSize = 30
-        btnShedule.ImageAlign = ContentAlignment.MiddleLeft
-        btnShedule.Location = New Point(6, 55)
+        btnShedule.Location = New Point(-10, 55)
         btnShedule.Name = "btnShedule"
-        btnShedule.Size = New Size(181, 50)
+        btnShedule.Size = New Size(210, 50)
         btnShedule.TabIndex = 2
         btnShedule.Text = "    WORK SCHEDULE"
         btnShedule.TextImageRelation = TextImageRelation.ImageBeforeText
@@ -145,10 +149,6 @@ Partial Class MAINFORM
         PanelLoad.Size = New Size(800, 450)
         PanelLoad.TabIndex = 0
         ' 
-        ' TimerMenu
-        ' 
-        TimerMenu.Interval = 50
-        ' 
         ' PanelUC
         ' 
         PanelUC.Dock = DockStyle.Fill
@@ -156,6 +156,10 @@ Partial Class MAINFORM
         PanelUC.Name = "PanelUC"
         PanelUC.Size = New Size(800, 450)
         PanelUC.TabIndex = 0
+        ' 
+        ' TimerMenu
+        ' 
+        TimerMenu.Interval = 50
         ' 
         ' MAINFORM
         ' 
