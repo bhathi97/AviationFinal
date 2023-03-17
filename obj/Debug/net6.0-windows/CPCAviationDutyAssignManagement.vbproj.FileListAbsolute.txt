@@ -36,3 +36,5 @@ C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-win
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\bin\Debug\net6.0-windows\Images\logo.png
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlAF.resources
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.Resources.resources
+C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlCREW.resources
+C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlTimeTable.resources

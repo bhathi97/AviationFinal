@@ -7,5 +7,11 @@
     <Compile Update="UserControlAF.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlCREW.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControlTimeTable.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

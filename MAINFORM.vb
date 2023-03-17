@@ -51,5 +51,19 @@ Public Class MAINFORM
         userControlAF.BringToFront()
     End Sub
 
+    'Handles btnCrew.Click
+    Private Sub btnCrew_Click(sender As Object, e As EventArgs) Handles btnCrew.Click
+        Dim userControlC As New UserControlCREW()
+        userControlC.Dock = DockStyle.Fill
+        PanelLoad.Controls.Add(userControlC)
+        userControlC.BringToFront()
+    End Sub
 
+    'Handles btnShedule.Click
+    Private Sub btnShedule_Click(sender As Object, e As EventArgs) Handles btnShedule.Click
+        Dim userControlTT As New UserControlTimeTable()
+        userControlTT.Dock = DockStyle.Fill
+        PanelLoad.Controls.Add(userControlTT)
+        userControlTT.BringToFront()
+    End Sub
 End Class

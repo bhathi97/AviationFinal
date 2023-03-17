@@ -26,8 +26,8 @@ Partial Class UserControlAF
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
-        btnDelete = New FontAwesome.Sharp.IconButton()
-        btnUpdate = New FontAwesome.Sharp.IconButton()
+        btnDeleteFlight = New FontAwesome.Sharp.IconButton()
+        btnUpdateFlight = New FontAwesome.Sharp.IconButton()
         btnSaveFlight = New FontAwesome.Sharp.IconButton()
         dpDate = New DateTimePicker()
         Label9 = New Label()
@@ -62,8 +62,8 @@ Partial Class UserControlAF
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
-        Panel1.Controls.Add(btnDelete)
-        Panel1.Controls.Add(btnUpdate)
+        Panel1.Controls.Add(btnDeleteFlight)
+        Panel1.Controls.Add(btnUpdateFlight)
         Panel1.Controls.Add(btnSaveFlight)
         Panel1.Controls.Add(dpDate)
         Panel1.Controls.Add(Label9)
@@ -88,53 +88,53 @@ Partial Class UserControlAF
         Panel1.Size = New Size(478, 531)
         Panel1.TabIndex = 0
         ' 
-        ' btnDelete
+        ' btnDeleteFlight
         ' 
-        btnDelete.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnDelete.Cursor = Cursors.Hand
-        btnDelete.FlatAppearance.BorderColor = SystemColors.ButtonFace
-        btnDelete.FlatAppearance.BorderSize = 0
-        btnDelete.FlatAppearance.MouseDownBackColor = Color.White
-        btnDelete.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        btnDelete.FlatStyle = FlatStyle.Flat
-        btnDelete.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        btnDelete.ForeColor = Color.White
-        btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt
-        btnDelete.IconColor = Color.White
-        btnDelete.IconFont = FontAwesome.Sharp.IconFont.Solid
-        btnDelete.IconSize = 20
-        btnDelete.Location = New Point(289, 446)
-        btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(150, 35)
-        btnDelete.TabIndex = 19
-        btnDelete.Text = "DELETE"
-        btnDelete.TextAlign = ContentAlignment.MiddleRight
-        btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnDelete.UseVisualStyleBackColor = False
+        btnDeleteFlight.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnDeleteFlight.Cursor = Cursors.Hand
+        btnDeleteFlight.FlatAppearance.BorderColor = SystemColors.ButtonFace
+        btnDeleteFlight.FlatAppearance.BorderSize = 0
+        btnDeleteFlight.FlatAppearance.MouseDownBackColor = Color.White
+        btnDeleteFlight.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        btnDeleteFlight.FlatStyle = FlatStyle.Flat
+        btnDeleteFlight.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        btnDeleteFlight.ForeColor = Color.White
+        btnDeleteFlight.IconChar = FontAwesome.Sharp.IconChar.TrashAlt
+        btnDeleteFlight.IconColor = Color.White
+        btnDeleteFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnDeleteFlight.IconSize = 20
+        btnDeleteFlight.Location = New Point(289, 445)
+        btnDeleteFlight.Name = "btnDeleteFlight"
+        btnDeleteFlight.Size = New Size(150, 35)
+        btnDeleteFlight.TabIndex = 19
+        btnDeleteFlight.Text = "DELETE"
+        btnDeleteFlight.TextAlign = ContentAlignment.MiddleRight
+        btnDeleteFlight.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnDeleteFlight.UseVisualStyleBackColor = False
         ' 
-        ' btnUpdate
+        ' btnUpdateFlight
         ' 
-        btnUpdate.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnUpdate.Cursor = Cursors.Hand
-        btnUpdate.FlatAppearance.BorderColor = SystemColors.ButtonFace
-        btnUpdate.FlatAppearance.BorderSize = 0
-        btnUpdate.FlatAppearance.MouseDownBackColor = Color.White
-        btnUpdate.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
-        btnUpdate.FlatStyle = FlatStyle.Flat
-        btnUpdate.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        btnUpdate.ForeColor = Color.White
-        btnUpdate.IconChar = FontAwesome.Sharp.IconChar.PenToSquare
-        btnUpdate.IconColor = Color.White
-        btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Solid
-        btnUpdate.IconSize = 20
-        btnUpdate.Location = New Point(289, 401)
-        btnUpdate.Name = "btnUpdate"
-        btnUpdate.Size = New Size(150, 35)
-        btnUpdate.TabIndex = 18
-        btnUpdate.Text = "UPDATE"
-        btnUpdate.TextAlign = ContentAlignment.MiddleRight
-        btnUpdate.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnUpdate.UseVisualStyleBackColor = False
+        btnUpdateFlight.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnUpdateFlight.Cursor = Cursors.Hand
+        btnUpdateFlight.FlatAppearance.BorderColor = SystemColors.ButtonFace
+        btnUpdateFlight.FlatAppearance.BorderSize = 0
+        btnUpdateFlight.FlatAppearance.MouseDownBackColor = Color.White
+        btnUpdateFlight.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
+        btnUpdateFlight.FlatStyle = FlatStyle.Flat
+        btnUpdateFlight.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        btnUpdateFlight.ForeColor = Color.White
+        btnUpdateFlight.IconChar = FontAwesome.Sharp.IconChar.PenToSquare
+        btnUpdateFlight.IconColor = Color.White
+        btnUpdateFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnUpdateFlight.IconSize = 20
+        btnUpdateFlight.Location = New Point(289, 401)
+        btnUpdateFlight.Name = "btnUpdateFlight"
+        btnUpdateFlight.Size = New Size(150, 35)
+        btnUpdateFlight.TabIndex = 18
+        btnUpdateFlight.Text = "UPDATE"
+        btnUpdateFlight.TextAlign = ContentAlignment.MiddleRight
+        btnUpdateFlight.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnUpdateFlight.UseVisualStyleBackColor = False
         ' 
         ' btnSaveFlight
         ' 
@@ -438,8 +438,8 @@ Partial Class UserControlAF
     Friend WithEvents dpDate As DateTimePicker
     Friend WithEvents Label9 As Label
     Friend WithEvents btnSaveFlight As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnUpdate As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnDelete As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnUpdateFlight As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnDeleteFlight As FontAwesome.Sharp.IconButton
     Friend WithEvents dgvFlight As DataGridView
     Friend WithEvents fid1 As DataGridViewTextBoxColumn
     Friend WithEvents fno As DataGridViewTextBoxColumn
