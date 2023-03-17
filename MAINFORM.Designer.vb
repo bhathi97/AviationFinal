@@ -109,7 +109,7 @@ Partial Class MAINFORM
         btnFlight.Name = "btnFlight"
         btnFlight.Size = New Size(180, 50)
         btnFlight.TabIndex = 3
-        btnFlight.Text = "IconButton2"
+        btnFlight.Text = "FLIGHT"
         btnFlight.UseVisualStyleBackColor = False
         ' 
         ' btnShedule
