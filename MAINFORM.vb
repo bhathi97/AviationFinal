@@ -1,5 +1,6 @@
 ﻿
 Imports System.Windows
+Imports System.Windows.Controls
 
 Public Class MAINFORM
 
@@ -7,18 +8,18 @@ Public Class MAINFORM
     Dim sidebarState As String = "Open"
 
     'Handles MyBase.Load
-    Private Sub MAINFORM_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MAINFORM_Load(sender As Object, e As EventArgs)
         WindowState = FormWindowState.Maximized
         PanelMenu.Width = 50
     End Sub
 
     'Handles btnMenu.Click
-    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs)
         TimerMenu.Start()
     End Sub
 
     'Handles TimerMenu.Tick
-    Private Sub TimerMenu_Tick(sender As Object, e As EventArgs) Handles TimerMenu.Tick
+    Private Sub TimerMenu_Tick(sender As Object, e As EventArgs)
 
         'If the sidebar is currently open, increase its width by 50 pixels
         If sidebarState = "Open" Then
@@ -41,6 +42,11 @@ Public Class MAINFORM
         End If
 
     End Sub
-
-
+    'Handles btnFlight.Click
+    Private Sub btnFlight_Click(sender As Object, e As EventArgs)
+        Dim userControlAF As New UserControlAF()
+        userControlAF.Dock = DockStyle.Fill
+        PanelLoad.Controls.Add(userControlAF)
+        userControlAF.BringToFront()
+    End Sub
 End Class

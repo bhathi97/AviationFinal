@@ -4,5 +4,8 @@
     <Compile Update="MAINFORM.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControlAF.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
