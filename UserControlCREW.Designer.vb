@@ -22,9 +22,9 @@ Partial Class UserControlCREW
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
         btnDeleteCM = New FontAwesome.Sharp.IconButton()
         btnUpdateCM = New FontAwesome.Sharp.IconButton()
@@ -42,14 +42,17 @@ Partial Class UserControlCREW
         AName = New DataGridViewTextBoxColumn()
         AGroup = New DataGridViewTextBoxColumn()
         APosition = New DataGridViewTextBoxColumn()
+        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         CType(dgvCrew, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteCM)
         Panel1.Controls.Add(btnUpdateCM)
         Panel1.Controls.Add(btnSaveCM)
@@ -211,31 +214,31 @@ Partial Class UserControlCREW
         dgvCrew.AllowUserToDeleteRows = False
         dgvCrew.BackgroundColor = SystemColors.ActiveCaption
         dgvCrew.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = SystemColors.Control
-        DataGridViewCellStyle4.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        dgvCrew.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        dgvCrew.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         dgvCrew.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvCrew.Columns.AddRange(New DataGridViewColumn() {AID, AName, AGroup, APosition})
         dgvCrew.Dock = DockStyle.Fill
         dgvCrew.Location = New Point(10, 10)
         dgvCrew.Name = "dgvCrew"
         dgvCrew.ReadOnly = True
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = SystemColors.Control
-        DataGridViewCellStyle5.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgvCrew.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = SystemColors.Control
+        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvCrew.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvCrew.RowHeadersWidth = 4
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvCrew.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        dgvCrew.RowsDefaultCellStyle = DataGridViewCellStyle3
         dgvCrew.RowTemplate.Height = 25
         dgvCrew.Size = New Size(558, 612)
         dgvCrew.TabIndex = 0
@@ -268,6 +271,17 @@ Partial Class UserControlCREW
         APosition.ReadOnly = True
         APosition.Width = 200
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 8)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 23
+        PictureBox1.TabStop = False
+        ' 
         ' UserControlCREW
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -280,6 +294,7 @@ Partial Class UserControlCREW
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         CType(dgvCrew, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -300,4 +315,5 @@ Partial Class UserControlCREW
     Friend WithEvents AName As DataGridViewTextBoxColumn
     Friend WithEvents AGroup As DataGridViewTextBoxColumn
     Friend WithEvents APosition As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

@@ -54,14 +54,17 @@ Partial Class UserControlAF
         dipart = New DataGridViewTextBoxColumn()
         eta = New DataGridViewTextBoxColumn()
         dt = New DataGridViewTextBoxColumn()
+        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         CType(dgvFlight, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteFlight)
         Panel1.Controls.Add(btnUpdateFlight)
         Panel1.Controls.Add(btnSaveFlight)
@@ -82,7 +85,7 @@ Partial Class UserControlAF
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Label1)
         Panel1.Dock = DockStyle.Left
-        Panel1.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        Panel1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(478, 531)
@@ -176,7 +179,7 @@ Partial Class UserControlAF
         Label9.Name = "Label9"
         Label9.Size = New Size(34, 15)
         Label9.TabIndex = 15
-        Label9.Text = "DATE" ' 
+        Label9.Text = "DATE"' 
         ' cbDT
         ' 
         cbDT.FormattingEnabled = True
@@ -192,12 +195,12 @@ Partial Class UserControlAF
         Label8.Name = "Label8"
         Label8.Size = New Size(97, 15)
         Label8.TabIndex = 13
-        Label8.Text = "DEPARTURE TIME" ' 
+        Label8.Text = "DEPARTURE TIME"' 
         ' Label6
         ' 
         Label6.BackColor = SystemColors.Window
         Label6.BorderStyle = BorderStyle.FixedSingle
-        Label6.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Label6.Location = New Point(389, 200)
         Label6.Name = "Label6"
         Label6.Size = New Size(50, 23)
@@ -250,7 +253,7 @@ Partial Class UserControlAF
         Label4.Name = "Label4"
         Label4.Size = New Size(96, 15)
         Label4.TabIndex = 6
-        Label4.Text = "S.T.D (hh:mm:ss)" ' 
+        Label4.Text = "S.T.D (hh:mm:ss)"' 
         ' lblAName
         ' 
         lblAName.BackColor = SystemColors.Window
@@ -259,7 +262,7 @@ Partial Class UserControlAF
         lblAName.Name = "lblAName"
         lblAName.Size = New Size(204, 23)
         lblAName.TabIndex = 5
-        lblAName.Text = "Label4" ' 
+        lblAName.Text = "Label4"' 
         ' cbairlinecategory
         ' 
         cbairlinecategory.FormattingEnabled = True
@@ -282,16 +285,16 @@ Partial Class UserControlAF
         Label3.Name = "Label3"
         Label3.Size = New Size(110, 15)
         Label3.TabIndex = 2
-        Label3.Text = "AIRLINE CATEGORY" ' 
+        Label3.Text = "AIRLINE CATEGORY"' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(99, 87)
         Label2.Name = "Label2"
         Label2.Size = New Size(66, 15)
         Label2.TabIndex = 1
-        Label2.Text = "FLIGHT NO" ' 
+        Label2.Text = "FLIGHT NO"' 
         ' Label1
         ' 
         Label1.AutoSize = True
@@ -300,7 +303,7 @@ Partial Class UserControlAF
         Label1.Name = "Label1"
         Label1.Size = New Size(183, 24)
         Label1.TabIndex = 0
-        Label1.Text = "FLIGHT DETAILS" ' 
+        Label1.Text = "FLIGHT DETAILS"' 
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.ActiveCaption
@@ -330,7 +333,7 @@ Partial Class UserControlAF
         dgvFlight.Columns.AddRange(New DataGridViewColumn() {fid1, fno, alc, std1, dipart, eta, dt})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -342,7 +345,7 @@ Partial Class UserControlAF
         dgvFlight.ReadOnly = True
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
         DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
@@ -403,9 +406,20 @@ Partial Class UserControlAF
         dt.ReadOnly = True
         dt.Width = 150
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 8)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 7
+        PictureBox1.TabStop = False
+        ' 
         ' UserControlAF
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ControlLight
         Controls.Add(Panel2)
@@ -416,6 +430,7 @@ Partial Class UserControlAF
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         CType(dgvFlight, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -448,4 +463,5 @@ Partial Class UserControlAF
     Friend WithEvents dipart As DataGridViewTextBoxColumn
     Friend WithEvents eta As DataGridViewTextBoxColumn
     Friend WithEvents dt As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

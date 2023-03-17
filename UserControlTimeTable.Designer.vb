@@ -28,6 +28,13 @@ Partial Class UserControlTimeTable
         cbGroup = New ComboBox()
         Label7 = New Label()
         Panel6 = New Panel()
+        btnAddRICToTable = New FontAwesome.Sharp.IconButton()
+        btnAddAgainRIC = New FontAwesome.Sharp.IconButton()
+        Label12 = New Label()
+        lbRemovedRIC = New ListBox()
+        Label13 = New Label()
+        btnRICRemove = New FontAwesome.Sharp.IconButton()
+        lbRIC = New ListBox()
         pnlRIC = New Panel()
         IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
         Label9 = New Label()
@@ -56,13 +63,7 @@ Partial Class UserControlTimeTable
         Label4 = New Label()
         Label2 = New Label()
         Panel2 = New Panel()
-        btnAddRICToTable = New FontAwesome.Sharp.IconButton()
-        btnAddAgainRIC = New FontAwesome.Sharp.IconButton()
-        Label12 = New Label()
-        lbRemovedRIC = New ListBox()
-        Label13 = New Label()
-        btnRICRemove = New FontAwesome.Sharp.IconButton()
-        lbRIC = New ListBox()
+        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         Panel7.SuspendLayout()
         Panel6.SuspendLayout()
@@ -74,6 +75,7 @@ Partial Class UserControlTimeTable
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -87,6 +89,7 @@ Partial Class UserControlTimeTable
         Label1.Text = "DAILY WORK SCHEDULE"' 
         ' Panel1
         ' 
+        Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(Panel7)
         Panel1.Controls.Add(Panel6)
         Panel1.Controls.Add(pnlCM)
@@ -143,6 +146,101 @@ Partial Class UserControlTimeTable
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(399, 201)
         Panel6.TabIndex = 7
+        ' 
+        ' btnAddRICToTable
+        ' 
+        btnAddRICToTable.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnAddRICToTable.BackgroundImageLayout = ImageLayout.None
+        btnAddRICToTable.Cursor = Cursors.Hand
+        btnAddRICToTable.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
+        btnAddRICToTable.FlatAppearance.BorderSize = 0
+        btnAddRICToTable.FlatAppearance.MouseDownBackColor = Color.White
+        btnAddRICToTable.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
+        btnAddRICToTable.FlatStyle = FlatStyle.Flat
+        btnAddRICToTable.IconChar = FontAwesome.Sharp.IconChar.UserLock
+        btnAddRICToTable.IconColor = Color.White
+        btnAddRICToTable.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnAddRICToTable.IconSize = 30
+        btnAddRICToTable.Location = New Point(335, 46)
+        btnAddRICToTable.Name = "btnAddRICToTable"
+        btnAddRICToTable.Size = New Size(50, 50)
+        btnAddRICToTable.TabIndex = 21
+        btnAddRICToTable.TextAlign = ContentAlignment.MiddleRight
+        btnAddRICToTable.UseVisualStyleBackColor = False
+        ' 
+        ' btnAddAgainRIC
+        ' 
+        btnAddAgainRIC.BackColor = Color.White
+        btnAddAgainRIC.Cursor = Cursors.Hand
+        btnAddAgainRIC.FlatAppearance.BorderSize = 0
+        btnAddAgainRIC.FlatAppearance.MouseDownBackColor = Color.White
+        btnAddAgainRIC.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(168), CByte(155), CByte(50))
+        btnAddAgainRIC.FlatStyle = FlatStyle.Flat
+        btnAddAgainRIC.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
+        btnAddAgainRIC.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnAddAgainRIC.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnAddAgainRIC.IconSize = 25
+        btnAddAgainRIC.Location = New Point(124, 126)
+        btnAddAgainRIC.Name = "btnAddAgainRIC"
+        btnAddAgainRIC.Size = New Size(40, 40)
+        btnAddAgainRIC.TabIndex = 20
+        btnAddAgainRIC.UseVisualStyleBackColor = False
+        ' 
+        ' Label12
+        ' 
+        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Label12.Location = New Point(170, 45)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(66, 15)
+        Label12.TabIndex = 19
+        Label12.Text = "OUT"' 
+        ' lbRemovedRIC
+        ' 
+        lbRemovedRIC.BackColor = SystemColors.ButtonHighlight
+        lbRemovedRIC.Cursor = Cursors.Hand
+        lbRemovedRIC.FormattingEnabled = True
+        lbRemovedRIC.ItemHeight = 15
+        lbRemovedRIC.Location = New Point(170, 63)
+        lbRemovedRIC.Name = "lbRemovedRIC"
+        lbRemovedRIC.Size = New Size(103, 124)
+        lbRemovedRIC.TabIndex = 18
+        ' 
+        ' Label13
+        ' 
+        Label13.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Label13.Location = New Point(15, 45)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(66, 15)
+        Label13.TabIndex = 17
+        Label13.Text = "IN"' 
+        ' btnRICRemove
+        ' 
+        btnRICRemove.BackColor = Color.White
+        btnRICRemove.Cursor = Cursors.Hand
+        btnRICRemove.FlatAppearance.BorderSize = 0
+        btnRICRemove.FlatAppearance.MouseDownBackColor = Color.White
+        btnRICRemove.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        btnRICRemove.FlatStyle = FlatStyle.Flat
+        btnRICRemove.IconChar = FontAwesome.Sharp.IconChar.ArrowRight
+        btnRICRemove.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnRICRemove.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnRICRemove.IconSize = 25
+        btnRICRemove.Location = New Point(124, 80)
+        btnRICRemove.Name = "btnRICRemove"
+        btnRICRemove.Size = New Size(40, 40)
+        btnRICRemove.TabIndex = 16
+        btnRICRemove.UseVisualStyleBackColor = False
+        ' 
+        ' lbRIC
+        ' 
+        lbRIC.BackColor = SystemColors.ButtonHighlight
+        lbRIC.Cursor = Cursors.Hand
+        lbRIC.FormattingEnabled = True
+        lbRIC.ItemHeight = 15
+        lbRIC.Location = New Point(15, 63)
+        lbRIC.Name = "lbRIC"
+        lbRIC.Size = New Size(103, 124)
+        lbRIC.TabIndex = 15
         ' 
         ' pnlRIC
         ' 
@@ -221,7 +319,7 @@ Partial Class UserControlTimeTable
         btnAddAgainCM.Cursor = Cursors.Hand
         btnAddAgainCM.FlatAppearance.BorderSize = 0
         btnAddAgainCM.FlatAppearance.MouseDownBackColor = Color.White
-        btnAddAgainCM.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
+        btnAddAgainCM.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(168), CByte(155), CByte(50))
         btnAddAgainCM.FlatStyle = FlatStyle.Flat
         btnAddAgainCM.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
         btnAddAgainCM.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
@@ -393,7 +491,8 @@ Partial Class UserControlTimeTable
         ' 
         dtpDate.Format = DateTimePickerFormat.Short
         dtpDate.Location = New Point(108, 44)
-        dtpDate.MaxDate = New DateTime(2023, 3, 17, 0, 0, 0, 0)
+        dtpDate.MaxDate = New DateTime(2123, 3, 17, 0, 0, 0, 0)
+        dtpDate.MinDate = New DateTime(2000, 1, 1, 0, 0, 0, 0)
         dtpDate.Name = "dtpDate"
         dtpDate.Size = New Size(139, 23)
         dtpDate.TabIndex = 9
@@ -475,100 +574,16 @@ Partial Class UserControlTimeTable
         Panel2.Size = New Size(555, 752)
         Panel2.TabIndex = 6
         ' 
-        ' btnAddRICToTable
+        ' PictureBox1
         ' 
-        btnAddRICToTable.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnAddRICToTable.BackgroundImageLayout = ImageLayout.None
-        btnAddRICToTable.Cursor = Cursors.Hand
-        btnAddRICToTable.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
-        btnAddRICToTable.FlatAppearance.BorderSize = 0
-        btnAddRICToTable.FlatAppearance.MouseDownBackColor = Color.White
-        btnAddRICToTable.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnAddRICToTable.FlatStyle = FlatStyle.Flat
-        btnAddRICToTable.IconChar = FontAwesome.Sharp.IconChar.UserLock
-        btnAddRICToTable.IconColor = Color.White
-        btnAddRICToTable.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnAddRICToTable.IconSize = 30
-        btnAddRICToTable.Location = New Point(335, 46)
-        btnAddRICToTable.Name = "btnAddRICToTable"
-        btnAddRICToTable.Size = New Size(50, 50)
-        btnAddRICToTable.TabIndex = 21
-        btnAddRICToTable.TextAlign = ContentAlignment.MiddleRight
-        btnAddRICToTable.UseVisualStyleBackColor = False
-        ' 
-        ' btnAddAgainRIC
-        ' 
-        btnAddAgainRIC.BackColor = Color.White
-        btnAddAgainRIC.Cursor = Cursors.Hand
-        btnAddAgainRIC.FlatAppearance.BorderSize = 0
-        btnAddAgainRIC.FlatAppearance.MouseDownBackColor = Color.White
-        btnAddAgainRIC.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnAddAgainRIC.FlatStyle = FlatStyle.Flat
-        btnAddAgainRIC.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
-        btnAddAgainRIC.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnAddAgainRIC.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnAddAgainRIC.IconSize = 25
-        btnAddAgainRIC.Location = New Point(124, 126)
-        btnAddAgainRIC.Name = "btnAddAgainRIC"
-        btnAddAgainRIC.Size = New Size(40, 40)
-        btnAddAgainRIC.TabIndex = 20
-        btnAddAgainRIC.UseVisualStyleBackColor = False
-        ' 
-        ' Label12
-        ' 
-        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label12.Location = New Point(170, 45)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(66, 15)
-        Label12.TabIndex = 19
-        Label12.Text = "OUT"' 
-        ' lbRemovedRIC
-        ' 
-        lbRemovedRIC.BackColor = SystemColors.ButtonHighlight
-        lbRemovedRIC.Cursor = Cursors.Hand
-        lbRemovedRIC.FormattingEnabled = True
-        lbRemovedRIC.ItemHeight = 15
-        lbRemovedRIC.Location = New Point(170, 63)
-        lbRemovedRIC.Name = "lbRemovedRIC"
-        lbRemovedRIC.Size = New Size(103, 124)
-        lbRemovedRIC.TabIndex = 18
-        ' 
-        ' Label13
-        ' 
-        Label13.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label13.Location = New Point(15, 45)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(66, 15)
-        Label13.TabIndex = 17
-        Label13.Text = "IN"' 
-        ' btnRICRemove
-        ' 
-        btnRICRemove.BackColor = Color.White
-        btnRICRemove.Cursor = Cursors.Hand
-        btnRICRemove.FlatAppearance.BorderSize = 0
-        btnRICRemove.FlatAppearance.MouseDownBackColor = Color.White
-        btnRICRemove.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        btnRICRemove.FlatStyle = FlatStyle.Flat
-        btnRICRemove.IconChar = FontAwesome.Sharp.IconChar.ArrowRight
-        btnRICRemove.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnRICRemove.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnRICRemove.IconSize = 25
-        btnRICRemove.Location = New Point(124, 80)
-        btnRICRemove.Name = "btnRICRemove"
-        btnRICRemove.Size = New Size(40, 40)
-        btnRICRemove.TabIndex = 16
-        btnRICRemove.UseVisualStyleBackColor = False
-        ' 
-        ' lbRIC
-        ' 
-        lbRIC.BackColor = SystemColors.ButtonHighlight
-        lbRIC.Cursor = Cursors.Hand
-        lbRIC.FormattingEnabled = True
-        lbRIC.ItemHeight = 15
-        lbRIC.Location = New Point(15, 63)
-        lbRIC.Name = "lbRIC"
-        lbRIC.Size = New Size(103, 124)
-        lbRIC.TabIndex = 15
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 8)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 24
+        PictureBox1.TabStop = False
         ' 
         ' UserControlTimeTable
         ' 
@@ -594,6 +609,7 @@ Partial Class UserControlTimeTable
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -638,4 +654,5 @@ Partial Class UserControlTimeTable
     Friend WithEvents Label13 As Label
     Friend WithEvents btnRICRemove As FontAwesome.Sharp.IconButton
     Friend WithEvents lbRIC As ListBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

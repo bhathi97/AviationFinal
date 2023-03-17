@@ -12,6 +12,12 @@ Public Class MAINFORM
         WindowState = FormWindowState.Maximized
         PanelMenu.Width = 50
 
+        'load USER CONTROL when open the form
+        Dim userControlTT As New UserControlTimeTable()
+        userControlTT.Dock = DockStyle.Fill
+        PanelLoad.Controls.Add(userControlTT)
+        userControlTT.BringToFront()
+
     End Sub
 
     'Handles btnMenu.Click
