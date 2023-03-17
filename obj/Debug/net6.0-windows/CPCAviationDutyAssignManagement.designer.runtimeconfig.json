@@ -12,7 +12,7 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\randi\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\bhath\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\randi\\.nuget\\packages"
     ],
     "configProperties": {
