@@ -31,8 +31,10 @@ Partial Class MAINFORM
         btnShedule = New FontAwesome.Sharp.IconButton()
         PanelLoad = New Panel()
         TimerMenu = New Timer(components)
+        PanelUC = New Panel()
         PanelMenu.SuspendLayout()
         Panel3.SuspendLayout()
+        PanelLoad.SuspendLayout()
         SuspendLayout()
         ' 
         ' PanelMenu
@@ -91,7 +93,8 @@ Partial Class MAINFORM
         btnCrew.Name = "btnCrew"
         btnCrew.Size = New Size(180, 50)
         btnCrew.TabIndex = 4
-        btnCrew.Text = "IconButton3"
+        btnCrew.Text = "    CREWMEN"
+        btnCrew.TextImageRelation = TextImageRelation.ImageBeforeText
         btnCrew.UseVisualStyleBackColor = False
         ' 
         ' btnFlight
@@ -109,7 +112,8 @@ Partial Class MAINFORM
         btnFlight.Name = "btnFlight"
         btnFlight.Size = New Size(180, 50)
         btnFlight.TabIndex = 3
-        btnFlight.Text = "FLIGHT"
+        btnFlight.Text = "    FLIGHT"
+        btnFlight.TextImageRelation = TextImageRelation.ImageBeforeText
         btnFlight.UseVisualStyleBackColor = False
         ' 
         ' btnShedule
@@ -127,12 +131,14 @@ Partial Class MAINFORM
         btnShedule.Name = "btnShedule"
         btnShedule.Size = New Size(181, 50)
         btnShedule.TabIndex = 2
-        btnShedule.Text = "IconButton1"
+        btnShedule.Text = "    WORK SCHEDULE"
+        btnShedule.TextImageRelation = TextImageRelation.ImageBeforeText
         btnShedule.UseVisualStyleBackColor = False
         ' 
         ' PanelLoad
         ' 
         PanelLoad.BackColor = SystemColors.ButtonFace
+        PanelLoad.Controls.Add(PanelUC)
         PanelLoad.Dock = DockStyle.Fill
         PanelLoad.Location = New Point(0, 0)
         PanelLoad.Name = "PanelLoad"
@@ -143,9 +149,17 @@ Partial Class MAINFORM
         ' 
         TimerMenu.Interval = 50
         ' 
+        ' PanelUC
+        ' 
+        PanelUC.Dock = DockStyle.Fill
+        PanelUC.Location = New Point(0, 0)
+        PanelUC.Name = "PanelUC"
+        PanelUC.Size = New Size(800, 450)
+        PanelUC.TabIndex = 0
+        ' 
         ' MAINFORM
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(PanelMenu)
@@ -154,6 +168,7 @@ Partial Class MAINFORM
         Text = "CPC | AVIATION"
         PanelMenu.ResumeLayout(False)
         Panel3.ResumeLayout(False)
+        PanelLoad.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -165,4 +180,5 @@ Partial Class MAINFORM
     Friend WithEvents btnShedule As FontAwesome.Sharp.IconButton
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TimerMenu As Timer
+    Friend WithEvents PanelUC As Panel
 End Class
