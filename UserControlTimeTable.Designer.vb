@@ -25,6 +25,10 @@ Partial Class UserControlTimeTable
         Label1 = New Label()
         Panel1 = New Panel()
         Panel3 = New Panel()
+        btnPlaneAdd = New FontAwesome.Sharp.IconButton()
+        lblShift = New Label()
+        lblDay = New Label()
+        cbShiftTime = New ComboBox()
         dtpDate = New DateTimePicker()
         Label5 = New Label()
         Panel4 = New Panel()
@@ -34,7 +38,6 @@ Partial Class UserControlTimeTable
         Label4 = New Label()
         Label2 = New Label()
         Panel2 = New Panel()
-        cbShiftTime = New ComboBox()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
@@ -62,6 +65,10 @@ Partial Class UserControlTimeTable
         ' 
         ' Panel3
         ' 
+        Panel3.BackColor = SystemColors.Control
+        Panel3.Controls.Add(btnPlaneAdd)
+        Panel3.Controls.Add(lblShift)
+        Panel3.Controls.Add(lblDay)
         Panel3.Controls.Add(cbShiftTime)
         Panel3.Controls.Add(dtpDate)
         Panel3.Controls.Add(Label5)
@@ -73,6 +80,53 @@ Partial Class UserControlTimeTable
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(399, 199)
         Panel3.TabIndex = 5
+        ' 
+        ' btnPlaneAdd
+        ' 
+        btnPlaneAdd.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnPlaneAdd.BackgroundImageLayout = ImageLayout.None
+        btnPlaneAdd.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
+        btnPlaneAdd.FlatAppearance.BorderSize = 0
+        btnPlaneAdd.FlatAppearance.MouseDownBackColor = Color.White
+        btnPlaneAdd.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
+        btnPlaneAdd.FlatStyle = FlatStyle.Flat
+        btnPlaneAdd.IconChar = FontAwesome.Sharp.IconChar.PlaneLock
+        btnPlaneAdd.IconColor = Color.White
+        btnPlaneAdd.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnPlaneAdd.IconSize = 30
+        btnPlaneAdd.Location = New Point(329, 53)
+        btnPlaneAdd.Name = "btnPlaneAdd"
+        btnPlaneAdd.Size = New Size(50, 50)
+        btnPlaneAdd.TabIndex = 13
+        btnPlaneAdd.TextAlign = ContentAlignment.MiddleRight
+        btnPlaneAdd.UseVisualStyleBackColor = False
+        ' 
+        ' lblShift
+        ' 
+        lblShift.BackColor = Color.White
+        lblShift.BorderStyle = BorderStyle.FixedSingle
+        lblShift.FlatStyle = FlatStyle.Flat
+        lblShift.Location = New Point(102, 149)
+        lblShift.Name = "lblShift"
+        lblShift.Size = New Size(140, 23)
+        lblShift.TabIndex = 12
+        ' 
+        ' lblDay
+        ' 
+        lblDay.BackColor = SystemColors.Window
+        lblDay.BorderStyle = BorderStyle.FixedSingle
+        lblDay.Location = New Point(102, 118)
+        lblDay.Name = "lblDay"
+        lblDay.Size = New Size(140, 23)
+        lblDay.TabIndex = 11
+        ' 
+        ' cbShiftTime
+        ' 
+        cbShiftTime.FormattingEnabled = True
+        cbShiftTime.Location = New Point(102, 86)
+        cbShiftTime.Name = "cbShiftTime"
+        cbShiftTime.Size = New Size(140, 23)
+        cbShiftTime.TabIndex = 10
         ' 
         ' dtpDate
         ' 
@@ -87,7 +141,7 @@ Partial Class UserControlTimeTable
         ' Label5
         ' 
         Label5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(20, 148)
+        Label5.Location = New Point(20, 153)
         Label5.Name = "Label5"
         Label5.Size = New Size(66, 15)
         Label5.TabIndex = 8
@@ -129,7 +183,7 @@ Partial Class UserControlTimeTable
         ' Label3
         ' 
         Label3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(20, 88)
+        Label3.Location = New Point(20, 90)
         Label3.Name = "Label3"
         Label3.Size = New Size(66, 15)
         Label3.TabIndex = 6
@@ -137,7 +191,7 @@ Partial Class UserControlTimeTable
         ' Label4
         ' 
         Label4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(20, 118)
+        Label4.Location = New Point(20, 122)
         Label4.Name = "Label4"
         Label4.Size = New Size(66, 15)
         Label4.TabIndex = 7
@@ -145,7 +199,7 @@ Partial Class UserControlTimeTable
         ' Label2
         ' 
         Label2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(20, 59)
+        Label2.Location = New Point(20, 57)
         Label2.Name = "Label2"
         Label2.Size = New Size(66, 15)
         Label2.TabIndex = 5
@@ -159,14 +213,6 @@ Partial Class UserControlTimeTable
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(555, 611)
         Panel2.TabIndex = 6
-        ' 
-        ' cbShiftTime
-        ' 
-        cbShiftTime.FormattingEnabled = True
-        cbShiftTime.Location = New Point(102, 86)
-        cbShiftTime.Name = "cbShiftTime"
-        cbShiftTime.Size = New Size(140, 23)
-        cbShiftTime.TabIndex = 10
         ' 
         ' UserControlTimeTable
         ' 
@@ -199,4 +245,7 @@ Partial Class UserControlTimeTable
     Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents dtpDate As DateTimePicker
     Friend WithEvents cbShiftTime As ComboBox
+    Friend WithEvents lblDay As Label
+    Friend WithEvents lblShift As Label
+    Friend WithEvents btnPlaneAdd As FontAwesome.Sharp.IconButton
 End Class
