@@ -69,7 +69,7 @@ Partial Class MAINFORM
         btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon
         btnMenu.IconColor = Color.White
         btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnMenu.IconSize = 40
+        btnMenu.IconSize = 37
         btnMenu.Location = New Point(150, 0)
         btnMenu.Name = "btnMenu"
         btnMenu.Size = New Size(50, 49)
@@ -85,7 +85,7 @@ Partial Class MAINFORM
         btnCrew.IconChar = FontAwesome.Sharp.IconChar.UserEdit
         btnCrew.IconColor = Color.White
         btnCrew.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnCrew.IconSize = 40
+        btnCrew.IconSize = 30
         btnCrew.ImageAlign = ContentAlignment.MiddleLeft
         btnCrew.Location = New Point(1, 167)
         btnCrew.Name = "btnCrew"
@@ -103,7 +103,7 @@ Partial Class MAINFORM
         btnFlight.IconChar = FontAwesome.Sharp.IconChar.Plane
         btnFlight.IconColor = Color.White
         btnFlight.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnFlight.IconSize = 40
+        btnFlight.IconSize = 30
         btnFlight.ImageAlign = ContentAlignment.MiddleLeft
         btnFlight.Location = New Point(1, 111)
         btnFlight.Name = "btnFlight"
@@ -121,7 +121,7 @@ Partial Class MAINFORM
         btnShedule.IconChar = FontAwesome.Sharp.IconChar.Columns
         btnShedule.IconColor = Color.White
         btnShedule.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnShedule.IconSize = 40
+        btnShedule.IconSize = 30
         btnShedule.ImageAlign = ContentAlignment.MiddleLeft
         btnShedule.Location = New Point(0, 55)
         btnShedule.Name = "btnShedule"
