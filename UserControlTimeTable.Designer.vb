@@ -22,8 +22,10 @@ Partial Class UserControlTimeTable
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
+        PictureBox1 = New PictureBox()
         Panel7 = New Panel()
         cbGroup = New ComboBox()
         Label7 = New Label()
@@ -63,8 +65,22 @@ Partial Class UserControlTimeTable
         Label4 = New Label()
         Label2 = New Label()
         Panel2 = New Panel()
-        PictureBox1 = New PictureBox()
+        Panel9 = New Panel()
+        dgvMain = New DataGridView()
+        Column1 = New DataGridViewTextBoxColumn()
+        noo = New DataGridViewTextBoxColumn()
+        fli = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        lines = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column7 = New DataGridViewTextBoxColumn()
+        Column8 = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Panel5 = New Panel()
+        btnPrint = New FontAwesome.Sharp.IconButton()
         Panel1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel7.SuspendLayout()
         Panel6.SuspendLayout()
         pnlRIC.SuspendLayout()
@@ -75,7 +91,10 @@ Partial Class UserControlTimeTable
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
+        Panel9.SuspendLayout()
+        CType(dgvMain, ComponentModel.ISupportInitialize).BeginInit()
+        Panel5.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -100,6 +119,17 @@ Partial Class UserControlTimeTable
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(478, 752)
         Panel1.TabIndex = 5
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 8)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 24
+        PictureBox1.TabStop = False
         ' 
         ' Panel7
         ' 
@@ -567,6 +597,8 @@ Partial Class UserControlTimeTable
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.ActiveCaption
+        Panel2.Controls.Add(Panel9)
+        Panel2.Controls.Add(Panel5)
         Panel2.Dock = DockStyle.Fill
         Panel2.ForeColor = Color.White
         Panel2.Location = New Point(478, 0)
@@ -574,16 +606,135 @@ Partial Class UserControlTimeTable
         Panel2.Size = New Size(555, 752)
         Panel2.TabIndex = 6
         ' 
-        ' PictureBox1
+        ' Panel9
         ' 
-        PictureBox1.BackColor = SystemColors.ControlLight
-        PictureBox1.Image = My.Resources.Resources.logo
-        PictureBox1.Location = New Point(387, 8)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(83, 43)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 24
-        PictureBox1.TabStop = False
+        Panel9.Controls.Add(dgvMain)
+        Panel9.Dock = DockStyle.Fill
+        Panel9.Location = New Point(0, 73)
+        Panel9.Name = "Panel9"
+        Panel9.Padding = New Padding(10, 0, 10, 10)
+        Panel9.Size = New Size(555, 679)
+        Panel9.TabIndex = 1
+        ' 
+        ' dgvMain
+        ' 
+        dgvMain.AllowUserToAddRows = False
+        dgvMain.AllowUserToDeleteRows = False
+        dgvMain.BackgroundColor = SystemColors.ActiveCaption
+        dgvMain.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvMain.Columns.AddRange(New DataGridViewColumn() {Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9})
+        dgvMain.Dock = DockStyle.Fill
+        dgvMain.Location = New Point(10, 0)
+        dgvMain.Name = "dgvMain"
+        dgvMain.ReadOnly = True
+        dgvMain.RowHeadersWidth = 4
+        dgvMain.RowTemplate.Height = 25
+        dgvMain.Size = New Size(535, 669)
+        dgvMain.TabIndex = 0
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "BAY NO"
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        ' 
+        ' noo
+        ' 
+        noo.HeaderText = "NO"
+        noo.Name = "noo"
+        noo.ReadOnly = True
+        noo.Width = 40
+        ' 
+        ' fli
+        ' 
+        fli.HeaderText = "FLIGHT"
+        fli.Name = "fli"
+        fli.ReadOnly = True
+        ' 
+        ' Column10
+        ' 
+        Column10.HeaderText = "ROUTE"
+        Column10.Name = "Column10"
+        Column10.ReadOnly = True
+        Column10.Width = 70
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "E.T.A"
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        ' 
+        ' lines
+        ' 
+        lines.HeaderText = "AIRLINE"
+        lines.Name = "lines"
+        lines.ReadOnly = True
+        ' 
+        ' Column6
+        ' 
+        Column6.HeaderText = "RIC"
+        Column6.Name = "Column6"
+        Column6.ReadOnly = True
+        Column6.Width = 70
+        ' 
+        ' Column7
+        ' 
+        Column7.HeaderText = "OPERATOR"
+        Column7.Name = "Column7"
+        Column7.ReadOnly = True
+        Column7.Width = 70
+        ' 
+        ' Column8
+        ' 
+        Column8.HeaderText = "CREWMAN"
+        Column8.Name = "Column8"
+        Column8.ReadOnly = True
+        Column8.Width = 70
+        ' 
+        ' Column9
+        ' 
+        Column9.HeaderText = "REMARKS"
+        Column9.Name = "Column9"
+        Column9.ReadOnly = True
+        Column9.Width = 80
+        ' 
+        ' Panel5
+        ' 
+        Panel5.BackColor = SystemColors.ActiveCaption
+        Panel5.Controls.Add(btnPrint)
+        Panel5.Dock = DockStyle.Top
+        Panel5.Location = New Point(0, 0)
+        Panel5.Name = "Panel5"
+        Panel5.Padding = New Padding(10)
+        Panel5.Size = New Size(555, 73)
+        Panel5.TabIndex = 0
+        ' 
+        ' btnPrint
+        ' 
+        btnPrint.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        btnPrint.Dock = DockStyle.Right
+        btnPrint.FlatAppearance.BorderSize = 0
+        btnPrint.FlatAppearance.MouseDownBackColor = Color.White
+        btnPrint.FlatAppearance.MouseOverBackColor = Color.Maroon
+        btnPrint.FlatStyle = FlatStyle.Flat
+        btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print
+        btnPrint.IconColor = Color.White
+        btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnPrint.IconSize = 30
+        btnPrint.Location = New Point(495, 10)
+        btnPrint.Name = "btnPrint"
+        btnPrint.Size = New Size(50, 53)
+        btnPrint.TabIndex = 0
+        btnPrint.UseVisualStyleBackColor = False
         ' 
         ' UserControlTimeTable
         ' 
@@ -596,6 +747,7 @@ Partial Class UserControlTimeTable
         Size = New Size(1033, 752)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel7.ResumeLayout(False)
         Panel6.ResumeLayout(False)
         pnlRIC.ResumeLayout(False)
@@ -609,7 +761,10 @@ Partial Class UserControlTimeTable
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
+        Panel9.ResumeLayout(False)
+        CType(dgvMain, ComponentModel.ISupportInitialize).EndInit()
+        Panel5.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -655,4 +810,18 @@ Partial Class UserControlTimeTable
     Friend WithEvents btnRICRemove As FontAwesome.Sharp.IconButton
     Friend WithEvents lbRIC As ListBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents dgvMain As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents noo As DataGridViewTextBoxColumn
+    Friend WithEvents fli As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents lines As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents btnPrint As FontAwesome.Sharp.IconButton
 End Class
