@@ -26,6 +26,7 @@ Partial Class UserControlAF
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
+        PictureBox1 = New PictureBox()
         btnDeleteFlight = New FontAwesome.Sharp.IconButton()
         btnUpdateFlight = New FontAwesome.Sharp.IconButton()
         btnSaveFlight = New FontAwesome.Sharp.IconButton()
@@ -54,11 +55,10 @@ Partial Class UserControlAF
         dipart = New DataGridViewTextBoxColumn()
         eta = New DataGridViewTextBoxColumn()
         dt = New DataGridViewTextBoxColumn()
-        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(dgvFlight, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -90,6 +90,17 @@ Partial Class UserControlAF
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(478, 531)
         Panel1.TabIndex = 0
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 13)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 7
+        PictureBox1.TabStop = False
         ' 
         ' btnDeleteFlight
         ' 
@@ -406,17 +417,6 @@ Partial Class UserControlAF
         dt.ReadOnly = True
         dt.Width = 150
         ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.BackColor = SystemColors.ControlLight
-        PictureBox1.Image = My.Resources.Resources.logo
-        PictureBox1.Location = New Point(387, 8)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(83, 43)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 7
-        PictureBox1.TabStop = False
-        ' 
         ' UserControlAF
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -428,9 +428,9 @@ Partial Class UserControlAF
         Size = New Size(1161, 531)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         CType(dgvFlight, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 

@@ -4,4 +4,6 @@
         dtpDate.Value = DateTime.Today 'load today 
 
     End Sub
+
+
 End Class

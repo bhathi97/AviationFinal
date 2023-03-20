@@ -26,6 +26,8 @@ Partial Class UserControlCREW
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
+        lblSelectedID = New Label()
+        PictureBox1 = New PictureBox()
         btnDeleteCM = New FontAwesome.Sharp.IconButton()
         btnUpdateCM = New FontAwesome.Sharp.IconButton()
         btnSaveCM = New FontAwesome.Sharp.IconButton()
@@ -42,16 +44,16 @@ Partial Class UserControlCREW
         AName = New DataGridViewTextBoxColumn()
         AGroup = New DataGridViewTextBoxColumn()
         APosition = New DataGridViewTextBoxColumn()
-        PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(dgvCrew, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(lblSelectedID)
         Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteCM)
         Panel1.Controls.Add(btnUpdateCM)
@@ -69,6 +71,27 @@ Partial Class UserControlCREW
         Panel1.Padding = New Padding(10)
         Panel1.Size = New Size(478, 632)
         Panel1.TabIndex = 0
+        ' 
+        ' lblSelectedID
+        ' 
+        lblSelectedID.AutoSize = True
+        lblSelectedID.BackColor = Color.Transparent
+        lblSelectedID.ForeColor = SystemColors.ActiveCaptionText
+        lblSelectedID.Location = New Point(385, 449)
+        lblSelectedID.Name = "lblSelectedID"
+        lblSelectedID.Size = New Size(0, 15)
+        lblSelectedID.TabIndex = 24
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = SystemColors.ControlLight
+        PictureBox1.Image = My.Resources.Resources.logo
+        PictureBox1.Location = New Point(387, 13)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(83, 43)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 23
+        PictureBox1.TabStop = False
         ' 
         ' btnDeleteCM
         ' 
@@ -240,6 +263,7 @@ Partial Class UserControlCREW
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvCrew.RowsDefaultCellStyle = DataGridViewCellStyle3
         dgvCrew.RowTemplate.Height = 25
+        dgvCrew.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvCrew.Size = New Size(558, 612)
         dgvCrew.TabIndex = 0
         ' 
@@ -271,17 +295,6 @@ Partial Class UserControlCREW
         APosition.ReadOnly = True
         APosition.Width = 200
         ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.BackColor = SystemColors.ControlLight
-        PictureBox1.Image = My.Resources.Resources.logo
-        PictureBox1.Location = New Point(387, 8)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(83, 43)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 23
-        PictureBox1.TabStop = False
-        ' 
         ' UserControlCREW
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -292,9 +305,9 @@ Partial Class UserControlCREW
         Size = New Size(1056, 632)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         CType(dgvCrew, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -316,4 +329,5 @@ Partial Class UserControlCREW
     Friend WithEvents AGroup As DataGridViewTextBoxColumn
     Friend WithEvents APosition As DataGridViewTextBoxColumn
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblSelectedID As Label
 End Class
