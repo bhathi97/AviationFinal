@@ -13,7 +13,7 @@ Module CMDeleteModule
             Dim cmd As New SqlCommand("DELETE FROM CREWMEMBERS_MASTER_TABLE WHERE ID = @ID", connsql)
             cmd.Parameters.AddWithValue("@ID", lbl.Text)
 
-            Dim result As DialogResult = MessageBox.Show("Do you want to delete Name ?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim result As DialogResult = MessageBox.Show("Do you want to delete Crewman " + name.Text + "?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
                 'if User clicked Yes
@@ -30,10 +30,8 @@ Module CMDeleteModule
 
             connsql.Close()
 
-
         End If
 
     End Sub
-
 
 End Module

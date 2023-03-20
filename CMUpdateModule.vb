@@ -1,5 +1,4 @@
-﻿Imports DocumentFormat.OpenXml.Bibliography
-Imports PdfSharpCore.Pdf.Content.Objects
+﻿
 Imports System.Data.SqlClient
 
 Module CMUpdateModule

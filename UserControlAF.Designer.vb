@@ -26,6 +26,7 @@ Partial Class UserControlAF
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
+        lblAddNewAC = New Label()
         PictureBox1 = New PictureBox()
         btnDeleteFlight = New FontAwesome.Sharp.IconButton()
         btnUpdateFlight = New FontAwesome.Sharp.IconButton()
@@ -64,6 +65,7 @@ Partial Class UserControlAF
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(lblAddNewAC)
         Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteFlight)
         Panel1.Controls.Add(btnUpdateFlight)
@@ -91,6 +93,14 @@ Partial Class UserControlAF
         Panel1.Size = New Size(478, 531)
         Panel1.TabIndex = 0
         ' 
+        ' lblAddNewAC
+        ' 
+        lblAddNewAC.AutoSize = True
+        lblAddNewAC.Location = New Point(233, 191)
+        lblAddNewAC.Name = "lblAddNewAC"
+        lblAddNewAC.Size = New Size(209, 15)
+        lblAddNewAC.TabIndex = 20
+        lblAddNewAC.Text = "Airline Category Not Found? Add New"' 
         ' PictureBox1
         ' 
         PictureBox1.BackColor = SystemColors.ControlLight
@@ -117,7 +127,7 @@ Partial Class UserControlAF
         btnDeleteFlight.IconColor = Color.White
         btnDeleteFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnDeleteFlight.IconSize = 20
-        btnDeleteFlight.Location = New Point(289, 445)
+        btnDeleteFlight.Location = New Point(289, 465)
         btnDeleteFlight.Name = "btnDeleteFlight"
         btnDeleteFlight.Size = New Size(150, 35)
         btnDeleteFlight.TabIndex = 19
@@ -141,7 +151,7 @@ Partial Class UserControlAF
         btnUpdateFlight.IconColor = Color.White
         btnUpdateFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnUpdateFlight.IconSize = 20
-        btnUpdateFlight.Location = New Point(289, 401)
+        btnUpdateFlight.Location = New Point(289, 421)
         btnUpdateFlight.Name = "btnUpdateFlight"
         btnUpdateFlight.Size = New Size(150, 35)
         btnUpdateFlight.TabIndex = 18
@@ -165,7 +175,7 @@ Partial Class UserControlAF
         btnSaveFlight.IconColor = Color.White
         btnSaveFlight.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnSaveFlight.IconSize = 20
-        btnSaveFlight.Location = New Point(289, 357)
+        btnSaveFlight.Location = New Point(289, 377)
         btnSaveFlight.Name = "btnSaveFlight"
         btnSaveFlight.Size = New Size(150, 35)
         btnSaveFlight.TabIndex = 17
@@ -177,7 +187,7 @@ Partial Class UserControlAF
         ' dpDate
         ' 
         dpDate.Format = DateTimePickerFormat.Short
-        dpDate.Location = New Point(235, 285)
+        dpDate.Location = New Point(235, 305)
         dpDate.Name = "dpDate"
         dpDate.Size = New Size(204, 23)
         dpDate.TabIndex = 16
@@ -186,7 +196,7 @@ Partial Class UserControlAF
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Location = New Point(99, 291)
+        Label9.Location = New Point(99, 311)
         Label9.Name = "Label9"
         Label9.Size = New Size(34, 15)
         Label9.TabIndex = 15
@@ -194,7 +204,7 @@ Partial Class UserControlAF
         ' cbDT
         ' 
         cbDT.FormattingEnabled = True
-        cbDT.Location = New Point(235, 241)
+        cbDT.Location = New Point(235, 261)
         cbDT.Name = "cbDT"
         cbDT.Size = New Size(204, 23)
         cbDT.TabIndex = 14
@@ -202,7 +212,7 @@ Partial Class UserControlAF
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(98, 246)
+        Label8.Location = New Point(98, 266)
         Label8.Name = "Label8"
         Label8.Size = New Size(97, 15)
         Label8.TabIndex = 13
@@ -212,7 +222,7 @@ Partial Class UserControlAF
         Label6.BackColor = SystemColors.Window
         Label6.BorderStyle = BorderStyle.FixedSingle
         Label6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(389, 200)
+        Label6.Location = New Point(389, 220)
         Label6.Name = "Label6"
         Label6.Size = New Size(50, 23)
         Label6.TabIndex = 12
@@ -223,7 +233,7 @@ Partial Class UserControlAF
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(369, 199)
+        Label7.Location = New Point(369, 219)
         Label7.Name = "Label7"
         Label7.Size = New Size(13, 20)
         Label7.TabIndex = 11
@@ -234,7 +244,7 @@ Partial Class UserControlAF
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(291, 200)
+        Label5.Location = New Point(291, 220)
         Label5.Name = "Label5"
         Label5.Size = New Size(13, 20)
         Label5.TabIndex = 9
@@ -244,7 +254,7 @@ Partial Class UserControlAF
         ' cbStd1
         ' 
         cbStd1.FormattingEnabled = True
-        cbStd1.Location = New Point(311, 200)
+        cbStd1.Location = New Point(311, 220)
         cbStd1.Name = "cbStd1"
         cbStd1.Size = New Size(50, 23)
         cbStd1.TabIndex = 8
@@ -252,7 +262,7 @@ Partial Class UserControlAF
         ' cbStd
         ' 
         cbStd.FormattingEnabled = True
-        cbStd.Location = New Point(235, 200)
+        cbStd.Location = New Point(235, 220)
         cbStd.Name = "cbStd"
         cbStd.Size = New Size(50, 23)
         cbStd.TabIndex = 7
@@ -260,7 +270,7 @@ Partial Class UserControlAF
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(99, 205)
+        Label4.Location = New Point(99, 225)
         Label4.Name = "Label4"
         Label4.Size = New Size(96, 15)
         Label4.TabIndex = 6
@@ -464,4 +474,5 @@ Partial Class UserControlAF
     Friend WithEvents eta As DataGridViewTextBoxColumn
     Friend WithEvents dt As DataGridViewTextBoxColumn
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblAddNewAC As Label
 End Class

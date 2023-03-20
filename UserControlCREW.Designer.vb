@@ -76,7 +76,7 @@ Partial Class UserControlCREW
         ' 
         lblSelectedID.AutoSize = True
         lblSelectedID.BackColor = Color.Transparent
-        lblSelectedID.ForeColor = SystemColors.ActiveCaptionText
+        lblSelectedID.ForeColor = Color.Transparent
         lblSelectedID.Location = New Point(385, 449)
         lblSelectedID.Name = "lblSelectedID"
         lblSelectedID.Size = New Size(0, 15)
