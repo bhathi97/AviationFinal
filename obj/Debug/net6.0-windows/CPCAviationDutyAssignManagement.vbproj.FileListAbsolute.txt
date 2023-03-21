@@ -39,3 +39,4 @@ C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-win
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlCREW.resources
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlTimeTable.resources
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.FlightMasterFORM.resources
+C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.PRINTForm.resources

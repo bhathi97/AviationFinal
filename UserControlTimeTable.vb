@@ -192,6 +192,66 @@ Public Class UserControlTimeTable
 
     'Handles btnPrint.Click
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        Try
+            TTDataPassToPrintFModule.loadPrint(dtpDate, cbShiftTime, lblDay, lblShift, dgvMain)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
+    End Sub
 
+    ' Handles dgvMain.MouseUp
+    Private Sub dgvMain_MouseUp(sender As Object, e As MouseEventArgs) Handles dgvMain.MouseUp
+        If e.Button = MouseButtons.Right Then ' Check if the right mouse button was clicked
+            Dim hti As DataGridView.HitTestInfo = dgvMain.HitTest(e.X, e.Y)
+            If hti.RowIndex >= 0 Then ' Check if the clicked area is in a valid row
+                dgvMain.ClearSelection() ' Clear any existing row selection
+                dgvMain.Rows(hti.RowIndex).Selected = True ' Select the clicked row
+
+                Dim menu As New ContextMenuStrip() ' Create a new context menu strip
+                menu.Items.Add("Add New Row").Name = "AddRow" ' Add an item to add a new row
+                menu.Items.Add("Delete Selected Row").Name = "DeleteRow" ' Add an item to delete the selected row
+
+                AddHandler menu.ItemClicked, AddressOf ContextMenuStrip1_ItemClicked ' Add a handler for the menu item clicked event
+                menu.Show(dgvMain, e.Location) ' Show the context menu strip at the clicked location
+            End If
+        End If
+        dgvMain.Refresh()
+
+    End Sub
+
+    'Handles ContextMenuStrip1.ItemClicked
+    Private Sub ContextMenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ContextMenuStrip1.ItemClicked
+        Try
+            Select Case e.ClickedItem.Name
+
+                Case "AddRow"
+                    Dim dv As DataView = CType(dgvMain.DataSource, DataView)
+                    Dim newRow As DataRowView = dv.AddNew()
+                    Dim selectedIndex As Integer = dgvMain.SelectedRows(0).Index ' Get the index of the selected row
+                    dv.Table.Rows.InsertAt(newRow.Row, selectedIndex + 1) ' Insert the new row below the selected row
+                    newRow.EndEdit()
+
+                    ' Update the NO column values
+                    For i As Integer = 0 To dgvMain.Rows.Count - 1
+                        dgvMain.Rows(i).Cells("noo").Value = i + 1
+                    Next
+
+                Case "DeleteRow"
+                    Dim dv As DataView = CType(dgvMain.DataSource, DataView)
+                    For Each row As DataGridViewRow In dgvMain.SelectedRows
+                        dv.Delete(row.Index) ' Remove the selected rows from the data source
+                    Next
+
+                    ' Update the NO column values
+                    For i As Integer = 0 To dgvMain.Rows.Count - 1
+                        dgvMain.Rows(i).Cells("noo").Value = i + 1
+                    Next
+            End Select
+            dgvMain.Refresh()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
