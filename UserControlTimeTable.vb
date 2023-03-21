@@ -1,6 +1,7 @@
 ﻿
 
 Imports System.Data.SqlClient
+Imports DocumentFormat.OpenXml.Wordprocessing
 Imports PdfSharpCore.Pdf.Content.Objects
 
 Public Class UserControlTimeTable
@@ -86,15 +87,7 @@ Public Class UserControlTimeTable
         End Try
     End Sub
 
-    ' Handles lbRIC.DragOver
-    Private Sub lbRIC_DragOver(sender As Object, e As DragEventArgs) Handles lbRIC.DragOver
-        Try
-            dropWantedItem(e, lbCM)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
+    'Handles lbRIC.DragEnter
     Private Sub lbRIC_DragEnter(sender As Object, e As DragEventArgs) Handles lbRIC.DragEnter
         Try
             dragOverOtherItems(e)
@@ -103,12 +96,102 @@ Public Class UserControlTimeTable
         End Try
     End Sub
 
+    ' Handles lbRIC.DragOver
+    Private Sub lbRIC_DragOver(sender As Object, e As DragEventArgs) Handles lbRIC.DragOver
+        Try
+            dropWantedItem(e, lbRIC)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+    'Handles lbRIC.GiveFeedback
     Private Sub lbRIC_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs) Handles lbRIC.GiveFeedback
         e.UseDefaultCursors = False ' Change the cursor to the drag cursor during the drag operation.
         Cursor.Current = Cursors.NoMoveVert ' Change this to the cursor you want to use.
     End Sub
 
+
     '--------------------------------------------------------
 
 
+    'Handles btnCMRemove.Click
+    Private Sub btnCMRemove_Click(sender As Object, e As EventArgs) Handles btnCMRemove.Click
+        Try
+            TTAddOrRemoveModule.remove(lbCM, lbRemovedCM)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    'Handles btnAddAgainCM.Click
+    Private Sub btnAddAgainCM_Click(sender As Object, e As EventArgs) Handles btnAddAgainCM.Click
+        Try
+            TTAddOrRemoveModule.remove(lbRemovedCM, lbCM)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    'Handles btnRICRemove.Click
+    Private Sub btnRICRemove_Click(sender As Object, e As EventArgs) Handles btnRICRemove.Click
+        Try
+            TTAddOrRemoveModule.remove(lbRIC, lbRemovedRIC)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    'Handles btnAddAgainRIC.Click
+    Private Sub btnAddAgainRIC_Click(sender As Object, e As EventArgs) Handles btnAddAgainRIC.Click
+        Try
+            TTAddOrRemoveModule.remove(lbRemovedRIC, lbRIC)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    ' Handles btnPlaneAdd.Click
+    Private Sub btnPlaneAdd_Click(sender As Object, e As EventArgs) Handles btnPlaneAdd.Click
+        Try
+            TTAddFlightsModule.addToTable(connsql, lblShift, dtpDate, dgvMain)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
+    End Sub
+
+
+
+    '------------------------------------------------------
+    'add crewman
+    'Handles btnAddCMToTable.Click
+    Private Sub btnAddCMToTable_Click(sender As Object, e As EventArgs) Handles btnAddCMToTable.Click
+        Try
+            addCM(lbCM, dgvMain)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
+    End Sub
+
+    'Handles btnAddRICToTable.Click
+    Private Sub btnAddRICToTable_Click(sender As Object, e As EventArgs) Handles btnAddRICToTable.Click
+        Try
+            addRIC(lbRIC, dgvMain)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
+    End Sub
+
+    'Handles btnPrint.Click
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
+    End Sub
 End Class

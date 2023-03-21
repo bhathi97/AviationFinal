@@ -23,6 +23,7 @@ Partial Class UserControlTimeTable
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         PictureBox1 = New PictureBox()
@@ -263,6 +264,7 @@ Partial Class UserControlTimeTable
         ' 
         ' lbRIC
         ' 
+        lbRIC.AllowDrop = True
         lbRIC.BackColor = SystemColors.ButtonHighlight
         lbRIC.Cursor = Cursors.Hand
         lbRIC.FormattingEnabled = True
@@ -620,7 +622,6 @@ Partial Class UserControlTimeTable
         ' dgvMain
         ' 
         dgvMain.AllowUserToAddRows = False
-        dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -633,10 +634,17 @@ Partial Class UserControlTimeTable
         dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9})
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = SystemColors.MenuBar
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        dgvMain.DefaultCellStyle = DataGridViewCellStyle2
         dgvMain.Dock = DockStyle.Fill
         dgvMain.Location = New Point(10, 0)
         dgvMain.Name = "dgvMain"
-        dgvMain.ReadOnly = True
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
         dgvMain.Size = New Size(535, 669)
@@ -645,67 +653,53 @@ Partial Class UserControlTimeTable
         ' Column1
         ' 
         Column1.HeaderText = "BAY NO"
-        Column1.Name = "Column1"
-        Column1.ReadOnly = True
-        ' 
+        Column1.Name = "Column1"' 
         ' noo
         ' 
         noo.HeaderText = "NO"
         noo.Name = "noo"
-        noo.ReadOnly = True
         noo.Width = 40
         ' 
         ' fli
         ' 
         fli.HeaderText = "FLIGHT"
-        fli.Name = "fli"
-        fli.ReadOnly = True
-        ' 
+        fli.Name = "fli"' 
         ' Column10
         ' 
         Column10.HeaderText = "ROUTE"
         Column10.Name = "Column10"
-        Column10.ReadOnly = True
         Column10.Width = 70
         ' 
         ' Column4
         ' 
         Column4.HeaderText = "E.T.A"
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        ' 
+        Column4.Name = "Column4"' 
         ' lines
         ' 
         lines.HeaderText = "AIRLINE"
-        lines.Name = "lines"
-        lines.ReadOnly = True
-        ' 
+        lines.Name = "lines"' 
         ' Column6
         ' 
         Column6.HeaderText = "RIC"
         Column6.Name = "Column6"
-        Column6.ReadOnly = True
         Column6.Width = 70
         ' 
         ' Column7
         ' 
         Column7.HeaderText = "OPERATOR"
         Column7.Name = "Column7"
-        Column7.ReadOnly = True
         Column7.Width = 70
         ' 
         ' Column8
         ' 
         Column8.HeaderText = "CREWMAN"
         Column8.Name = "Column8"
-        Column8.ReadOnly = True
         Column8.Width = 70
         ' 
         ' Column9
         ' 
         Column9.HeaderText = "REMARKS"
         Column9.Name = "Column9"
-        Column9.ReadOnly = True
         Column9.Width = 80
         ' 
         ' Panel5
