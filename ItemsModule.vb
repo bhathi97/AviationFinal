@@ -13,6 +13,9 @@ Module ItemsModule
         cb.Items.Add("D")
     End Sub
 
+
+
+
     Public Sub CrewmanAddingSelectPosistion(cb As ComboBox) 'Load positions into combo box
         cb.Items.Add("CREWMEN")
         cb.Items.Add("RIC")
@@ -95,7 +98,6 @@ Module ItemsModule
     Public Sub loadDipTime(cb As ComboBox) 'load Diparture time
 
         Try
-
             cb.Items.Add("00:30") 'add to combo box
             cb.Items.Add("01:00")
             cb.Items.Add("01:30")

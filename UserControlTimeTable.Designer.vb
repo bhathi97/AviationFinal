@@ -22,7 +22,7 @@ Partial Class UserControlTimeTable
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         PictureBox1 = New PictureBox()
@@ -622,14 +622,14 @@ Partial Class UserControlTimeTable
         dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Control
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9})
         dgvMain.Dock = DockStyle.Fill
