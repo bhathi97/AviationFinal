@@ -408,6 +408,7 @@ Partial Class UserControlTimeTable
         ' 
         ' lbCM
         ' 
+        lbCM.AllowDrop = True
         lbCM.BackColor = SystemColors.ButtonHighlight
         lbCM.Cursor = Cursors.Hand
         lbCM.FormattingEnabled = True

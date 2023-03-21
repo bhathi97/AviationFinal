@@ -13,8 +13,30 @@ Module ItemsModule
         cb.Items.Add("D")
     End Sub
 
+    Public Sub TTAddingshift(cb As ComboBox) ''load shift time
 
+        cb.Items.Add("07.00 - 19.00")
+        cb.Items.Add("19.00 - 07.00")
+    End Sub
 
+    Public Sub changeDayLbl(tpDate As DateTimePicker, lblForShowingDay As Label)
+        ' Get the selected date from the DateTimePicker
+        Dim selectedDate As Date = tpDate.Value
+        Dim dayName As String = selectedDate.ToString("dddd")
+        ' Extract the day from the selected date
+        Dim day As Integer = selectedDate.Day
+        ' Display the day in a Label
+        lblForShowingDay.Text = dayName.ToString()
+
+    End Sub
+
+    Public Sub changeShift(cb As ComboBox, lbl As Label)
+        If cb.SelectedItem = "07.00 - 19.00" Then
+            lbl.Text = "Day"
+        ElseIf cb.SelectedItem = "19.00 - 07.00" Then
+            lbl.Text = "Night"
+        End If
+    End Sub
 
     Public Sub CrewmanAddingSelectPosistion(cb As ComboBox) 'Load positions into combo box
         cb.Items.Add("CREWMEN")
