@@ -33,18 +33,18 @@ Module ASUpdateModule
                 MsgBox("User already exists in database")
             Else
                 connsql.Open()
-                Dim cmd As New SqlCommand("UPDATE [LOGIN_TABLE] SET USERNAME = @name, PASSWORD = @pw, TYPE = @type WHERE USERNAME = SName", connsql)
+                Dim cmd As New SqlCommand("UPDATE [LOGIN_TABLE] SET USERNAME = @name, PASSWORD = @pw, TYPE = @type WHERE USERNAME = @SName", connsql)
                 cmd.Parameters.AddWithValue("@name", tbName.Text)
                 cmd.Parameters.AddWithValue("@pw", tbPW.Text)
                 cmd.Parameters.AddWithValue("@type", cbType.Text)
                 cmd.Parameters.AddWithValue("@SName", lbl.Text)
 
                 'confirmation DialogBox
-                Dim result As DialogResult = MessageBox.Show("Do you want to change Airline Details?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                Dim result As DialogResult = MessageBox.Show("Do you want to change USER Details?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
                     'if User clicked Yes
-                    MsgBox(tbName.Text & "Successfully Updated")
+                    MsgBox(tbName.Text & " Successfully Updated")
                     cmd.ExecuteNonQuery()
 
                 End If

@@ -61,7 +61,7 @@ Public Class UserControlAdminSetting
     ' Handles dgvUserDetails.CellClick
     Private Sub dgvUserDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserDetails.CellClick
         Try
-            ASSelectModule.selectDataRow(tbUserName, tbUserName, cbType, dgvUserDetails, lblS)
+            ASSelectModule.selectDataRow(tbUserName, tbPassword, cbType, dgvUserDetails, lblS)
         Catch ex As Exception
 
         End Try

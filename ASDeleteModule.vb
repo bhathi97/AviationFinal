@@ -9,7 +9,7 @@ Module ASDeleteModule
             Dim cmd As New SqlCommand("DELETE FROM [LOGIN_TABLE] WHERE [USERNAME] = @name", connsql)
             cmd.Parameters.AddWithValue("@name", lbl.Text)
 
-            Dim result As DialogResult = MessageBox.Show("Do you want to delete Crewman " + lbl.Text + "?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim result As DialogResult = MessageBox.Show("Do you want to delete USER " + lbl.Text + "?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
                 'if User clicked Yes
