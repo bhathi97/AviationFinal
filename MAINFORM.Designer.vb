@@ -24,9 +24,9 @@ Partial Class MAINFORM
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         PanelMenu = New Panel()
+        btnAdminSetting = New FontAwesome.Sharp.IconButton()
         Panel1 = New Panel()
         lblUser = New Label()
-        IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
         Panel3 = New Panel()
         btnMenu = New FontAwesome.Sharp.IconButton()
         btnCrew = New FontAwesome.Sharp.IconButton()
@@ -37,7 +37,6 @@ Partial Class MAINFORM
         TimerMenu = New Timer(components)
         PanelMenu.SuspendLayout()
         Panel1.SuspendLayout()
-        CType(IconPictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         PanelLoad.SuspendLayout()
         SuspendLayout()
@@ -45,6 +44,7 @@ Partial Class MAINFORM
         ' PanelMenu
         ' 
         PanelMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        PanelMenu.Controls.Add(btnAdminSetting)
         PanelMenu.Controls.Add(Panel1)
         PanelMenu.Controls.Add(Panel3)
         PanelMenu.Controls.Add(btnCrew)
@@ -56,38 +56,47 @@ Partial Class MAINFORM
         PanelMenu.Size = New Size(200, 450)
         PanelMenu.TabIndex = 0
         ' 
+        ' btnAdminSetting
+        ' 
+        btnAdminSetting.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnAdminSetting.FlatAppearance.BorderSize = 0
+        btnAdminSetting.FlatAppearance.MouseDownBackColor = Color.White
+        btnAdminSetting.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
+        btnAdminSetting.FlatStyle = FlatStyle.Flat
+        btnAdminSetting.ForeColor = Color.White
+        btnAdminSetting.IconChar = FontAwesome.Sharp.IconChar.UserGear
+        btnAdminSetting.IconColor = Color.White
+        btnAdminSetting.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnAdminSetting.IconSize = 30
+        btnAdminSetting.Location = New Point(-20, 223)
+        btnAdminSetting.Name = "btnAdminSetting"
+        btnAdminSetting.Size = New Size(225, 50)
+        btnAdminSetting.TabIndex = 7
+        btnAdminSetting.Text = "    USER TYPE"
+        btnAdminSetting.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnAdminSetting.UseVisualStyleBackColor = False
+        ' 
         ' Panel1
         ' 
         Panel1.Controls.Add(lblUser)
-        Panel1.Controls.Add(IconPictureBox4)
         Panel1.Dock = DockStyle.Bottom
-        Panel1.Location = New Point(0, 396)
+        Panel1.Location = New Point(0, 371)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 54)
+        Panel1.Size = New Size(200, 79)
         Panel1.TabIndex = 6
         ' 
         ' lblUser
         ' 
         lblUser.AutoSize = True
+        lblUser.Dock = DockStyle.Bottom
         lblUser.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         lblUser.ForeColor = Color.White
-        lblUser.Location = New Point(90, 17)
+        lblUser.Location = New Point(0, 62)
         lblUser.Name = "lblUser"
-        lblUser.Size = New Size(42, 17)
+        lblUser.Size = New Size(40, 17)
         lblUser.TabIndex = 4
-        lblUser.Text = "User1"' 
-        ' IconPictureBox4
-        ' 
-        IconPictureBox4.BackColor = Color.Transparent
-        IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.UserCheck
-        IconPictureBox4.IconColor = Color.White
-        IconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto
-        IconPictureBox4.IconSize = 19
-        IconPictureBox4.Location = New Point(65, 15)
-        IconPictureBox4.Name = "IconPictureBox4"
-        IconPictureBox4.Size = New Size(19, 21)
-        IconPictureBox4.TabIndex = 3
-        IconPictureBox4.TabStop = False
+        lblUser.Text = "user1"
+        lblUser.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel3
         ' 
@@ -212,7 +221,6 @@ Partial Class MAINFORM
         PanelMenu.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
-        CType(IconPictureBox4, ComponentModel.ISupportInitialize).EndInit()
         Panel3.ResumeLayout(False)
         PanelLoad.ResumeLayout(False)
         ResumeLayout(False)
@@ -228,6 +236,6 @@ Partial Class MAINFORM
     Friend WithEvents TimerMenu As Timer
     Friend WithEvents PanelUC As Panel
     Friend WithEvents lblUser As Label
-    Friend WithEvents IconPictureBox4 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnAdminSetting As FontAwesome.Sharp.IconButton
 End Class

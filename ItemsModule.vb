@@ -131,5 +131,15 @@ Module ItemsModule
 
     End Sub
 
+    Public Sub loadUserTypes(cb As ComboBox)
+        Try
+            cb.Items.Add("USER") 'add to combo box
+            cb.Items.Add("ADMIN")
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 
 End Module

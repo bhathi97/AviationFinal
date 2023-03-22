@@ -32,11 +32,36 @@ Module LFLoginModule
             Dim count As Integer = Convert.ToInt32(commandc.ExecuteScalar())
 
             If count > 0 Then
-                'login successful
-                Dim form As New MAINFORM()
-                form.lblUser.Text = namen
-                form.Show()
-                obj.Hide()
+                Dim cString As String = "SELECT TYPE FROM LOGIN_TABLE WHERE USERNAME = @user AND PASSWORD = @password"
+                Dim comType As New SqlCommand(cString, connsql)
+                comType.Parameters.AddWithValue("@user", namen)
+                comType.Parameters.AddWithValue("@password", pass)
+                Dim typeValue As String = comType.ExecuteScalar().ToString()
+
+                If typeValue = "USER" Then
+                    'login successful
+                    Dim form As New MAINFORM()
+                    form.lblUser.Text = namen
+                    form.btnCrew.Hide()
+                    form.btnFlight.Hide()
+                    form.Show()
+                    obj.Hide()
+                ElseIf typeValue = "ADMIN" Then
+                    'login successful
+                    Dim form As New MAINFORM()
+                    form.lblUser.Text = namen
+                    form.Show()
+                    obj.Hide()
+
+                End If
+
+
+
+
+
+
+
+
 
 
 

@@ -72,4 +72,12 @@ Public Class MAINFORM
         PanelLoad.Controls.Add(userControlTT)
         userControlTT.BringToFront()
     End Sub
+
+    'Handles btnAdminSetting.Click
+    Private Sub btnAdminSetting_Click(sender As Object, e As EventArgs) Handles btnAdminSetting.Click
+        Dim userControlAD As New UserControlAdminSetting()
+        userControlAD.Dock = DockStyle.Fill
+        PanelLoad.Controls.Add(userControlAD)
+        userControlAD.BringToFront()
+    End Sub
 End Class
