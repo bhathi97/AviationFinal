@@ -44,6 +44,7 @@ Module LFLoginModule
                     form.lblUser.Text = namen
                     form.btnCrew.Hide()
                     form.btnFlight.Hide()
+                    form.btnAdminSetting.Hide()
                     form.Show()
                     obj.Hide()
                 ElseIf typeValue = "ADMIN" Then
