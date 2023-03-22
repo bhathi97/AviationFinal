@@ -102,7 +102,7 @@ Partial Class MAINFORM
         btnLogout.IconColor = Color.White
         btnLogout.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnLogout.IconSize = 30
-        btnLogout.Location = New Point(-20, 41)
+        btnLogout.Location = New Point(-26, 41)
         btnLogout.Name = "btnLogout"
         btnLogout.Size = New Size(225, 50)
         btnLogout.TabIndex = 8
