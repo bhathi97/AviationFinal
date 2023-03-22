@@ -24,9 +24,10 @@ Partial Class MAINFORM
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         PanelMenu = New Panel()
-        Panel3 = New Panel()
+        Panel1 = New Panel()
         lblUser = New Label()
         IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
+        Panel3 = New Panel()
         btnMenu = New FontAwesome.Sharp.IconButton()
         btnCrew = New FontAwesome.Sharp.IconButton()
         btnFlight = New FontAwesome.Sharp.IconButton()
@@ -34,12 +35,11 @@ Partial Class MAINFORM
         PanelLoad = New Panel()
         PanelUC = New Panel()
         TimerMenu = New Timer(components)
-        Panel1 = New Panel()
         PanelMenu.SuspendLayout()
-        Panel3.SuspendLayout()
-        CType(IconPictureBox4, ComponentModel.ISupportInitialize).BeginInit()
-        PanelLoad.SuspendLayout()
         Panel1.SuspendLayout()
+        CType(IconPictureBox4, ComponentModel.ISupportInitialize).BeginInit()
+        Panel3.SuspendLayout()
+        PanelLoad.SuspendLayout()
         SuspendLayout()
         ' 
         ' PanelMenu
@@ -56,21 +56,22 @@ Partial Class MAINFORM
         PanelMenu.Size = New Size(200, 450)
         PanelMenu.TabIndex = 0
         ' 
-        ' Panel3
+        ' Panel1
         ' 
-        Panel3.Controls.Add(btnMenu)
-        Panel3.Dock = DockStyle.Top
-        Panel3.Location = New Point(0, 0)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(200, 49)
-        Panel3.TabIndex = 5
+        Panel1.Controls.Add(lblUser)
+        Panel1.Controls.Add(IconPictureBox4)
+        Panel1.Dock = DockStyle.Bottom
+        Panel1.Location = New Point(0, 396)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(200, 54)
+        Panel1.TabIndex = 6
         ' 
         ' lblUser
         ' 
         lblUser.AutoSize = True
         lblUser.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         lblUser.ForeColor = Color.White
-        lblUser.Location = New Point(25, 30)
+        lblUser.Location = New Point(90, 17)
         lblUser.Name = "lblUser"
         lblUser.Size = New Size(42, 17)
         lblUser.TabIndex = 4
@@ -82,11 +83,20 @@ Partial Class MAINFORM
         IconPictureBox4.IconColor = Color.White
         IconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto
         IconPictureBox4.IconSize = 19
-        IconPictureBox4.Location = New Point(6, 28)
+        IconPictureBox4.Location = New Point(65, 15)
         IconPictureBox4.Name = "IconPictureBox4"
         IconPictureBox4.Size = New Size(19, 21)
         IconPictureBox4.TabIndex = 3
         IconPictureBox4.TabStop = False
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Controls.Add(btnMenu)
+        Panel3.Dock = DockStyle.Top
+        Panel3.Location = New Point(0, 0)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(200, 49)
+        Panel3.TabIndex = 5
         ' 
         ' btnMenu
         ' 
@@ -190,16 +200,6 @@ Partial Class MAINFORM
         ' 
         TimerMenu.Interval = 50
         ' 
-        ' Panel1
-        ' 
-        Panel1.Controls.Add(lblUser)
-        Panel1.Controls.Add(IconPictureBox4)
-        Panel1.Dock = DockStyle.Bottom
-        Panel1.Location = New Point(0, 396)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 54)
-        Panel1.TabIndex = 6
-        ' 
         ' MAINFORM
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -210,11 +210,11 @@ Partial Class MAINFORM
         Name = "MAINFORM"
         Text = "CPC | AVIATION"
         PanelMenu.ResumeLayout(False)
-        Panel3.ResumeLayout(False)
-        CType(IconPictureBox4, ComponentModel.ISupportInitialize).EndInit()
-        PanelLoad.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(IconPictureBox4, ComponentModel.ISupportInitialize).EndInit()
+        Panel3.ResumeLayout(False)
+        PanelLoad.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 

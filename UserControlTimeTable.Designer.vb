@@ -527,6 +527,7 @@ Partial Class UserControlTimeTable
         ' 
         ' dtpDate
         ' 
+        dtpDate.Cursor = Cursors.Hand
         dtpDate.Format = DateTimePickerFormat.Short
         dtpDate.Location = New Point(108, 44)
         dtpDate.MaxDate = New DateTime(2123, 3, 17, 0, 0, 0, 0)
