@@ -80,4 +80,18 @@ Public Class MAINFORM
         PanelLoad.Controls.Add(userControlAD)
         userControlAD.BringToFront()
     End Sub
+
+    'Handles btnLogout.Click
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Try
+            Dim result As DialogResult = MessageBox.Show("Do you want to Log Out?", "LOGOUT", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                LOGINForm.Show()
+                Me.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 End Class

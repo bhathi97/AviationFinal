@@ -26,6 +26,8 @@ Partial Class MAINFORM
         PanelMenu = New Panel()
         btnAdminSetting = New FontAwesome.Sharp.IconButton()
         Panel1 = New Panel()
+        btnLogout = New FontAwesome.Sharp.IconButton()
+        IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         lblUser = New Label()
         Panel3 = New Panel()
         btnMenu = New FontAwesome.Sharp.IconButton()
@@ -37,6 +39,7 @@ Partial Class MAINFORM
         TimerMenu = New Timer(components)
         PanelMenu.SuspendLayout()
         Panel1.SuspendLayout()
+        CType(IconPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         PanelLoad.SuspendLayout()
         SuspendLayout()
@@ -78,22 +81,56 @@ Partial Class MAINFORM
         ' 
         ' Panel1
         ' 
+        Panel1.Controls.Add(btnLogout)
+        Panel1.Controls.Add(IconPictureBox1)
         Panel1.Controls.Add(lblUser)
         Panel1.Dock = DockStyle.Bottom
-        Panel1.Location = New Point(0, 371)
+        Panel1.Location = New Point(0, 331)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(200, 79)
+        Panel1.Size = New Size(200, 119)
         Panel1.TabIndex = 6
+        ' 
+        ' btnLogout
+        ' 
+        btnLogout.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnLogout.FlatAppearance.BorderSize = 0
+        btnLogout.FlatAppearance.MouseDownBackColor = Color.White
+        btnLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
+        btnLogout.FlatStyle = FlatStyle.Flat
+        btnLogout.ForeColor = Color.White
+        btnLogout.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBackward
+        btnLogout.IconColor = Color.White
+        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnLogout.IconSize = 30
+        btnLogout.Location = New Point(-20, 41)
+        btnLogout.Name = "btnLogout"
+        btnLogout.Size = New Size(225, 50)
+        btnLogout.TabIndex = 8
+        btnLogout.Text = "    LOGOUT"
+        btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnLogout.UseVisualStyleBackColor = False
+        ' 
+        ' IconPictureBox1
+        ' 
+        IconPictureBox1.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        IconPictureBox1.ForeColor = Color.WhiteSmoke
+        IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserTag
+        IconPictureBox1.IconColor = Color.WhiteSmoke
+        IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto
+        IconPictureBox1.Location = New Point(8, 4)
+        IconPictureBox1.Name = "IconPictureBox1"
+        IconPictureBox1.Size = New Size(38, 32)
+        IconPictureBox1.TabIndex = 5
+        IconPictureBox1.TabStop = False
         ' 
         ' lblUser
         ' 
         lblUser.AutoSize = True
-        lblUser.Dock = DockStyle.Bottom
-        lblUser.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        lblUser.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         lblUser.ForeColor = Color.White
-        lblUser.Location = New Point(0, 62)
+        lblUser.Location = New Point(46, 8)
         lblUser.Name = "lblUser"
-        lblUser.Size = New Size(40, 17)
+        lblUser.Size = New Size(48, 20)
         lblUser.TabIndex = 4
         lblUser.Text = "user1"
         lblUser.TextAlign = ContentAlignment.MiddleCenter
@@ -221,6 +258,7 @@ Partial Class MAINFORM
         PanelMenu.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(IconPictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel3.ResumeLayout(False)
         PanelLoad.ResumeLayout(False)
         ResumeLayout(False)
@@ -238,4 +276,6 @@ Partial Class MAINFORM
     Friend WithEvents lblUser As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnAdminSetting As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents btnLogout As FontAwesome.Sharp.IconButton
 End Class

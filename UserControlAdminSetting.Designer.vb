@@ -32,6 +32,7 @@ Partial Class UserControlAdminSetting
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
+        lblS = New Label()
         tbPassword = New TextBox()
         lblSelectedID = New Label()
         cbType = New ComboBox()
@@ -42,7 +43,6 @@ Partial Class UserControlAdminSetting
         Column1 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
-        lblS = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -179,6 +179,15 @@ Partial Class UserControlAdminSetting
         Panel1.Size = New Size(478, 661)
         Panel1.TabIndex = 1
         ' 
+        ' lblS
+        ' 
+        lblS.AutoSize = True
+        lblS.ForeColor = SystemColors.ControlLight
+        lblS.Location = New Point(170, 311)
+        lblS.Name = "lblS"
+        lblS.Size = New Size(41, 15)
+        lblS.TabIndex = 26
+        lblS.Text = "Label5"' 
         ' tbPassword
         ' 
         tbPassword.Location = New Point(235, 131)
@@ -283,14 +292,6 @@ Partial Class UserControlAdminSetting
         Column3.ReadOnly = True
         Column3.Width = 200
         ' 
-        ' lblS
-        ' 
-        lblS.AutoSize = True
-        lblS.Location = New Point(170, 311)
-        lblS.Name = "lblS"
-        lblS.Size = New Size(41, 15)
-        lblS.TabIndex = 26
-        lblS.Text = "Label5"' 
         ' UserControlAdminSetting
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
