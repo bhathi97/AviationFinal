@@ -81,6 +81,7 @@ Partial Class UserControlTimeTable
         Column8 = New DataGridViewTextBoxColumn()
         Column9 = New DataGridViewTextBoxColumn()
         Panel5 = New Panel()
+        Panel10 = New Panel()
         btnPrint = New FontAwesome.Sharp.IconButton()
         ContextMenuStrip1 = New ContextMenuStrip(components)
         Panel1.SuspendLayout()
@@ -99,6 +100,7 @@ Partial Class UserControlTimeTable
         Panel9.SuspendLayout()
         CType(dgvMain, ComponentModel.ISupportInitialize).BeginInit()
         Panel5.SuspendLayout()
+        Panel10.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -616,10 +618,10 @@ Partial Class UserControlTimeTable
         ' 
         Panel9.Controls.Add(dgvMain)
         Panel9.Dock = DockStyle.Fill
-        Panel9.Location = New Point(0, 73)
+        Panel9.Location = New Point(0, 56)
         Panel9.Name = "Panel9"
         Panel9.Padding = New Padding(10, 0, 10, 10)
-        Panel9.Size = New Size(555, 679)
+        Panel9.Size = New Size(555, 696)
         Panel9.TabIndex = 1
         ' 
         ' dgvMain
@@ -630,7 +632,7 @@ Partial Class UserControlTimeTable
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = SystemColors.Control
         DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
@@ -638,9 +640,9 @@ Partial Class UserControlTimeTable
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.MenuBar
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(0), CByte(0), CByte(64))
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = SystemColors.ActiveCaptionText
+        DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
@@ -658,7 +660,7 @@ Partial Class UserControlTimeTable
         dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
-        dgvMain.Size = New Size(535, 669)
+        dgvMain.Size = New Size(535, 686)
         dgvMain.TabIndex = 0
         ' 
         ' Column1
@@ -716,18 +718,26 @@ Partial Class UserControlTimeTable
         ' Panel5
         ' 
         Panel5.BackColor = SystemColors.ActiveCaption
-        Panel5.Controls.Add(btnPrint)
+        Panel5.Controls.Add(Panel10)
         Panel5.Dock = DockStyle.Top
         Panel5.Location = New Point(0, 0)
         Panel5.Name = "Panel5"
         Panel5.Padding = New Padding(10)
-        Panel5.Size = New Size(555, 73)
+        Panel5.Size = New Size(555, 56)
         Panel5.TabIndex = 0
+        ' 
+        ' Panel10
+        ' 
+        Panel10.Controls.Add(btnPrint)
+        Panel10.Dock = DockStyle.Right
+        Panel10.Location = New Point(345, 10)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(200, 36)
+        Panel10.TabIndex = 4
         ' 
         ' btnPrint
         ' 
         btnPrint.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        btnPrint.Dock = DockStyle.Right
         btnPrint.FlatAppearance.BorderSize = 0
         btnPrint.FlatAppearance.MouseDownBackColor = Color.White
         btnPrint.FlatAppearance.MouseOverBackColor = Color.Maroon
@@ -735,10 +745,10 @@ Partial Class UserControlTimeTable
         btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print
         btnPrint.IconColor = Color.White
         btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnPrint.IconSize = 30
-        btnPrint.Location = New Point(495, 10)
+        btnPrint.IconSize = 25
+        btnPrint.Location = New Point(61, 1)
         btnPrint.Name = "btnPrint"
-        btnPrint.Size = New Size(50, 53)
+        btnPrint.Size = New Size(138, 34)
         btnPrint.TabIndex = 0
         btnPrint.UseVisualStyleBackColor = False
         ' 
@@ -776,6 +786,7 @@ Partial Class UserControlTimeTable
         Panel9.ResumeLayout(False)
         CType(dgvMain, ComponentModel.ISupportInitialize).EndInit()
         Panel5.ResumeLayout(False)
+        Panel10.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -836,4 +847,5 @@ Partial Class UserControlTimeTable
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents btnPrint As FontAwesome.Sharp.IconButton
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Panel10 As Panel
 End Class

@@ -1,6 +1,6 @@
 is_global = true
 build_property.ApplicationManifest = 
-build_property.StartupObject = CPCAviationDutyAssignManagement.MAINFORM
+build_property.StartupObject = CPCAviationDutyAssignManagement.LOGINForm
 build_property.ApplicationDefaultFont = 
 build_property.ApplicationHighDpiMode = 
 build_property.ApplicationUseCompatibleTextRendering = 

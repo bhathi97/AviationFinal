@@ -25,6 +25,8 @@ Partial Class MAINFORM
         components = New ComponentModel.Container()
         PanelMenu = New Panel()
         Panel3 = New Panel()
+        lblUser = New Label()
+        IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
         btnMenu = New FontAwesome.Sharp.IconButton()
         btnCrew = New FontAwesome.Sharp.IconButton()
         btnFlight = New FontAwesome.Sharp.IconButton()
@@ -32,14 +34,18 @@ Partial Class MAINFORM
         PanelLoad = New Panel()
         PanelUC = New Panel()
         TimerMenu = New Timer(components)
+        Panel1 = New Panel()
         PanelMenu.SuspendLayout()
         Panel3.SuspendLayout()
+        CType(IconPictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         PanelLoad.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' PanelMenu
         ' 
         PanelMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        PanelMenu.Controls.Add(Panel1)
         PanelMenu.Controls.Add(Panel3)
         PanelMenu.Controls.Add(btnCrew)
         PanelMenu.Controls.Add(btnFlight)
@@ -59,6 +65,29 @@ Partial Class MAINFORM
         Panel3.Size = New Size(200, 49)
         Panel3.TabIndex = 5
         ' 
+        ' lblUser
+        ' 
+        lblUser.AutoSize = True
+        lblUser.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        lblUser.ForeColor = Color.White
+        lblUser.Location = New Point(25, 30)
+        lblUser.Name = "lblUser"
+        lblUser.Size = New Size(42, 17)
+        lblUser.TabIndex = 4
+        lblUser.Text = "User1"' 
+        ' IconPictureBox4
+        ' 
+        IconPictureBox4.BackColor = Color.Transparent
+        IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.UserCheck
+        IconPictureBox4.IconColor = Color.White
+        IconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto
+        IconPictureBox4.IconSize = 19
+        IconPictureBox4.Location = New Point(6, 28)
+        IconPictureBox4.Name = "IconPictureBox4"
+        IconPictureBox4.Size = New Size(19, 21)
+        IconPictureBox4.TabIndex = 3
+        IconPictureBox4.TabStop = False
+        ' 
         ' btnMenu
         ' 
         btnMenu.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
@@ -73,9 +102,9 @@ Partial Class MAINFORM
         btnMenu.IconColor = Color.White
         btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnMenu.IconSize = 37
-        btnMenu.Location = New Point(150, 0)
+        btnMenu.Location = New Point(146, 0)
         btnMenu.Name = "btnMenu"
-        btnMenu.Size = New Size(50, 49)
+        btnMenu.Size = New Size(54, 49)
         btnMenu.TabIndex = 1
         btnMenu.UseVisualStyleBackColor = False
         ' 
@@ -161,9 +190,19 @@ Partial Class MAINFORM
         ' 
         TimerMenu.Interval = 50
         ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(lblUser)
+        Panel1.Controls.Add(IconPictureBox4)
+        Panel1.Dock = DockStyle.Bottom
+        Panel1.Location = New Point(0, 396)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(200, 54)
+        Panel1.TabIndex = 6
+        ' 
         ' MAINFORM
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(PanelMenu)
@@ -172,7 +211,10 @@ Partial Class MAINFORM
         Text = "CPC | AVIATION"
         PanelMenu.ResumeLayout(False)
         Panel3.ResumeLayout(False)
+        CType(IconPictureBox4, ComponentModel.ISupportInitialize).EndInit()
         PanelLoad.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -185,4 +227,7 @@ Partial Class MAINFORM
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TimerMenu As Timer
     Friend WithEvents PanelUC As Panel
+    Friend WithEvents lblUser As Label
+    Friend WithEvents IconPictureBox4 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents Panel1 As Panel
 End Class

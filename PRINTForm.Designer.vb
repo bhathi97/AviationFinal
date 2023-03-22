@@ -22,9 +22,9 @@ Partial Class PRINTForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label5 = New Label()
         Label6 = New Label()
         PictureBox1 = New PictureBox()
@@ -79,7 +79,7 @@ Partial Class PRINTForm
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.logo
-        PictureBox1.Location = New Point(52, 31)
+        PictureBox1.Location = New Point(12, 31)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(100, 50)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -89,7 +89,7 @@ Partial Class PRINTForm
         ' PictureBox2
         ' 
         PictureBox2.Image = My.Resources.Resources.logo
-        PictureBox2.Location = New Point(468, 31)
+        PictureBox2.Location = New Point(508, 31)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(100, 50)
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
@@ -171,35 +171,35 @@ Partial Class PRINTForm
         dgPrint.AllowUserToAddRows = False
         dgPrint.AllowUserToDeleteRows = False
         dgPrint.BackgroundColor = SystemColors.Window
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = SystemColors.Control
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        dgPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = SystemColors.Control
+        DataGridViewCellStyle7.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
+        dgPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         dgPrint.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgPrint.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column10, Column4, Column5, Column6, Column7, Column8, Column9})
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        dgPrint.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle8.BackColor = SystemColors.Window
+        DataGridViewCellStyle8.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
+        dgPrint.DefaultCellStyle = DataGridViewCellStyle8
         dgPrint.Location = New Point(0, 120)
         dgPrint.Name = "dgPrint"
         dgPrint.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        dgPrint.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = SystemColors.Control
+        DataGridViewCellStyle9.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle9.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = DataGridViewTriState.True
+        dgPrint.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         dgPrint.RowHeadersWidth = 5
         dgPrint.RowTemplate.Height = 20
         dgPrint.Size = New Size(618, 517)
@@ -296,9 +296,9 @@ Partial Class PRINTForm
         btnPrintDoc.IconColor = Color.White
         btnPrintDoc.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnPrintDoc.IconSize = 25
-        btnPrintDoc.Location = New Point(517, 646)
+        btnPrintDoc.Location = New Point(206, 664)
         btnPrintDoc.Name = "btnPrintDoc"
-        btnPrintDoc.Size = New Size(91, 45)
+        btnPrintDoc.Size = New Size(213, 45)
         btnPrintDoc.TabIndex = 69
         btnPrintDoc.UseVisualStyleBackColor = False
         ' 

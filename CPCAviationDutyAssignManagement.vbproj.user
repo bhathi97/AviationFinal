@@ -4,6 +4,9 @@
     <Compile Update="FlightMasterFORM.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="LOGINForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MAINFORM.vb">
       <SubType>Form</SubType>
     </Compile>

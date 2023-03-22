@@ -16,6 +16,7 @@ Public Class UserControlTimeTable
         TTAddingshift(cbShiftTime) 'load shift Time
         changeDayLbl(dtpDate, lblDay) 'load day
 
+        ' Set the font color of all cells in the DataGridView
 
 
     End Sub
@@ -230,4 +231,6 @@ Public Class UserControlTimeTable
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
 End Class
