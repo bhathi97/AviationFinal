@@ -41,7 +41,7 @@ Partial Class LOGINForm
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(205, 423)
+        Label4.Location = New Point(205, 416)
         Label4.Name = "Label4"
         Label4.Size = New Size(286, 15)
         Label4.TabIndex = 4
@@ -91,13 +91,12 @@ Partial Class LOGINForm
         ' 
         ' btnLogin
         ' 
-        btnLogin.BackColor = SystemColors.ButtonFace
+        btnLogin.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnLogin.FlatAppearance.BorderColor = SystemColors.ButtonFace
-        btnLogin.FlatAppearance.BorderSize = 0
         btnLogin.FlatAppearance.MouseDownBackColor = Color.White
         btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
         btnLogin.FlatStyle = FlatStyle.Flat
-        btnLogin.ForeColor = Color.Black
+        btnLogin.ForeColor = Color.White
         btnLogin.IconChar = FontAwesome.Sharp.IconChar.None
         btnLogin.IconColor = Color.Black
         btnLogin.IconFont = FontAwesome.Sharp.IconFont.Auto
@@ -116,7 +115,7 @@ Partial Class LOGINForm
         IconPictureBox1.IconColor = SystemColors.ButtonHighlight
         IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto
         IconPictureBox1.IconSize = 61
-        IconPictureBox1.Location = New Point(151, 65)
+        IconPictureBox1.Location = New Point(155, 55)
         IconPictureBox1.Name = "IconPictureBox1"
         IconPictureBox1.Size = New Size(63, 61)
         IconPictureBox1.TabIndex = 6
@@ -144,7 +143,7 @@ Partial Class LOGINForm
         Panel2.Controls.Add(tbUName)
         Panel2.Controls.Add(Label3)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(170, 34)
+        Panel2.Location = New Point(170, 27)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(366, 386)
         Panel2.TabIndex = 3
@@ -162,7 +161,7 @@ Partial Class LOGINForm
         ForeColor = Color.White
         MaximumSize = New Size(700, 500)
         Name = "LOGINForm"
-        Text = "LOGIN"
+        Text = "LOGIN - DAILY WORK SCHEDULE"
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()

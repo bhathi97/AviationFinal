@@ -19,6 +19,13 @@ Public Class UserControlTimeTable
         ' Set the font color of all cells in the DataGridView
 
 
+
+        '
+        'Update the label text every second
+        Timer1.Interval = 1000 ' 1 second
+        Timer1.Start()
+
+
     End Sub
 
     'Handles dtpDate.ValueChanged
@@ -232,5 +239,9 @@ Public Class UserControlTimeTable
         End Try
     End Sub
 
-
+    ' Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ' Update the label text with the current time
+        lblTime.Text = DateTime.Now.ToString("h:mm:ss")
+    End Sub
 End Class

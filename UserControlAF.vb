@@ -10,7 +10,7 @@ Public Class UserControlAF
     'Handles MyBase.Load
     Private Sub UserControlAF_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblAName.Visible = False
-        AirlineCategoryLoad(connsql, cbairlinecategory)
+        ' AirlineCategoryLoad(connsql, cbairlinecategory)
         loadcbSTD(cbStd)
         loadcbSTD1(cbStd1)
         loadDipTime(cbDT)
@@ -99,6 +99,16 @@ Public Class UserControlAF
             MsgBox(ex.Message)
         Finally
             connsql.Close()
+        End Try
+    End Sub
+
+    'Handles cbairlinecategory.DropDown
+    Private Sub cbairlinecategory_DropDown(sender As Object, e As EventArgs) Handles cbairlinecategory.DropDown
+        Try
+            cbairlinecategory.Items.Clear()
+            AirlineCategoryLoad(connsql, cbairlinecategory)
+        Catch ex As Exception
+            MsgBox(ex)
         End Try
     End Sub
 End Class

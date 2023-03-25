@@ -28,7 +28,6 @@ Partial Class UserControlTimeTable
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
-        PictureBox1 = New PictureBox()
         Panel7 = New Panel()
         cbGroup = New ComboBox()
         Label7 = New Label()
@@ -70,6 +69,7 @@ Partial Class UserControlTimeTable
         Panel2 = New Panel()
         Panel9 = New Panel()
         dgvMain = New DataGridView()
+        Column2 = New DataGridViewCheckBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
         noo = New DataGridViewTextBoxColumn()
         fli = New DataGridViewTextBoxColumn()
@@ -80,12 +80,14 @@ Partial Class UserControlTimeTable
         Column7 = New DataGridViewTextBoxColumn()
         Column8 = New DataGridViewTextBoxColumn()
         Column9 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewComboBoxColumn()
         Panel5 = New Panel()
+        lblTime = New Label()
         Panel10 = New Panel()
         btnPrint = New FontAwesome.Sharp.IconButton()
         ContextMenuStrip1 = New ContextMenuStrip(components)
+        Timer1 = New Timer(components)
         Panel1.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel7.SuspendLayout()
         Panel6.SuspendLayout()
         pnlRIC.SuspendLayout()
@@ -114,7 +116,6 @@ Partial Class UserControlTimeTable
         Label1.Text = "DAILY WORK SCHEDULE"' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(Panel7)
         Panel1.Controls.Add(Panel6)
         Panel1.Controls.Add(pnlCM)
@@ -123,19 +124,8 @@ Partial Class UserControlTimeTable
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(478, 752)
+        Panel1.Size = New Size(376, 752)
         Panel1.TabIndex = 5
-        ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.BackColor = SystemColors.ControlLight
-        PictureBox1.Image = My.Resources.Resources.logo
-        PictureBox1.Location = New Point(387, 13)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(83, 43)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 24
-        PictureBox1.TabStop = False
         ' 
         ' Panel7
         ' 
@@ -144,13 +134,13 @@ Partial Class UserControlTimeTable
         Panel7.Controls.Add(Label7)
         Panel7.Location = New Point(62, 265)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(399, 48)
+        Panel7.Size = New Size(301, 48)
         Panel7.TabIndex = 7
         ' 
         ' cbGroup
         ' 
         cbGroup.FormattingEnabled = True
-        cbGroup.Location = New Point(170, 12)
+        cbGroup.Location = New Point(134, 13)
         cbGroup.Name = "cbGroup"
         cbGroup.Size = New Size(121, 23)
         cbGroup.TabIndex = 1
@@ -180,7 +170,7 @@ Partial Class UserControlTimeTable
         Panel6.Controls.Add(pnlRIC)
         Panel6.Location = New Point(62, 526)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(399, 201)
+        Panel6.Size = New Size(301, 201)
         Panel6.TabIndex = 7
         ' 
         ' btnAddRICToTable
@@ -197,7 +187,7 @@ Partial Class UserControlTimeTable
         btnAddRICToTable.IconColor = Color.White
         btnAddRICToTable.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnAddRICToTable.IconSize = 25
-        btnAddRICToTable.Location = New Point(345, 45)
+        btnAddRICToTable.Location = New Point(252, 45)
         btnAddRICToTable.Name = "btnAddRICToTable"
         btnAddRICToTable.Size = New Size(40, 40)
         btnAddRICToTable.TabIndex = 21
@@ -216,7 +206,7 @@ Partial Class UserControlTimeTable
         btnAddAgainRIC.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnAddAgainRIC.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnAddAgainRIC.IconSize = 25
-        btnAddAgainRIC.Location = New Point(124, 126)
+        btnAddAgainRIC.Location = New Point(107, 126)
         btnAddAgainRIC.Name = "btnAddAgainRIC"
         btnAddAgainRIC.Size = New Size(40, 40)
         btnAddAgainRIC.TabIndex = 20
@@ -225,7 +215,7 @@ Partial Class UserControlTimeTable
         ' Label12
         ' 
         Label12.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label12.Location = New Point(170, 45)
+        Label12.Location = New Point(153, 45)
         Label12.Name = "Label12"
         Label12.Size = New Size(66, 15)
         Label12.TabIndex = 19
@@ -236,9 +226,9 @@ Partial Class UserControlTimeTable
         lbRemovedRIC.Cursor = Cursors.Hand
         lbRemovedRIC.FormattingEnabled = True
         lbRemovedRIC.ItemHeight = 15
-        lbRemovedRIC.Location = New Point(170, 63)
+        lbRemovedRIC.Location = New Point(152, 63)
         lbRemovedRIC.Name = "lbRemovedRIC"
-        lbRemovedRIC.Size = New Size(103, 124)
+        lbRemovedRIC.Size = New Size(87, 124)
         lbRemovedRIC.TabIndex = 18
         ' 
         ' Label13
@@ -261,7 +251,7 @@ Partial Class UserControlTimeTable
         btnRICRemove.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnRICRemove.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnRICRemove.IconSize = 25
-        btnRICRemove.Location = New Point(124, 80)
+        btnRICRemove.Location = New Point(107, 80)
         btnRICRemove.Name = "btnRICRemove"
         btnRICRemove.Size = New Size(40, 40)
         btnRICRemove.TabIndex = 16
@@ -276,7 +266,7 @@ Partial Class UserControlTimeTable
         lbRIC.ItemHeight = 15
         lbRIC.Location = New Point(15, 63)
         lbRIC.Name = "lbRIC"
-        lbRIC.Size = New Size(103, 124)
+        lbRIC.Size = New Size(87, 124)
         lbRIC.TabIndex = 15
         ' 
         ' pnlRIC
@@ -287,7 +277,7 @@ Partial Class UserControlTimeTable
         pnlRIC.Dock = DockStyle.Top
         pnlRIC.Location = New Point(0, 0)
         pnlRIC.Name = "pnlRIC"
-        pnlRIC.Size = New Size(399, 35)
+        pnlRIC.Size = New Size(301, 35)
         pnlRIC.TabIndex = 2
         ' 
         ' IconPictureBox3
@@ -297,7 +287,7 @@ Partial Class UserControlTimeTable
         IconPictureBox3.IconColor = Color.White
         IconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto
         IconPictureBox3.IconSize = 21
-        IconPictureBox3.Location = New Point(373, 7)
+        IconPictureBox3.Location = New Point(271, 9)
         IconPictureBox3.Name = "IconPictureBox3"
         IconPictureBox3.Size = New Size(21, 26)
         IconPictureBox3.TabIndex = 9
@@ -326,7 +316,7 @@ Partial Class UserControlTimeTable
         pnlCM.Controls.Add(Panel8)
         pnlCM.Location = New Point(62, 319)
         pnlCM.Name = "pnlCM"
-        pnlCM.Size = New Size(399, 201)
+        pnlCM.Size = New Size(301, 201)
         pnlCM.TabIndex = 6
         ' 
         ' btnAddCMToTable
@@ -343,7 +333,7 @@ Partial Class UserControlTimeTable
         btnAddCMToTable.IconColor = Color.White
         btnAddCMToTable.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnAddCMToTable.IconSize = 25
-        btnAddCMToTable.Location = New Point(345, 44)
+        btnAddCMToTable.Location = New Point(252, 44)
         btnAddCMToTable.Name = "btnAddCMToTable"
         btnAddCMToTable.Size = New Size(40, 40)
         btnAddCMToTable.TabIndex = 14
@@ -362,7 +352,7 @@ Partial Class UserControlTimeTable
         btnAddAgainCM.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnAddAgainCM.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnAddAgainCM.IconSize = 25
-        btnAddAgainCM.Location = New Point(124, 125)
+        btnAddAgainCM.Location = New Point(106, 125)
         btnAddAgainCM.Name = "btnAddAgainCM"
         btnAddAgainCM.Size = New Size(40, 40)
         btnAddAgainCM.TabIndex = 9
@@ -371,7 +361,7 @@ Partial Class UserControlTimeTable
         ' Label11
         ' 
         Label11.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label11.Location = New Point(170, 44)
+        Label11.Location = New Point(152, 44)
         Label11.Name = "Label11"
         Label11.Size = New Size(66, 15)
         Label11.TabIndex = 8
@@ -382,9 +372,9 @@ Partial Class UserControlTimeTable
         lbRemovedCM.Cursor = Cursors.Hand
         lbRemovedCM.FormattingEnabled = True
         lbRemovedCM.ItemHeight = 15
-        lbRemovedCM.Location = New Point(170, 62)
+        lbRemovedCM.Location = New Point(152, 62)
         lbRemovedCM.Name = "lbRemovedCM"
-        lbRemovedCM.Size = New Size(103, 124)
+        lbRemovedCM.Size = New Size(87, 124)
         lbRemovedCM.TabIndex = 7
         ' 
         ' Label10
@@ -407,7 +397,7 @@ Partial Class UserControlTimeTable
         btnCMRemove.IconColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         btnCMRemove.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnCMRemove.IconSize = 25
-        btnCMRemove.Location = New Point(124, 79)
+        btnCMRemove.Location = New Point(106, 79)
         btnCMRemove.Name = "btnCMRemove"
         btnCMRemove.Size = New Size(40, 40)
         btnCMRemove.TabIndex = 3
@@ -422,7 +412,7 @@ Partial Class UserControlTimeTable
         lbCM.ItemHeight = 15
         lbCM.Location = New Point(15, 62)
         lbCM.Name = "lbCM"
-        lbCM.Size = New Size(103, 124)
+        lbCM.Size = New Size(87, 124)
         lbCM.TabIndex = 2
         ' 
         ' Panel8
@@ -433,7 +423,7 @@ Partial Class UserControlTimeTable
         Panel8.Dock = DockStyle.Top
         Panel8.Location = New Point(0, 0)
         Panel8.Name = "Panel8"
-        Panel8.Size = New Size(399, 35)
+        Panel8.Size = New Size(301, 35)
         Panel8.TabIndex = 1
         ' 
         ' IconPictureBox2
@@ -443,7 +433,7 @@ Partial Class UserControlTimeTable
         IconPictureBox2.IconColor = Color.White
         IconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto
         IconPictureBox2.IconSize = 21
-        IconPictureBox2.Location = New Point(373, 7)
+        IconPictureBox2.Location = New Point(271, 9)
         IconPictureBox2.Name = "IconPictureBox2"
         IconPictureBox2.Size = New Size(21, 26)
         IconPictureBox2.TabIndex = 9
@@ -474,7 +464,7 @@ Partial Class UserControlTimeTable
         Panel3.Controls.Add(Label2)
         Panel3.Location = New Point(62, 69)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(399, 189)
+        Panel3.Size = New Size(301, 189)
         Panel3.TabIndex = 5
         ' 
         ' btnPlaneAdd
@@ -491,7 +481,7 @@ Partial Class UserControlTimeTable
         btnPlaneAdd.IconColor = Color.White
         btnPlaneAdd.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnPlaneAdd.IconSize = 25
-        btnPlaneAdd.Location = New Point(345, 44)
+        btnPlaneAdd.Location = New Point(252, 41)
         btnPlaneAdd.Name = "btnPlaneAdd"
         btnPlaneAdd.Size = New Size(40, 40)
         btnPlaneAdd.TabIndex = 13
@@ -503,7 +493,7 @@ Partial Class UserControlTimeTable
         lblShift.BackColor = Color.White
         lblShift.BorderStyle = BorderStyle.FixedSingle
         lblShift.FlatStyle = FlatStyle.Flat
-        lblShift.Location = New Point(107, 140)
+        lblShift.Location = New Point(93, 140)
         lblShift.Name = "lblShift"
         lblShift.Size = New Size(140, 23)
         lblShift.TabIndex = 12
@@ -512,7 +502,7 @@ Partial Class UserControlTimeTable
         ' 
         lblDay.BackColor = SystemColors.Window
         lblDay.BorderStyle = BorderStyle.FixedSingle
-        lblDay.Location = New Point(107, 109)
+        lblDay.Location = New Point(93, 109)
         lblDay.Name = "lblDay"
         lblDay.Size = New Size(140, 23)
         lblDay.TabIndex = 11
@@ -520,7 +510,7 @@ Partial Class UserControlTimeTable
         ' cbShiftTime
         ' 
         cbShiftTime.FormattingEnabled = True
-        cbShiftTime.Location = New Point(107, 77)
+        cbShiftTime.Location = New Point(93, 77)
         cbShiftTime.Name = "cbShiftTime"
         cbShiftTime.Size = New Size(140, 23)
         cbShiftTime.TabIndex = 10
@@ -529,7 +519,7 @@ Partial Class UserControlTimeTable
         ' 
         dtpDate.Cursor = Cursors.Hand
         dtpDate.Format = DateTimePickerFormat.Short
-        dtpDate.Location = New Point(108, 44)
+        dtpDate.Location = New Point(94, 44)
         dtpDate.MaxDate = New DateTime(2123, 3, 17, 0, 0, 0, 0)
         dtpDate.MinDate = New DateTime(2000, 1, 1, 0, 0, 0, 0)
         dtpDate.Name = "dtpDate"
@@ -540,7 +530,7 @@ Partial Class UserControlTimeTable
         ' Label5
         ' 
         Label5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(25, 144)
+        Label5.Location = New Point(11, 144)
         Label5.Name = "Label5"
         Label5.Size = New Size(66, 15)
         Label5.TabIndex = 8
@@ -553,7 +543,7 @@ Partial Class UserControlTimeTable
         Panel4.Dock = DockStyle.Top
         Panel4.Location = New Point(0, 0)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(399, 35)
+        Panel4.Size = New Size(301, 35)
         Panel4.TabIndex = 0
         ' 
         ' IconPictureBox1
@@ -563,7 +553,7 @@ Partial Class UserControlTimeTable
         IconPictureBox1.IconColor = Color.White
         IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto
         IconPictureBox1.IconSize = 21
-        IconPictureBox1.Location = New Point(373, 7)
+        IconPictureBox1.Location = New Point(271, 3)
         IconPictureBox1.Name = "IconPictureBox1"
         IconPictureBox1.Size = New Size(21, 26)
         IconPictureBox1.TabIndex = 9
@@ -582,7 +572,7 @@ Partial Class UserControlTimeTable
         ' Label3
         ' 
         Label3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(25, 81)
+        Label3.Location = New Point(11, 81)
         Label3.Name = "Label3"
         Label3.Size = New Size(66, 15)
         Label3.TabIndex = 6
@@ -590,7 +580,7 @@ Partial Class UserControlTimeTable
         ' Label4
         ' 
         Label4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(25, 113)
+        Label4.Location = New Point(11, 113)
         Label4.Name = "Label4"
         Label4.Size = New Size(66, 15)
         Label4.TabIndex = 7
@@ -598,7 +588,7 @@ Partial Class UserControlTimeTable
         ' Label2
         ' 
         Label2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(25, 48)
+        Label2.Location = New Point(11, 48)
         Label2.Name = "Label2"
         Label2.Size = New Size(66, 15)
         Label2.TabIndex = 5
@@ -610,24 +600,26 @@ Partial Class UserControlTimeTable
         Panel2.Controls.Add(Panel5)
         Panel2.Dock = DockStyle.Fill
         Panel2.ForeColor = Color.White
-        Panel2.Location = New Point(478, 0)
+        Panel2.Location = New Point(376, 0)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(555, 752)
+        Panel2.Size = New Size(657, 752)
         Panel2.TabIndex = 6
         ' 
         ' Panel9
         ' 
         Panel9.Controls.Add(dgvMain)
         Panel9.Dock = DockStyle.Fill
+        Panel9.ForeColor = Color.Black
         Panel9.Location = New Point(0, 56)
         Panel9.Name = "Panel9"
         Panel9.Padding = New Padding(10, 0, 10, 10)
-        Panel9.Size = New Size(555, 696)
+        Panel9.Size = New Size(657, 696)
         Panel9.TabIndex = 1
         ' 
         ' dgvMain
         ' 
         dgvMain.AllowUserToAddRows = False
+        dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -639,11 +631,11 @@ Partial Class UserControlTimeTable
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvMain.Columns.AddRange(New DataGridViewColumn() {Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9})
+        dgvMain.Columns.AddRange(New DataGridViewColumn() {Column2, Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9, Column3})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(0), CByte(0), CByte(64))
+        DataGridViewCellStyle2.BackColor = Color.Transparent
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
@@ -651,6 +643,7 @@ Partial Class UserControlTimeTable
         dgvMain.Dock = DockStyle.Fill
         dgvMain.Location = New Point(10, 0)
         dgvMain.Name = "dgvMain"
+        dgvMain.ReadOnly = True
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = SystemColors.Control
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -661,77 +654,117 @@ Partial Class UserControlTimeTable
         dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
-        dgvMain.Size = New Size(535, 686)
+        dgvMain.Size = New Size(637, 686)
         dgvMain.TabIndex = 0
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = ""
+        Column2.Name = "Column2"
+        Column2.ReadOnly = True
+        Column2.Resizable = DataGridViewTriState.True
+        Column2.SortMode = DataGridViewColumnSortMode.Automatic
+        Column2.Width = 20
         ' 
         ' Column1
         ' 
         Column1.HeaderText = "BAY NO"
-        Column1.Name = "Column1"' 
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        ' 
         ' noo
         ' 
         noo.HeaderText = "NO"
         noo.Name = "noo"
+        noo.ReadOnly = True
         noo.Width = 40
         ' 
         ' fli
         ' 
         fli.HeaderText = "FLIGHT"
-        fli.Name = "fli"' 
+        fli.Name = "fli"
+        fli.ReadOnly = True
+        ' 
         ' Column10
         ' 
         Column10.HeaderText = "ROUTE"
         Column10.Name = "Column10"
+        Column10.ReadOnly = True
         Column10.Width = 70
         ' 
         ' Column4
         ' 
         Column4.HeaderText = "E.T.A"
-        Column4.Name = "Column4"' 
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        ' 
         ' lines
         ' 
         lines.HeaderText = "AIRLINE"
-        lines.Name = "lines"' 
+        lines.Name = "lines"
+        lines.ReadOnly = True
+        ' 
         ' Column6
         ' 
         Column6.HeaderText = "RIC"
         Column6.Name = "Column6"
+        Column6.ReadOnly = True
         Column6.Width = 70
         ' 
         ' Column7
         ' 
         Column7.HeaderText = "OPERATOR"
         Column7.Name = "Column7"
+        Column7.ReadOnly = True
         Column7.Width = 70
         ' 
         ' Column8
         ' 
         Column8.HeaderText = "CREWMAN"
         Column8.Name = "Column8"
+        Column8.ReadOnly = True
         Column8.Width = 70
         ' 
         ' Column9
         ' 
         Column9.HeaderText = "REMARKS"
         Column9.Name = "Column9"
+        Column9.ReadOnly = True
         Column9.Width = 80
+        ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Is Confirm"
+        Column3.Name = "Column3"
+        Column3.ReadOnly = True
         ' 
         ' Panel5
         ' 
         Panel5.BackColor = SystemColors.ActiveCaption
+        Panel5.Controls.Add(lblTime)
         Panel5.Controls.Add(Panel10)
         Panel5.Dock = DockStyle.Top
+        Panel5.ForeColor = Color.Black
         Panel5.Location = New Point(0, 0)
         Panel5.Name = "Panel5"
         Panel5.Padding = New Padding(10)
-        Panel5.Size = New Size(555, 56)
+        Panel5.Size = New Size(657, 56)
         Panel5.TabIndex = 0
         ' 
+        ' lblTime
+        ' 
+        lblTime.AutoSize = True
+        lblTime.ForeColor = Color.Black
+        lblTime.Location = New Point(22, 20)
+        lblTime.Name = "lblTime"
+        lblTime.Size = New Size(33, 15)
+        lblTime.TabIndex = 5
+        lblTime.Text = "Time"' 
         ' Panel10
         ' 
         Panel10.Controls.Add(btnPrint)
         Panel10.Dock = DockStyle.Right
-        Panel10.Location = New Point(345, 10)
+        Panel10.Location = New Point(447, 10)
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(200, 36)
         Panel10.TabIndex = 4
@@ -758,6 +791,9 @@ Partial Class UserControlTimeTable
         ContextMenuStrip1.Name = "ContextMenuStrip1"
         ContextMenuStrip1.Size = New Size(61, 4)
         ' 
+        ' Timer1
+        ' 
+        ' 
         ' UserControlTimeTable
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -769,7 +805,6 @@ Partial Class UserControlTimeTable
         Size = New Size(1033, 752)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel7.ResumeLayout(False)
         Panel6.ResumeLayout(False)
         pnlRIC.ResumeLayout(False)
@@ -787,6 +822,7 @@ Partial Class UserControlTimeTable
         Panel9.ResumeLayout(False)
         CType(dgvMain, ComponentModel.ISupportInitialize).EndInit()
         Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
         Panel10.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
@@ -832,10 +868,13 @@ Partial Class UserControlTimeTable
     Friend WithEvents Label13 As Label
     Friend WithEvents btnRICRemove As FontAwesome.Sharp.IconButton
     Friend WithEvents lbRIC As ListBox
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents dgvMain As DataGridView
+    Friend WithEvents btnPrint As FontAwesome.Sharp.IconButton
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents Column2 As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents noo As DataGridViewTextBoxColumn
     Friend WithEvents fli As DataGridViewTextBoxColumn
@@ -846,7 +885,7 @@ Partial Class UserControlTimeTable
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents btnPrint As FontAwesome.Sharp.IconButton
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents Panel10 As Panel
+    Friend WithEvents Column3 As DataGridViewComboBoxColumn
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents lblTime As Label
 End Class

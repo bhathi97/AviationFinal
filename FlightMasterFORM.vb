@@ -10,6 +10,7 @@ Public Class FlightMasterFORM
             ALSaveModule.saveAirLine(tbName, tbCode, connsql)
             'load data
             ALLoadToGridModule.showInGrid(connsql, dgvAir)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

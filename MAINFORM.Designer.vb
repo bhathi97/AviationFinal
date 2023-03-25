@@ -128,7 +128,7 @@ Partial Class MAINFORM
         lblUser.AutoSize = True
         lblUser.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         lblUser.ForeColor = Color.White
-        lblUser.Location = New Point(46, 8)
+        lblUser.Location = New Point(49, 8)
         lblUser.Name = "lblUser"
         lblUser.Size = New Size(48, 20)
         lblUser.TabIndex = 4

@@ -324,10 +324,10 @@ Partial Class UserControlCREW
     Friend WithEvents btnUpdateCM As FontAwesome.Sharp.IconButton
     Friend WithEvents btnSaveCM As FontAwesome.Sharp.IconButton
     Friend WithEvents dgvCrew As DataGridView
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblSelectedID As Label
     Friend WithEvents AID As DataGridViewTextBoxColumn
     Friend WithEvents AName As DataGridViewTextBoxColumn
     Friend WithEvents AGroup As DataGridViewTextBoxColumn
     Friend WithEvents APosition As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents lblSelectedID As Label
 End Class

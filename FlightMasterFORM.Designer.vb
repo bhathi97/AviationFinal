@@ -139,6 +139,7 @@ Partial Class FlightMasterFORM
         ' lblCode
         ' 
         lblCode.AutoSize = True
+        lblCode.ForeColor = SystemColors.ControlLight
         lblCode.Location = New Point(139, 373)
         lblCode.Name = "lblCode"
         lblCode.Size = New Size(0, 15)
