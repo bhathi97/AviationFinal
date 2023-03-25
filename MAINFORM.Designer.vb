@@ -98,9 +98,9 @@ Partial Class MAINFORM
         btnLogout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(60), CByte(179))
         btnLogout.FlatStyle = FlatStyle.Flat
         btnLogout.ForeColor = Color.White
-        btnLogout.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBackward
+        btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignIn
         btnLogout.IconColor = Color.White
-        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnLogout.IconSize = 30
         btnLogout.Location = New Point(-26, 41)
         btnLogout.Name = "btnLogout"

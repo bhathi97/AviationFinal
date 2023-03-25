@@ -1,6 +1,8 @@
 ﻿
 
 Imports System.Data.SqlClient
+Imports System.Globalization
+Imports DocumentFormat.OpenXml.Spreadsheet
 Imports DocumentFormat.OpenXml.Wordprocessing
 Imports PdfSharpCore.Pdf.Content.Objects
 
@@ -18,12 +20,16 @@ Public Class UserControlTimeTable
 
         ' Set the font color of all cells in the DataGridView
 
-
+        'set the panel12
+        Panel12.Width = 30 ' Set new width 
+        btnResizePnl.IconChar = FontAwesome.Sharp.IconChar.AngleLeft
 
         '
         'Update the label text every second
         Timer1.Interval = 1000 ' 1 second
         Timer1.Start()
+
+
 
 
     End Sub
@@ -165,6 +171,7 @@ Public Class UserControlTimeTable
     Private Sub btnPlaneAdd_Click(sender As Object, e As EventArgs) Handles btnPlaneAdd.Click
         Try
             TTAddFlightsModule.addToTable(connsql, lblShift, dtpDate, dgvMain)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -242,6 +249,30 @@ Public Class UserControlTimeTable
     ' Handles Timer1.Tick
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ' Update the label text with the current time
-        lblTime.Text = DateTime.Now.ToString("h:mm:ss")
+        lblTime.Text = DateTime.Now.ToString("HH:mm")
     End Sub
+
+    ' Handles btnResizePnl.Click
+    Private Sub btnResizePnl_Click(sender As Object, e As EventArgs) Handles btnResizePnl.Click
+        If Panel12.Width = 250 Then
+            Panel12.Width = 30 ' Set new width 
+            btnResizePnl.IconChar = FontAwesome.Sharp.IconChar.AngleLeft
+        Else
+            Panel12.Width = 250 ' Set new width
+            btnResizePnl.IconChar = FontAwesome.Sharp.IconChar.AngleRight
+        End If
+    End Sub
+
+
+
+    'Handles lblTime.TextChanged
+    Private Sub lblTime_TextChanged(sender As Object, e As EventArgs) Handles lblTime.TextChanged
+        'get row count
+        'Dim rowCount As Integer = dgvMain.RowCount
+        checkBoxValueSet(dgvMain, lblTime)
+
+    End Sub
+
+
+
 End Class

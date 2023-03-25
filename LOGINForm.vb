@@ -36,6 +36,20 @@ Public Class LOGINForm
         End Try
     End Sub
 
+    'Handles MyBase.FormClosing
+    Private Sub LOGINForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Prompt the user to confirm the application shutdown.
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' If the user clicks Yes, exit the application.
+        If result = DialogResult.Yes Then
+            Application.Exit()
+        Else
+            ' If the user clicks No, cancel the form closing event.
+            e.Cancel = True
+        End If
+    End Sub
+
 
 
 
