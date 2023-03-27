@@ -1,4 +1,5 @@
 ﻿Imports DocumentFormat.OpenXml.VariantTypes
+Imports System.ComponentModel
 Imports System.Data.SqlClient
 Imports System.DirectoryServices.ActiveDirectory
 
@@ -15,6 +16,10 @@ Module TTAddFlightsModule
         Dim today As Date
         today = tpDate.Text
 
+        Dim tomorrow As Date
+        tomorrow = Date.Parse(tpDate.Text)
+        tomorrow = tomorrow.AddDays(1)
+
         Try
             con.Open()
 
@@ -24,7 +29,7 @@ Module TTAddFlightsModule
                 If Criteria = "Day" Then
 
                     Dim table As DataTable = New DataTable()
-                    Dim cmd As New SqlCommand("SELECT FID, ETA FROM [FLIGHT_TIME_TABLE] WHERE [ETA] BETWEEN '07:00:00' AND '19:00:00' AND [DATE] = @date ", con)
+                    Dim cmd As New SqlCommand("SELECT FID, ETA, DATE FROM [FLIGHT_TIME_TABLE] WHERE [ETA] BETWEEN '07:00:00' AND '19:00:00' AND [DATE] = @date ", con)
                     cmd.Parameters.AddWithValue("@date", today)
 
                     Using adapter As New SqlDataAdapter(cmd)
@@ -67,12 +72,15 @@ Module TTAddFlightsModule
                     Next
 
                     dgvMain.AutoGenerateColumns = False ' disable auto-generation of columns
-
+                    dgvMain.Columns("Column5").DataPropertyName = "DATE"
                     dgvMain.Columns("Column4").DataPropertyName = "ETA"
                     dgvMain.Columns("fli").DataPropertyName = "fli"
                     dgvMain.Columns("lines").DataPropertyName = "lines"
 
-                    ' Set the DataSource of the DataGridView to the DataTable
+                    ' Set the Sort property of the DefaultView of the DataTable
+                    table.DefaultView.Sort = "ETA ASC"
+
+                    ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
                     ' Get the row count of the DataGridView control
@@ -88,8 +96,9 @@ Module TTAddFlightsModule
                 If Criteria = "Night" Then
 
                     Dim table As DataTable = New DataTable()
-                    Dim cmd As New SqlCommand("SELECT FID, ETA FROM [FLIGHT_TIME_TABLE]WHERE [ETA] BETWEEN '00:00:00' AND '07:00:00' OR [ETA] BETWEEN '19:00:00' AND '23:59:59' AND [DATE] = @date ", con)
+                    Dim cmd As New SqlCommand("SELECT FID, ETA, DATE FROM [FLIGHT_TIME_TABLE]WHERE [ETA] BETWEEN '19:00:00' AND '23:59:59' AND [DATE] = @date OR [ETA] BETWEEN '00:00:00' AND '07:00:00' AND [DATE] = @date2", con)
                     cmd.Parameters.AddWithValue("@date", today)
+                    cmd.Parameters.AddWithValue("@date2", tomorrow)
                     Using adapter As New SqlDataAdapter(cmd)
                         adapter.Fill(table)
                     End Using
@@ -131,12 +140,17 @@ Module TTAddFlightsModule
                     Next
 
                     dgvMain.AutoGenerateColumns = False ' disable auto-generation of columns
-
+                    dgvMain.Columns("Column5").DataPropertyName = "DATE"
                     dgvMain.Columns("Column4").DataPropertyName = "ETA"
                     dgvMain.Columns("fli").DataPropertyName = "fli"
                     dgvMain.Columns("lines").DataPropertyName = "lines"
 
-                    ' Set the DataSource of the DataGridView to the DataTable
+
+                    ' Set the Sort property of the DefaultView of the DataTable
+                    table.DefaultView.Sort = "Date ASC, ETA ASC"
+
+
+                    ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
                     'get row count
@@ -156,5 +170,8 @@ Module TTAddFlightsModule
 
 
     End Sub
+
+
+
 
 End Module

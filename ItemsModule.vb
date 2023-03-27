@@ -1,6 +1,7 @@
 ﻿
 
 Imports DocumentFormat.OpenXml.Bibliography
+Imports PdfSharpCore.Pdf.Content.Objects
 Imports System.Data.SqlClient
 
 Module ItemsModule
@@ -41,6 +42,7 @@ Module ItemsModule
     Public Sub CrewmanAddingSelectPosistion(cb As ComboBox) 'Load positions into combo box
         cb.Items.Add("CREWMEN")
         cb.Items.Add("RIC")
+        cb.Items.Add("OPERATOR")
     End Sub
 
 
@@ -141,5 +143,34 @@ Module ItemsModule
         End Try
     End Sub
 
+
+    'add operators to TT selected data update form
+
+    Public Sub addOperators(connsql As SqlConnection, cb As ComboBox)
+        Try
+            connsql.Open()
+
+            Dim cmd As New SqlCommand("SELECT NAME FROM CREWMEMBERS_MASTER_TABLE WHERE POSITION = 'OPERATOR'", connsql)
+            Dim oper = cmd.ExecuteScalar()
+            cb.Items.Add(oper.ToString())
+            connsql.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
+    End Sub
+
+
+    'remarks for update
+    Public Sub remarkAdd(cb As ComboBox)
+        cb.Items.Add("HY/Y")
+        cb.Items.Add("REF-24")
+        cb.Items.Add("REF-11")
+        cb.Items.Add("TATA")
+
+    End Sub
 
 End Module

@@ -1,7 +1,10 @@
 ﻿
 
+Imports System.ComponentModel
 Imports System.Data.SqlClient
 Imports System.Globalization
+Imports System.Windows.Controls
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock
 Imports DocumentFormat.OpenXml.Spreadsheet
 Imports DocumentFormat.OpenXml.Wordprocessing
 Imports PdfSharpCore.Pdf.Content.Objects
@@ -33,6 +36,14 @@ Public Class UserControlTimeTable
         Timer1.Start()
 
         'dgvMain.DataSource = dataTable ' Set the DataSource of the DataGridView to the dataTable variable
+
+        'load update field data
+        addOperators(connsql, cbOPerater)
+        remarkAdd(cboxremarks)
+
+        'load date
+        Dim currentDate As Date = Date.Today
+        lbltoday.Text = currentDate.ToString("dd/MM/yyyy") ' Displays the current date in the format "dd/MM/yyyy" on a label control
 
 
     End Sub
@@ -175,6 +186,7 @@ Public Class UserControlTimeTable
         Try
             TTAddFlightsModule.addToTable(connsql, lblShift, dtpDate, dgvMain)
 
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -272,12 +284,14 @@ Public Class UserControlTimeTable
     Private Sub lblTime_TextChanged(sender As Object, e As EventArgs) Handles lblTime.TextChanged
         'get row count
         'Dim rowCount As Integer = dgvMain.RowCount
-        checkBoxValueSet(dgvMain, lblTime)
+        checkBoxValueSet(dgvMain, lblTime, lbltoday)
 
     End Sub
 
     ' Handles dgvMain.CellClick
     Private Sub dgvMain_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMain.CellClick
+
+
         'Get the selected row data
         Dim selectedRow As DataGridViewRow = dgvMain.CurrentRow
 
@@ -292,8 +306,29 @@ Public Class UserControlTimeTable
         tbBayNo.Text = bay
         cbOPerater.Text = operater
         cboxremarks.Text = remark
+        lblETAShow.Text = eta.ToString()
+        'enable the button
+        btnUpdateData.Enabled = True
 
     End Sub
 
 
+    'Handles btnUpdateData.Click
+    Private Sub btnUpdateData_Click(sender As Object, e As EventArgs) Handles btnUpdateData.Click
+        Try
+            For Each row As DataGridViewRow In dgvMain.Rows
+                If Not row.IsNewRow AndAlso row.Cells(3).Value IsNot Nothing AndAlso row.Cells(3).Value.ToString() = lblSelectedFlight.Text AndAlso row.Cells(5).Value IsNot Nothing AndAlso row.Cells(5).Value.ToString() = lblETAShow.Text Then
+                    row.Cells(1).Value = tbBayNo.Text
+                    row.Cells(8).Value = cbOPerater.Text
+                    row.Cells(10).Value = cboxremarks.Text
+                    Exit For
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class
+
+
+

@@ -21,6 +21,9 @@ Public Class MAINFORM
         PanelLoad.Controls.Add(userControlTT)
         userControlTT.BringToFront()
 
+
+        btnShedule.Enabled = False
+
     End Sub
 
     'Handles btnMenu.Click

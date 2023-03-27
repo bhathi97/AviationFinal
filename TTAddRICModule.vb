@@ -10,7 +10,7 @@ Module TTAddRICModule
 
             For i As Integer = 0 To dgv.Rows.Count - 1
                 If flag < itemCount Then
-                    dgv.Rows(i).Cells("Column8").Value = lb.Items(flag).ToString()
+                    dgv.Rows(i).Cells("Column6").Value = lb.Items(flag).ToString()
                     flag += 1
                     If flag = itemCount Then flag = 0 ' reset flag if it reaches the end of the ListView
 
@@ -25,7 +25,7 @@ Module TTAddRICModule
 
             For i As Integer = 0 To dgv.RowCount - 1
 
-                dgv.Rows(i).Cells("Column8").Value = lb.Items(0).ToString()
+                dgv.Rows(i).Cells("Column6").Value = lb.Items(0).ToString()
             Next
 
         End If
