@@ -5,8 +5,11 @@ Imports System.Globalization
 Imports DocumentFormat.OpenXml.Spreadsheet
 Imports DocumentFormat.OpenXml.Wordprocessing
 Imports PdfSharpCore.Pdf.Content.Objects
+Imports SixLabors.Fonts.Tables.General
 
 Public Class UserControlTimeTable
+
+    ' Private dataTable As DataTable ' Declare a private variable to store the data table of the DataGridView
 
     Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
     Dim connsql As New SqlConnection(str)
@@ -29,7 +32,7 @@ Public Class UserControlTimeTable
         Timer1.Interval = 1000 ' 1 second
         Timer1.Start()
 
-
+        'dgvMain.DataSource = dataTable ' Set the DataSource of the DataGridView to the dataTable variable
 
 
     End Sub
@@ -273,6 +276,24 @@ Public Class UserControlTimeTable
 
     End Sub
 
+    ' Handles dgvMain.CellClick
+    Private Sub dgvMain_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMain.CellClick
+        'Get the selected row data
+        Dim selectedRow As DataGridViewRow = dgvMain.CurrentRow
+
+        ' Get the values of the cells in the selected row
+        Dim flightNo As Object = selectedRow.Cells(3).Value 'flight
+        Dim eta As Object = selectedRow.Cells(5).Value
+        Dim bay As Object = selectedRow.Cells(1).Value
+        Dim operater As Object = selectedRow.Cells(8).Value
+        Dim remark As Object = selectedRow.Cells(10).Value
+
+        lblSelectedFlight.Text = flightNo
+        tbBayNo.Text = bay
+        cbOPerater.Text = operater
+        cboxremarks.Text = remark
+
+    End Sub
 
 
 End Class

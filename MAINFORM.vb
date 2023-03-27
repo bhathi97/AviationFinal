@@ -1,8 +1,11 @@
 ﻿
 Imports System.Windows
 Imports System.Windows.Controls
+Imports DocumentFormat.OpenXml.Drawing.Diagrams
 
 Public Class MAINFORM
+
+    Private gridDataOfTTUserControl As DataTable ' to store grid data of TT user control 
 
     'Define a string variable to store the state of the sidebar (open or close)
     Dim sidebarState As String = "Open"
@@ -51,34 +54,86 @@ Public Class MAINFORM
     End Sub
     'Handles btnFlight.Click
     Private Sub btnFlight_Click(sender As Object, e As EventArgs) Handles btnFlight.Click
-        Dim userControlAF As New UserControlAF()
-        userControlAF.Dock = DockStyle.Fill
-        PanelLoad.Controls.Add(userControlAF)
-        userControlAF.BringToFront()
+
+        Try
+            Dim userControlAF As New UserControlAF()
+            userControlAF.Dock = DockStyle.Fill
+            PanelLoad.Controls.Add(userControlAF)
+            userControlAF.BringToFront()
+
+            btnShedule.Enabled = True
+            btnFlight.Enabled = False
+            btnCrew.Enabled = True
+            btnAdminSetting.Enabled = True
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
     End Sub
 
     'Handles btnCrew.Click
     Private Sub btnCrew_Click(sender As Object, e As EventArgs) Handles btnCrew.Click
-        Dim userControlC As New UserControlCREW()
-        userControlC.Dock = DockStyle.Fill
-        PanelLoad.Controls.Add(userControlC)
-        userControlC.BringToFront()
+
+        Try
+            Dim userControlC As New UserControlCREW()
+            userControlC.Dock = DockStyle.Fill
+            PanelLoad.Controls.Add(userControlC)
+            userControlC.BringToFront()
+
+
+            btnShedule.Enabled = True
+            btnFlight.Enabled = True
+            btnCrew.Enabled = False
+            btnAdminSetting.Enabled = True
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     'Handles btnShedule.Click
     Private Sub btnShedule_Click(sender As Object, e As EventArgs) Handles btnShedule.Click
-        Dim userControlTT As New UserControlTimeTable()
-        userControlTT.Dock = DockStyle.Fill
-        PanelLoad.Controls.Add(userControlTT)
-        userControlTT.BringToFront()
+        Try
+
+            Dim userControlTT As New UserControlTimeTable()
+            userControlTT.Dock = DockStyle.Fill
+            PanelLoad.Controls.Add(userControlTT)
+            userControlTT.BringToFront()
+
+            btnShedule.Enabled = False
+            btnFlight.Enabled = True
+            btnCrew.Enabled = True
+            btnAdminSetting.Enabled = True
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
     End Sub
 
     'Handles btnAdminSetting.Click
     Private Sub btnAdminSetting_Click(sender As Object, e As EventArgs) Handles btnAdminSetting.Click
-        Dim userControlAD As New UserControlAdminSetting()
-        userControlAD.Dock = DockStyle.Fill
-        PanelLoad.Controls.Add(userControlAD)
-        userControlAD.BringToFront()
+        Try
+            Dim userControlAD As New UserControlAdminSetting()
+            userControlAD.Dock = DockStyle.Fill
+            PanelLoad.Controls.Add(userControlAD)
+            userControlAD.BringToFront()
+
+            btnShedule.Enabled = True
+            btnFlight.Enabled = True
+            btnCrew.Enabled = True
+            btnAdminSetting.Enabled = False
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     'Handles btnLogout.Click
