@@ -41,7 +41,7 @@ Partial Class LOGINForm
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(205, 416)
+        Label4.Location = New Point(266, 474)
         Label4.Name = "Label4"
         Label4.Size = New Size(286, 15)
         Label4.TabIndex = 4
@@ -143,7 +143,7 @@ Partial Class LOGINForm
         Panel2.Controls.Add(tbUName)
         Panel2.Controls.Add(Label3)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(170, 27)
+        Panel2.Location = New Point(231, 85)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(366, 386)
         Panel2.TabIndex = 3
@@ -152,14 +152,14 @@ Partial Class LOGINForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackgroundImage = My.Resources.Resources.LGbg
+        BackgroundImage = My.Resources.Resources.LOGIN
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(684, 461)
+        ClientSize = New Size(784, 561)
         Controls.Add(Label4)
         Controls.Add(Panel2)
         DoubleBuffered = True
         ForeColor = Color.White
-        MaximumSize = New Size(700, 500)
+        MaximumSize = New Size(800, 600)
         Name = "LOGINForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "LOGIN - DAILY WORK SCHEDULE"

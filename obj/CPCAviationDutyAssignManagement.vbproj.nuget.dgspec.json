@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj": {}
+    "C:\\Users\\bhath\\Source\\Repos\\AviationSystemNew\\CPCAviationDutyAssignManagement.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj": {
+    "C:\\Users\\bhath\\Source\\Repos\\AviationSystemNew\\CPCAviationDutyAssignManagement.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj",
+        "projectUniqueName": "C:\\Users\\bhath\\Source\\Repos\\AviationSystemNew\\CPCAviationDutyAssignManagement.vbproj",
         "projectName": "CPCAviationDutyAssignManagement",
-        "projectPath": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\CPCAviationDutyAssignManagement.vbproj",
+        "projectPath": "C:\\Users\\bhath\\Source\\Repos\\AviationSystemNew\\CPCAviationDutyAssignManagement.vbproj",
         "packagesPath": "C:\\Users\\bhath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bhath\\source\\repos\\CPCAviationDutyAssignManagement\\obj\\",
+        "outputPath": "C:\\Users\\bhath\\Source\\Repos\\AviationSystemNew\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
