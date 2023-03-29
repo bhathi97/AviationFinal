@@ -43,3 +43,4 @@ C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-win
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.LOGINForm.resources
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\bin\Debug\net6.0-windows\Images\LGbg.jpg
 C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.UserControlAdminSetting.resources
+C:\Users\bhath\source\repos\CPCAviationDutyAssignManagement\obj\Debug\net6.0-windows\CPCAviationDutyAssignManagement.CharterAddForm.resources

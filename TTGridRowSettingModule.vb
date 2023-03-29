@@ -5,15 +5,16 @@ Imports ClosedXML
 
 Module TTGridRowSettingModule
 
+    Private myUserControlTimeTable As UserControlTimeTable
+
     Public Sub clickEvent(e As ToolStripItemClickedEventArgs, dgvMain As DataGridView)
+
         Select Case e.ClickedItem.Name
 
             Case "AddRow"
-                Dim dv As DataView = CType(dgvMain.DataSource, DataView)
-                Dim newRow As DataRowView = dv.AddNew()
-                Dim selectedIndex As Integer = dgvMain.SelectedRows(0).Index ' Get the index of the selected row
-                dv.Table.Rows.InsertAt(newRow.Row, selectedIndex + 1) ' Insert the new row below the selected row
-                newRow.EndEdit()
+                Dim Form As New CharterAddForm()
+                Form.Show()
+
 
                 ' Update the NO column values
                 For i As Integer = 0 To dgvMain.Rows.Count - 1

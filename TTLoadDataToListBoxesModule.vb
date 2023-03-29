@@ -19,7 +19,7 @@ Module TTLoadDataToListBoxesModule
 
         Try
             con.Open()
-            '> CREWMEN
+            'CREWMEN
             Dim cmd As New SqlCommand("SELECT * FROM [CREWMEMBERS_MASTER_TABLE] WHERE [GROUP] = @GroupName AND POSITION = 'CREWMEN'", con)
             cmd.Parameters.AddWithValue("@GroupName", var_GroupName)
             Dim reader As SqlDataReader = cmd.ExecuteReader()
@@ -29,7 +29,7 @@ Module TTLoadDataToListBoxesModule
             End While
             reader.Close()
 
-            '>RIC
+            'RIC
             Dim cmdToLoadRIC As New SqlCommand("SELECT * FROM [CREWMEMBERS_MASTER_TABLE] WHERE [GROUP] = @GroupName AND POSITION = 'RIC'", con)
             cmdToLoadRIC.Parameters.AddWithValue("@GroupName", var_GroupName)
 

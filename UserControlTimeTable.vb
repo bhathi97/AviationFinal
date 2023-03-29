@@ -17,6 +17,28 @@ Public Class UserControlTimeTable
     Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
     Dim connsql As New SqlConnection(str)
 
+
+    'public function to update the DataGridView spescific columns
+    'Public Sub UpdateDataGridView(ByVal row As DataGridViewRow,
+    '                              ByVal bayNo As String,
+    '                             ByVal flight As String,
+    '                            ByVal route As String,
+    '                           ByVal eta As String,
+    '                             ByVal air As String,
+    '                          ByVal remarks As String,
+    '                           ByVal dateAdd As String)
+    '  row.Cells(1).Value = bayNo
+    '  row.Cells(3).Value = flight
+    '  row.Cells(4).Value = route
+    ' row.Cells(10).Value = remarks
+    '  row.Cells(5).Value = eta
+    '  row.Cells(6).Value = air
+    '  row.Cells(12).Value = dateAdd
+    'End Sub
+
+
+
+
     'Handles MyBase.Load
     Private Sub UserControlTimeTable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = DateTime.Today 'load today
@@ -44,6 +66,7 @@ Public Class UserControlTimeTable
         'load date
         Dim currentDate As Date = Date.Today
         lbltoday.Text = currentDate.ToString("dd/MM/yyyy") ' Displays the current date in the format "dd/MM/yyyy" on a label control
+
 
 
     End Sub
@@ -255,7 +278,15 @@ Public Class UserControlTimeTable
     'Handles ContextMenuStrip1.ItemClicked
     Private Sub ContextMenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ContextMenuStrip1.ItemClicked
         Try
+            ' Disable the main form
+            Me.Enabled = False
+
+
             TTGridRowSettingModule.clickEvent(e, dgvMain)
+
+            ' Enable the main form after the new form is closed
+            Me.Enabled = True
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -301,12 +332,14 @@ Public Class UserControlTimeTable
         Dim bay As Object = selectedRow.Cells(1).Value
         Dim operater As Object = selectedRow.Cells(8).Value
         Dim remark As Object = selectedRow.Cells(10).Value
+        Dim route As Object = selectedRow.Cells(4).Value
 
         lblSelectedFlight.Text = flightNo
         tbBayNo.Text = bay
         cbOPerater.Text = operater
         cboxremarks.Text = remark
         lblETAShow.Text = eta.ToString()
+        tbRoute.Text = route
         'enable the button
         btnUpdateData.Enabled = True
 
@@ -321,6 +354,7 @@ Public Class UserControlTimeTable
                     row.Cells(1).Value = tbBayNo.Text
                     row.Cells(8).Value = cbOPerater.Text
                     row.Cells(10).Value = cboxremarks.Text
+                    row.Cells(4).Value = tbRoute.Text
                     Exit For
                 End If
             Next
@@ -328,6 +362,14 @@ Public Class UserControlTimeTable
             MsgBox(ex.Message)
         End Try
     End Sub
+
+
+
+
+
+
+
+
 End Class
 
 

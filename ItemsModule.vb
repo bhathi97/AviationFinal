@@ -108,7 +108,7 @@ Module ItemsModule
 
         Try
 
-            For j As Integer = 0 To 60
+            For j As Integer = 0 To 59
                 Dim formattedNumber As String = j.ToString("D2")
                 cb.Items.Add(formattedNumber.ToString())
             Next
@@ -170,6 +170,23 @@ Module ItemsModule
         cb.Items.Add("REF-24")
         cb.Items.Add("REF-11")
         cb.Items.Add("TATA")
+
+    End Sub
+
+    'load airlines
+    Public Sub AirLineLoad(connsql As SqlConnection, cb As ComboBox)
+
+        Dim cmd As New SqlCommand("SELECT * FROM AIRLINE_MASTER_TABLE", connsql)
+        connsql.Open()
+
+        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        While reader.Read()
+            cb.Items.Add(reader("Airline_Name").ToString())
+        End While
+
+        reader.Close()
+        connsql.Close()
+
 
     End Sub
 

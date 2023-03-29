@@ -23,9 +23,9 @@ Partial Class UserControlTimeTable
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         Panel7 = New Panel()
@@ -84,27 +84,13 @@ Partial Class UserControlTimeTable
         Column3 = New DataGridViewComboBoxColumn()
         Column5 = New DataGridViewTextBoxColumn()
         Panel12 = New Panel()
+        tbRoute = New TextBox()
+        Label18 = New Label()
         lblETAShow = New Label()
         Label16 = New Label()
-        btnDeleteCharter = New FontAwesome.Sharp.IconButton()
-        btnUpdateCharter = New FontAwesome.Sharp.IconButton()
         Label17 = New Label()
         lblSelectedFlight = New Label()
         cbOPerater = New ComboBox()
-        btnNewCharter = New FontAwesome.Sharp.IconButton()
-        Label20 = New Label()
-        cbRemarkCharter = New ComboBox()
-        Label21 = New Label()
-        cbAirCharter = New ComboBox()
-        Label22 = New Label()
-        cbEtaMCharter = New ComboBox()
-        cbEtaHCharter = New ComboBox()
-        Label23 = New Label()
-        tbFlightCharter = New TextBox()
-        tbBayNoCharter = New TextBox()
-        Label24 = New Label()
-        Label25 = New Label()
-        IconButton2 = New FontAwesome.Sharp.IconButton()
         btnUpdateData = New FontAwesome.Sharp.IconButton()
         Label19 = New Label()
         cboxremarks = New ComboBox()
@@ -113,12 +99,12 @@ Partial Class UserControlTimeTable
         Label14 = New Label()
         btnResizePnl = New FontAwesome.Sharp.IconButton()
         Panel5 = New Panel()
+        lbltoday = New Label()
         lblTime = New Label()
         Panel10 = New Panel()
         btnPrint = New FontAwesome.Sharp.IconButton()
-        ContextMenuStrip1 = New ContextMenuStrip(components)
         Timer1 = New Timer(components)
-        lbltoday = New Label()
+        ContextMenuStrip1 = New ContextMenuStrip(components)
         Panel1.SuspendLayout()
         Panel7.SuspendLayout()
         Panel6.SuspendLayout()
@@ -668,36 +654,36 @@ Partial Class UserControlTimeTable
         dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = SystemColors.Control
-        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle7.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = SystemColors.Control
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column2, Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9, Column3, Column5})
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = Color.WhiteSmoke
-        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle8.ForeColor = Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
-        dgvMain.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = Color.WhiteSmoke
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        dgvMain.DefaultCellStyle = DataGridViewCellStyle5
         dgvMain.Dock = DockStyle.Fill
         dgvMain.Location = New Point(5, 5)
         dgvMain.Name = "dgvMain"
         dgvMain.ReadOnly = True
-        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = SystemColors.Control
-        DataGridViewCellStyle9.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle9.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = DataGridViewTriState.True
-        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = SystemColors.Control
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
         dgvMain.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -803,27 +789,13 @@ Partial Class UserControlTimeTable
         ' Panel12
         ' 
         Panel12.BackColor = SystemColors.ControlLight
+        Panel12.Controls.Add(tbRoute)
+        Panel12.Controls.Add(Label18)
         Panel12.Controls.Add(lblETAShow)
         Panel12.Controls.Add(Label16)
-        Panel12.Controls.Add(btnDeleteCharter)
-        Panel12.Controls.Add(btnUpdateCharter)
         Panel12.Controls.Add(Label17)
         Panel12.Controls.Add(lblSelectedFlight)
         Panel12.Controls.Add(cbOPerater)
-        Panel12.Controls.Add(btnNewCharter)
-        Panel12.Controls.Add(Label20)
-        Panel12.Controls.Add(cbRemarkCharter)
-        Panel12.Controls.Add(Label21)
-        Panel12.Controls.Add(cbAirCharter)
-        Panel12.Controls.Add(Label22)
-        Panel12.Controls.Add(cbEtaMCharter)
-        Panel12.Controls.Add(cbEtaHCharter)
-        Panel12.Controls.Add(Label23)
-        Panel12.Controls.Add(tbFlightCharter)
-        Panel12.Controls.Add(tbBayNoCharter)
-        Panel12.Controls.Add(Label24)
-        Panel12.Controls.Add(Label25)
-        Panel12.Controls.Add(IconButton2)
         Panel12.Controls.Add(btnUpdateData)
         Panel12.Controls.Add(Label19)
         Panel12.Controls.Add(cboxremarks)
@@ -839,6 +811,22 @@ Partial Class UserControlTimeTable
         Panel12.Size = New Size(250, 696)
         Panel12.TabIndex = 2
         ' 
+        ' tbRoute
+        ' 
+        tbRoute.Location = New Point(43, 165)
+        tbRoute.Name = "tbRoute"
+        tbRoute.Size = New Size(165, 23)
+        tbRoute.TabIndex = 37
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label18.Location = New Point(41, 147)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(46, 15)
+        Label18.TabIndex = 36
+        Label18.Text = "ROUTE"' 
         ' lblETAShow
         ' 
         lblETAShow.AutoSize = True
@@ -857,54 +845,6 @@ Partial Class UserControlTimeTable
         Label16.Size = New Size(27, 15)
         Label16.TabIndex = 34
         Label16.Text = "AT :"' 
-        ' btnDeleteCharter
-        ' 
-        btnDeleteCharter.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnDeleteCharter.BackgroundImageLayout = ImageLayout.None
-        btnDeleteCharter.Cursor = Cursors.Hand
-        btnDeleteCharter.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
-        btnDeleteCharter.FlatAppearance.BorderSize = 0
-        btnDeleteCharter.FlatAppearance.MouseDownBackColor = Color.White
-        btnDeleteCharter.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnDeleteCharter.FlatStyle = FlatStyle.Flat
-        btnDeleteCharter.ForeColor = Color.WhiteSmoke
-        btnDeleteCharter.IconChar = FontAwesome.Sharp.IconChar.Plane
-        btnDeleteCharter.IconColor = Color.White
-        btnDeleteCharter.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnDeleteCharter.IconSize = 25
-        btnDeleteCharter.Location = New Point(45, 653)
-        btnDeleteCharter.Name = "btnDeleteCharter"
-        btnDeleteCharter.Size = New Size(166, 29)
-        btnDeleteCharter.TabIndex = 33
-        btnDeleteCharter.Text = "DELETE"
-        btnDeleteCharter.TextAlign = ContentAlignment.MiddleRight
-        btnDeleteCharter.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnDeleteCharter.UseVisualStyleBackColor = False
-        ' 
-        ' btnUpdateCharter
-        ' 
-        btnUpdateCharter.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnUpdateCharter.BackgroundImageLayout = ImageLayout.None
-        btnUpdateCharter.Cursor = Cursors.Hand
-        btnUpdateCharter.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
-        btnUpdateCharter.FlatAppearance.BorderSize = 0
-        btnUpdateCharter.FlatAppearance.MouseDownBackColor = Color.White
-        btnUpdateCharter.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnUpdateCharter.FlatStyle = FlatStyle.Flat
-        btnUpdateCharter.ForeColor = Color.WhiteSmoke
-        btnUpdateCharter.IconChar = FontAwesome.Sharp.IconChar.Plane
-        btnUpdateCharter.IconColor = Color.White
-        btnUpdateCharter.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnUpdateCharter.IconSize = 25
-        btnUpdateCharter.Location = New Point(45, 618)
-        btnUpdateCharter.Name = "btnUpdateCharter"
-        btnUpdateCharter.Size = New Size(166, 29)
-        btnUpdateCharter.TabIndex = 32
-        btnUpdateCharter.Text = "UPDATE"
-        btnUpdateCharter.TextAlign = ContentAlignment.MiddleRight
-        btnUpdateCharter.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnUpdateCharter.UseVisualStyleBackColor = False
-        ' 
         ' Label17
         ' 
         Label17.AutoSize = True
@@ -928,154 +868,10 @@ Partial Class UserControlTimeTable
         ' cbOPerater
         ' 
         cbOPerater.FormattingEnabled = True
-        cbOPerater.Location = New Point(42, 161)
+        cbOPerater.Location = New Point(42, 217)
         cbOPerater.Name = "cbOPerater"
         cbOPerater.Size = New Size(166, 23)
         cbOPerater.TabIndex = 29
-        ' 
-        ' btnNewCharter
-        ' 
-        btnNewCharter.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnNewCharter.BackgroundImageLayout = ImageLayout.None
-        btnNewCharter.Cursor = Cursors.Hand
-        btnNewCharter.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
-        btnNewCharter.FlatAppearance.BorderSize = 0
-        btnNewCharter.FlatAppearance.MouseDownBackColor = Color.White
-        btnNewCharter.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnNewCharter.FlatStyle = FlatStyle.Flat
-        btnNewCharter.ForeColor = Color.WhiteSmoke
-        btnNewCharter.IconChar = FontAwesome.Sharp.IconChar.Plane
-        btnNewCharter.IconColor = Color.White
-        btnNewCharter.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnNewCharter.IconSize = 25
-        btnNewCharter.Location = New Point(45, 583)
-        btnNewCharter.Name = "btnNewCharter"
-        btnNewCharter.Size = New Size(166, 29)
-        btnNewCharter.TabIndex = 28
-        btnNewCharter.Text = "SAVE"
-        btnNewCharter.TextAlign = ContentAlignment.MiddleRight
-        btnNewCharter.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnNewCharter.UseVisualStyleBackColor = False
-        ' 
-        ' Label20
-        ' 
-        Label20.AutoSize = True
-        Label20.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label20.Location = New Point(43, 523)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(63, 15)
-        Label20.TabIndex = 27
-        Label20.Text = "REMARKS"' 
-        ' cbRemarkCharter
-        ' 
-        cbRemarkCharter.FormattingEnabled = True
-        cbRemarkCharter.Location = New Point(42, 541)
-        cbRemarkCharter.Name = "cbRemarkCharter"
-        cbRemarkCharter.Size = New Size(166, 23)
-        cbRemarkCharter.TabIndex = 26
-        ' 
-        ' Label21
-        ' 
-        Label21.AutoSize = True
-        Label21.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label21.Location = New Point(41, 475)
-        Label21.Name = "Label21"
-        Label21.Size = New Size(59, 15)
-        Label21.TabIndex = 25
-        Label21.Text = "AIRLINES"' 
-        ' cbAirCharter
-        ' 
-        cbAirCharter.FormattingEnabled = True
-        cbAirCharter.Location = New Point(43, 493)
-        cbAirCharter.Name = "cbAirCharter"
-        cbAirCharter.Size = New Size(164, 23)
-        cbAirCharter.TabIndex = 24
-        ' 
-        ' Label22
-        ' 
-        Label22.AutoSize = True
-        Label22.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label22.Location = New Point(120, 449)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(10, 15)
-        Label22.TabIndex = 23
-        Label22.Text = ":"' 
-        ' cbEtaMCharter
-        ' 
-        cbEtaMCharter.FormattingEnabled = True
-        cbEtaMCharter.Location = New Point(136, 446)
-        cbEtaMCharter.Name = "cbEtaMCharter"
-        cbEtaMCharter.Size = New Size(71, 23)
-        cbEtaMCharter.TabIndex = 22
-        ' 
-        ' cbEtaHCharter
-        ' 
-        cbEtaHCharter.FormattingEnabled = True
-        cbEtaHCharter.Location = New Point(43, 446)
-        cbEtaHCharter.Name = "cbEtaHCharter"
-        cbEtaHCharter.Size = New Size(71, 23)
-        cbEtaHCharter.TabIndex = 21
-        ' 
-        ' Label23
-        ' 
-        Label23.AutoSize = True
-        Label23.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.Location = New Point(41, 428)
-        Label23.Name = "Label23"
-        Label23.Size = New Size(89, 15)
-        Label23.TabIndex = 20
-        Label23.Text = "E.T.A (hh : mm)"' 
-        ' tbFlightCharter
-        ' 
-        tbFlightCharter.Location = New Point(43, 398)
-        tbFlightCharter.Name = "tbFlightCharter"
-        tbFlightCharter.Size = New Size(164, 23)
-        tbFlightCharter.TabIndex = 19
-        ' 
-        ' tbBayNoCharter
-        ' 
-        tbBayNoCharter.Location = New Point(43, 352)
-        tbBayNoCharter.Name = "tbBayNoCharter"
-        tbBayNoCharter.Size = New Size(165, 23)
-        tbBayNoCharter.TabIndex = 18
-        ' 
-        ' Label24
-        ' 
-        Label24.AutoSize = True
-        Label24.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label24.Location = New Point(40, 380)
-        Label24.Name = "Label24"
-        Label24.Size = New Size(48, 15)
-        Label24.TabIndex = 17
-        Label24.Text = "FLIGHT"' 
-        ' Label25
-        ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label25.Location = New Point(40, 334)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(50, 15)
-        Label25.TabIndex = 16
-        Label25.Text = "BAY NO"' 
-        ' IconButton2
-        ' 
-        IconButton2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        IconButton2.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        IconButton2.FlatAppearance.BorderSize = 0
-        IconButton2.FlatStyle = FlatStyle.Flat
-        IconButton2.ForeColor = Color.WhiteSmoke
-        IconButton2.IconChar = FontAwesome.Sharp.IconChar.AngleRight
-        IconButton2.IconColor = Color.WhiteSmoke
-        IconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto
-        IconButton2.IconSize = 20
-        IconButton2.ImageAlign = ContentAlignment.MiddleLeft
-        IconButton2.Location = New Point(3, 297)
-        IconButton2.Margin = New Padding(0)
-        IconButton2.Name = "IconButton2"
-        IconButton2.Size = New Size(244, 27)
-        IconButton2.TabIndex = 15
-        IconButton2.Text = "CHARTER"
-        IconButton2.UseVisualStyleBackColor = False
         ' 
         ' btnUpdateData
         ' 
@@ -1091,7 +887,7 @@ Partial Class UserControlTimeTable
         btnUpdateData.IconColor = Color.White
         btnUpdateData.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnUpdateData.IconSize = 25
-        btnUpdateData.Location = New Point(43, 246)
+        btnUpdateData.Location = New Point(43, 315)
         btnUpdateData.Name = "btnUpdateData"
         btnUpdateData.Size = New Size(166, 29)
         btnUpdateData.TabIndex = 14
@@ -1102,7 +898,7 @@ Partial Class UserControlTimeTable
         ' 
         Label19.AutoSize = True
         Label19.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label19.Location = New Point(41, 191)
+        Label19.Location = New Point(40, 250)
         Label19.Name = "Label19"
         Label19.Size = New Size(63, 15)
         Label19.TabIndex = 12
@@ -1110,7 +906,7 @@ Partial Class UserControlTimeTable
         ' cboxremarks
         ' 
         cboxremarks.FormattingEnabled = True
-        cboxremarks.Location = New Point(43, 210)
+        cboxremarks.Location = New Point(43, 269)
         cboxremarks.Name = "cboxremarks"
         cboxremarks.Size = New Size(166, 23)
         cboxremarks.TabIndex = 11
@@ -1126,7 +922,7 @@ Partial Class UserControlTimeTable
         ' 
         Label15.AutoSize = True
         Label15.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label15.Location = New Point(40, 142)
+        Label15.Location = New Point(40, 198)
         Label15.Name = "Label15"
         Label15.Size = New Size(68, 15)
         Label15.TabIndex = 2
@@ -1135,7 +931,7 @@ Partial Class UserControlTimeTable
         ' 
         Label14.AutoSize = True
         Label14.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label14.Location = New Point(40, 95)
+        Label14.Location = New Point(41, 95)
         Label14.Name = "Label14"
         Label14.Size = New Size(50, 15)
         Label14.TabIndex = 1
@@ -1174,6 +970,15 @@ Partial Class UserControlTimeTable
         Panel5.Size = New Size(713, 56)
         Panel5.TabIndex = 0
         ' 
+        ' lbltoday
+        ' 
+        lbltoday.AutoSize = True
+        lbltoday.ForeColor = Color.Black
+        lbltoday.Location = New Point(24, 10)
+        lbltoday.Name = "lbltoday"
+        lbltoday.Size = New Size(65, 15)
+        lbltoday.TabIndex = 6
+        lbltoday.Text = "22/03/2023"' 
         ' lblTime
         ' 
         lblTime.AutoSize = True
@@ -1209,23 +1014,14 @@ Partial Class UserControlTimeTable
         btnPrint.TabIndex = 0
         btnPrint.UseVisualStyleBackColor = False
         ' 
+        ' Timer1
+        ' 
+        ' 
         ' ContextMenuStrip1
         ' 
         ContextMenuStrip1.Name = "ContextMenuStrip1"
         ContextMenuStrip1.Size = New Size(61, 4)
         ' 
-        ' Timer1
-        ' 
-        ' 
-        ' lbltoday
-        ' 
-        lbltoday.AutoSize = True
-        lbltoday.ForeColor = Color.Black
-        lbltoday.Location = New Point(24, 10)
-        lbltoday.Name = "lbltoday"
-        lbltoday.Size = New Size(65, 15)
-        lbltoday.TabIndex = 6
-        lbltoday.Text = "22/03/2023"' 
         ' UserControlTimeTable
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1305,7 +1101,6 @@ Partial Class UserControlTimeTable
     Friend WithEvents lbRIC As ListBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents btnPrint As FontAwesome.Sharp.IconButton
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Timer1 As Timer
     Friend WithEvents lblTime As Label
@@ -1332,27 +1127,14 @@ Partial Class UserControlTimeTable
     Friend WithEvents Label19 As Label
     Friend WithEvents cboxremarks As ComboBox
     Friend WithEvents btnUpdateData As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnNewCharter As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label20 As Label
-    Friend WithEvents cbRemarkCharter As ComboBox
-    Friend WithEvents Label21 As Label
-    Friend WithEvents cbAirCharter As ComboBox
-    Friend WithEvents Label22 As Label
-    Friend WithEvents cbEtaMCharter As ComboBox
-    Friend WithEvents cbEtaHCharter As ComboBox
-    Friend WithEvents Label23 As Label
-    Friend WithEvents tbFlightCharter As TextBox
-    Friend WithEvents tbBayNoCharter As TextBox
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents cbOPerater As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents lblSelectedFlight As Label
-    Friend WithEvents btnDeleteCharter As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnUpdateCharter As FontAwesome.Sharp.IconButton
     Friend WithEvents lblETAShow As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents lbltoday As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents tbRoute As TextBox
 End Class
