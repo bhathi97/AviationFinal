@@ -161,6 +161,7 @@ Partial Class LOGINForm
         ForeColor = Color.White
         MaximumSize = New Size(700, 500)
         Name = "LOGINForm"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "LOGIN - DAILY WORK SCHEDULE"
         CType(IconPictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)

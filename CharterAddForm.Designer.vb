@@ -22,10 +22,10 @@ Partial Class CharterAddForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        btnNewCharter = New FontAwesome.Sharp.IconButton()
-        Label20 = New Label()
+        btnNewChar = New FontAwesome.Sharp.IconButton()
+        lblAirLineChar = New Label()
         Label21 = New Label()
-        cbAirCha = New ComboBox()
+        cbAirCodeCha = New ComboBox()
         Label22 = New Label()
         cbEtaMCha = New ComboBox()
         cbEtaHCha = New ComboBox()
@@ -33,66 +33,67 @@ Partial Class CharterAddForm
         Label24 = New Label()
         tbFlightCha = New TextBox()
         Label1 = New Label()
-        lblDate = New Label()
+        lblDateCha = New Label()
         Label2 = New Label()
-        ComboBox1 = New ComboBox()
+        cbDipTimeCha = New ComboBox()
         SuspendLayout()
         ' 
-        ' btnNewCharter
+        ' btnNewChar
         ' 
-        btnNewCharter.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
-        btnNewCharter.BackgroundImageLayout = ImageLayout.None
-        btnNewCharter.Cursor = Cursors.Hand
-        btnNewCharter.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
-        btnNewCharter.FlatAppearance.BorderSize = 0
-        btnNewCharter.FlatAppearance.MouseDownBackColor = Color.White
-        btnNewCharter.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
-        btnNewCharter.FlatStyle = FlatStyle.Flat
-        btnNewCharter.ForeColor = Color.WhiteSmoke
-        btnNewCharter.IconChar = FontAwesome.Sharp.IconChar.Plane
-        btnNewCharter.IconColor = Color.White
-        btnNewCharter.IconFont = FontAwesome.Sharp.IconFont.Auto
-        btnNewCharter.IconSize = 25
-        btnNewCharter.Location = New Point(46, 315)
-        btnNewCharter.Name = "btnNewCharter"
-        btnNewCharter.Size = New Size(166, 29)
-        btnNewCharter.TabIndex = 41
-        btnNewCharter.Text = "SAVE"
-        btnNewCharter.TextAlign = ContentAlignment.MiddleRight
-        btnNewCharter.TextImageRelation = TextImageRelation.ImageBeforeText
-        btnNewCharter.UseVisualStyleBackColor = False
+        btnNewChar.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnNewChar.BackgroundImageLayout = ImageLayout.None
+        btnNewChar.Cursor = Cursors.Hand
+        btnNewChar.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
+        btnNewChar.FlatAppearance.BorderSize = 0
+        btnNewChar.FlatAppearance.MouseDownBackColor = Color.White
+        btnNewChar.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
+        btnNewChar.FlatStyle = FlatStyle.Flat
+        btnNewChar.ForeColor = Color.WhiteSmoke
+        btnNewChar.IconChar = FontAwesome.Sharp.IconChar.Plane
+        btnNewChar.IconColor = Color.White
+        btnNewChar.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnNewChar.IconSize = 25
+        btnNewChar.Location = New Point(149, 292)
+        btnNewChar.Name = "btnNewChar"
+        btnNewChar.Size = New Size(166, 29)
+        btnNewChar.TabIndex = 41
+        btnNewChar.Text = "SAVE"
+        btnNewChar.TextAlign = ContentAlignment.MiddleRight
+        btnNewChar.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnNewChar.UseVisualStyleBackColor = False
         ' 
-        ' Label20
+        ' lblAirLineChar
         ' 
-        Label20.AutoSize = True
-        Label20.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label20.Location = New Point(44, 256)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(63, 15)
-        Label20.TabIndex = 40
-        Label20.Text = "REMARKS"' 
+        lblAirLineChar.BackColor = SystemColors.ControlLightLight
+        lblAirLineChar.BorderStyle = BorderStyle.FixedSingle
+        lblAirLineChar.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        lblAirLineChar.Location = New Point(209, 103)
+        lblAirLineChar.Name = "lblAirLineChar"
+        lblAirLineChar.Size = New Size(164, 23)
+        lblAirLineChar.TabIndex = 40
+        ' 
         ' Label21
         ' 
         Label21.AutoSize = True
         Label21.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label21.Location = New Point(77, 208)
+        Label21.Location = New Point(77, 231)
         Label21.Name = "Label21"
         Label21.Size = New Size(36, 15)
         Label21.TabIndex = 38
         Label21.Text = "DATE"' 
-        ' cbAirCha
+        ' cbAirCodeCha
         ' 
-        cbAirCha.FormattingEnabled = True
-        cbAirCha.Location = New Point(209, 74)
-        cbAirCha.Name = "cbAirCha"
-        cbAirCha.Size = New Size(164, 23)
-        cbAirCha.TabIndex = 37
+        cbAirCodeCha.FormattingEnabled = True
+        cbAirCodeCha.Location = New Point(209, 74)
+        cbAirCodeCha.Name = "cbAirCodeCha"
+        cbAirCodeCha.Size = New Size(164, 23)
+        cbAirCodeCha.TabIndex = 37
         ' 
         ' Label22
         ' 
         Label22.AutoSize = True
         Label22.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label22.Location = New Point(286, 124)
+        Label22.Location = New Point(286, 146)
         Label22.Name = "Label22"
         Label22.Size = New Size(10, 15)
         Label22.TabIndex = 36
@@ -100,7 +101,7 @@ Partial Class CharterAddForm
         ' cbEtaMCha
         ' 
         cbEtaMCha.FormattingEnabled = True
-        cbEtaMCha.Location = New Point(302, 121)
+        cbEtaMCha.Location = New Point(302, 143)
         cbEtaMCha.Name = "cbEtaMCha"
         cbEtaMCha.Size = New Size(71, 23)
         cbEtaMCha.TabIndex = 35
@@ -108,7 +109,7 @@ Partial Class CharterAddForm
         ' cbEtaHCha
         ' 
         cbEtaHCha.FormattingEnabled = True
-        cbEtaHCha.Location = New Point(209, 121)
+        cbEtaHCha.Location = New Point(209, 143)
         cbEtaHCha.Name = "cbEtaHCha"
         cbEtaHCha.Size = New Size(71, 23)
         cbEtaHCha.TabIndex = 34
@@ -117,7 +118,7 @@ Partial Class CharterAddForm
         ' 
         Label23.AutoSize = True
         Label23.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.Location = New Point(77, 126)
+        Label23.Location = New Point(77, 148)
         Label23.Name = "Label23"
         Label23.Size = New Size(89, 15)
         Label23.TabIndex = 33
@@ -147,64 +148,65 @@ Partial Class CharterAddForm
         Label1.Size = New Size(69, 15)
         Label1.TabIndex = 42
         Label1.Text = "FLIGHT NO"' 
-        ' lblDate
+        ' lblDateCha
         ' 
-        lblDate.BackColor = SystemColors.ControlLightLight
-        lblDate.BorderStyle = BorderStyle.FixedSingle
-        lblDate.FlatStyle = FlatStyle.Flat
-        lblDate.Location = New Point(209, 208)
-        lblDate.Name = "lblDate"
-        lblDate.Size = New Size(164, 23)
-        lblDate.TabIndex = 44
-        lblDate.Text = "date"
-        lblDate.TextAlign = ContentAlignment.MiddleCenter
+        lblDateCha.BackColor = SystemColors.ControlLightLight
+        lblDateCha.BorderStyle = BorderStyle.FixedSingle
+        lblDateCha.FlatStyle = FlatStyle.Flat
+        lblDateCha.Location = New Point(209, 230)
+        lblDateCha.Name = "lblDateCha"
+        lblDateCha.Size = New Size(164, 23)
+        lblDateCha.TabIndex = 44
+        lblDateCha.Text = "date"
+        lblDateCha.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(77, 170)
+        Label2.Location = New Point(77, 192)
         Label2.Name = "Label2"
         Label2.Size = New Size(105, 15)
         Label2.TabIndex = 45
         Label2.Text = "DEPARTURE TIME"' 
-        ' ComboBox1
+        ' cbDipTimeCha
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(209, 167)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(164, 23)
-        ComboBox1.TabIndex = 46
+        cbDipTimeCha.FormattingEnabled = True
+        cbDipTimeCha.Location = New Point(209, 189)
+        cbDipTimeCha.Name = "cbDipTimeCha"
+        cbDipTimeCha.Size = New Size(164, 23)
+        cbDipTimeCha.TabIndex = 46
         ' 
         ' CharterAddForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(492, 411)
-        Controls.Add(ComboBox1)
+        Controls.Add(cbDipTimeCha)
         Controls.Add(Label2)
-        Controls.Add(lblDate)
+        Controls.Add(lblDateCha)
         Controls.Add(tbFlightCha)
         Controls.Add(Label1)
-        Controls.Add(btnNewCharter)
-        Controls.Add(Label20)
+        Controls.Add(btnNewChar)
+        Controls.Add(lblAirLineChar)
         Controls.Add(Label21)
-        Controls.Add(cbAirCha)
+        Controls.Add(cbAirCodeCha)
         Controls.Add(Label22)
         Controls.Add(cbEtaMCha)
         Controls.Add(cbEtaHCha)
         Controls.Add(Label23)
         Controls.Add(Label24)
         Name = "CharterAddForm"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "CHARTER"
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents btnNewCharter As FontAwesome.Sharp.IconButton
-    Friend WithEvents Label20 As Label
+    Friend WithEvents btnNewChar As FontAwesome.Sharp.IconButton
+    Friend WithEvents lblAirLineChar As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents cbAirCha As ComboBox
+    Friend WithEvents cbAirCodeCha As ComboBox
     Friend WithEvents Label22 As Label
     Friend WithEvents cbEtaMCha As ComboBox
     Friend WithEvents cbEtaHCha As ComboBox
@@ -212,7 +214,7 @@ Partial Class CharterAddForm
     Friend WithEvents Label24 As Label
     Friend WithEvents tbFlightCha As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblDate As Label
+    Friend WithEvents lblDateCha As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbDipTimeCha As ComboBox
 End Class

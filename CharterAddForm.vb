@@ -11,17 +11,18 @@ Public Class CharterAddForm
     ' Handles MyBase.Load
     Private Sub CharterAddForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
+        lblAirLineChar.Visible = False
 
         'load charter details combo boxes
-        AirLineLoad(connsql, cbAirCha)
-        remarkAdd(cbRemarkCha)
+        AirlineCategoryLoad(connsql, cbAirCodeCha)
         loadcbSTD(cbEtaHCha)
         loadcbSTD1(cbEtaMCha)
+        loadDipTime(cbDipTimeCha)
+
 
         'load date
         Dim currentDate As Date = Date.Today
-        lblDate.Text = currentDate.ToString("dd/MM/yyyy") ' Displays the current date in the format "dd/MM/yyyy" on a label control
+        lblDateCha.Text = currentDate.ToString("MM/dd/yyyy") ' Displays the current date in the format "dd/MM/yyyy" on a label control
 
 
     End Sub
@@ -46,7 +47,7 @@ Public Class CharterAddForm
     ' End Sub
 
     'Handles btnNewCharter.Click
-    Private Sub btnNewCharter_Click(sender As Object, e As EventArgs) Handles btnNewCharter.Click
+    Private Sub btnNewCharter_Click(sender As Object, e As EventArgs) Handles btnNewChar.Click
         Try
             'Dim eta1 As String = cbEtaHCha.Text & ":" & cbEtaMCha.Text & ":00"
             '  Dim eta2 As DateTime = DateTime.ParseExact(eta1, "HH:mm:ss", CultureInfo.InvariantCulture)
@@ -57,13 +58,33 @@ Public Class CharterAddForm
             ' _dgv.Rows(rowIndex).Selected = True
 
             '            newRow.EndEdit()
+            TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
+
+
+
+
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
+        Finally
+            connsql.Close()
         End Try
 
 
 
 
+    End Sub
+
+    ' Handles cbAirCodeCha.SelectedIndexChanged
+    Private Sub cbAirCodeCha_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbAirCodeCha.SelectedIndexChanged
+        lblAirLineChar.Visible = True
+        Try
+            AirLineLoadWhenCategorySelect(connsql, cbAirCodeCha, lblAirLineChar)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            connsql.Close()
+        End Try
     End Sub
 End Class
