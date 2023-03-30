@@ -156,12 +156,13 @@ Public Class MAINFORM
     'Handles MyBase.FormClosing
     Private Sub MAINFORM_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         ' Prompt the user to confirm the application shutdown.
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         ' If the user clicks Yes, exit the application.
-        If result = DialogResult.Yes Then
-            LOGINForm.Show()
+        If result = DialogResult.OK Then
             Me.Close()
+            LOGINForm.Show()
+
 
         Else
             ' If the user clicks No, cancel the form closing event.

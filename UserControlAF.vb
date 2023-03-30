@@ -28,6 +28,8 @@ Public Class UserControlAF
             Dim Form As New FlightMasterFORM()
             Form.Show()
 
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
