@@ -3,6 +3,7 @@
 Imports DocumentFormat.OpenXml.Bibliography
 Imports PdfSharpCore.Pdf.Content.Objects
 Imports System.Data.SqlClient
+Imports System.Text
 
 Module ItemsModule
 
@@ -189,5 +190,72 @@ Module ItemsModule
 
 
     End Sub
+
+    Public Sub loadHoursAfterNow(cb As ComboBox) 'load std / hh of std
+        Dim currentHour As Integer = DateTime.Now.Hour
+        'Dim currentHour As Integer = 20
+
+        Try
+            'assuming add charters only its shift time range
+            Dim sb As New StringBuilder()
+
+            Select Case True
+                Case currentHour > 7 AndAlso currentHour < 19 'morning shift
+                    For i As Integer = currentHour To 18
+                        sb.Clear()
+                        sb.Append(i.ToString("D2"))
+                        cb.Items.Add(sb.ToString())
+                    Next
+                Case currentHour >= 0 AndAlso currentHour < 7 'evening shift | morning part
+                    For i As Integer = currentHour To 6
+                        sb.Clear()
+                        sb.Append(i.ToString("D2"))
+                        cb.Items.Add(sb.ToString())
+                    Next
+                    For i As Integer = 19 To 24
+                        sb.Clear()
+                        sb.Append(i.ToString("D2"))
+                        cb.Items.Add(sb.ToString())
+                    Next
+                Case currentHour >= 19 AndAlso currentHour < 24 'evening shift | evening part
+                    For i As Integer = currentHour To 24
+                        sb.Clear()
+                        sb.Append(i.ToString("D2"))
+                        cb.Items.Add(sb.ToString())
+                    Next
+                    For i As Integer = 0 To 6
+                        sb.Clear()
+                        sb.Append(i.ToString("D2"))
+                        cb.Items.Add(sb.ToString())
+                    Next
+
+
+            End Select
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    Public Sub loadMinutesAfterNow(cb As ComboBox) 'load std / mm of std
+
+        Dim currentMin As Integer = DateTime.Now.Minute
+
+        Try
+
+            For j As Integer = currentMin To 59
+                Dim formattedNumber As String = j.ToString("D2")
+                cb.Items.Add(formattedNumber.ToString())
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+
 
 End Module

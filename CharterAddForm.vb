@@ -1,7 +1,5 @@
 ﻿Imports System.Data.SqlClient
-
-
-
+Imports DocumentFormat.OpenXml.Drawing
 
 Public Class CharterAddForm
 
@@ -12,11 +10,12 @@ Public Class CharterAddForm
     Private Sub CharterAddForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         lblAirLineChar.Visible = False
+        cbEtaMCha.Enabled = False
 
         'load charter details combo boxes
         AirlineCategoryLoad(connsql, cbAirCodeCha)
-        loadcbSTD(cbEtaHCha)
-        loadcbSTD1(cbEtaMCha)
+        loadHoursAfterNow(cbEtaHCha)
+
         loadDipTime(cbDipTimeCha)
 
 
@@ -86,5 +85,22 @@ Public Class CharterAddForm
         Finally
             connsql.Close()
         End Try
+    End Sub
+
+    'Handles cbEtaHCha.SelectedIndexChanged
+    Private Sub cbEtaHCha_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbEtaHCha.SelectedIndexChanged
+        cbEtaMCha.Enabled = True
+        cbEtaMCha.Items.Clear()
+        Dim currentMin As Integer = DateTime.Now.Minute
+        Dim currntH As Integer = DateTime.Now.Hour
+        If cbEtaHCha.Text = currntH.ToString() Then
+            cbEtaMCha.Text = currentMin
+            cbEtaMCha.SelectAll()
+            loadMinutesAfterNow(cbEtaMCha)
+
+        Else
+            loadcbSTD1(cbEtaMCha)
+        End If
+
     End Sub
 End Class
