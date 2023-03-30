@@ -18,25 +18,6 @@ Public Class UserControlTimeTable
     Dim connsql As New SqlConnection(str)
 
 
-    'public function to update the DataGridView spescific columns
-    'Public Sub UpdateDataGridView(ByVal row As DataGridViewRow,
-    '                              ByVal bayNo As String,
-    '                             ByVal flight As String,
-    '                            ByVal route As String,
-    '                           ByVal eta As String,
-    '                             ByVal air As String,
-    '                          ByVal remarks As String,
-    '                           ByVal dateAdd As String)
-    '  row.Cells(1).Value = bayNo
-    '  row.Cells(3).Value = flight
-    '  row.Cells(4).Value = route
-    ' row.Cells(10).Value = remarks
-    '  row.Cells(5).Value = eta
-    '  row.Cells(6).Value = air
-    '  row.Cells(12).Value = dateAdd
-    'End Sub
-
-
 
 
     'Handles MyBase.Load

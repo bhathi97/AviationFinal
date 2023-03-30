@@ -23,9 +23,9 @@ Partial Class UserControlTimeTable
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         Panel7 = New Panel()
@@ -70,19 +70,6 @@ Partial Class UserControlTimeTable
         Panel11 = New Panel()
         Panel9 = New Panel()
         dgvMain = New DataGridView()
-        Column2 = New DataGridViewCheckBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        noo = New DataGridViewTextBoxColumn()
-        fli = New DataGridViewTextBoxColumn()
-        Column10 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        lines = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
-        Column7 = New DataGridViewTextBoxColumn()
-        Column8 = New DataGridViewTextBoxColumn()
-        Column9 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewComboBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
         Panel12 = New Panel()
         tbRoute = New TextBox()
         Label18 = New Label()
@@ -105,6 +92,19 @@ Partial Class UserControlTimeTable
         btnPrint = New FontAwesome.Sharp.IconButton()
         Timer1 = New Timer(components)
         ContextMenuStrip1 = New ContextMenuStrip(components)
+        Column2 = New DataGridViewCheckBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        noo = New DataGridViewTextBoxColumn()
+        fli = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        lines = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column7 = New DataGridViewTextBoxColumn()
+        Column8 = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewComboBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         Panel7.SuspendLayout()
         Panel6.SuspendLayout()
@@ -654,137 +654,40 @@ Partial Class UserControlTimeTable
         dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = SystemColors.Control
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column2, Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9, Column3, Column5})
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = Color.WhiteSmoke
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
-        dgvMain.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = Color.WhiteSmoke
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        dgvMain.DefaultCellStyle = DataGridViewCellStyle2
         dgvMain.Dock = DockStyle.Fill
         dgvMain.Location = New Point(5, 5)
         dgvMain.Name = "dgvMain"
-        dgvMain.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = SystemColors.Control
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = SystemColors.Control
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
         dgvMain.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvMain.Size = New Size(453, 686)
         dgvMain.TabIndex = 0
-        ' 
-        ' Column2
-        ' 
-        Column2.HeaderText = ""
-        Column2.Name = "Column2"
-        Column2.ReadOnly = True
-        Column2.Resizable = DataGridViewTriState.True
-        Column2.SortMode = DataGridViewColumnSortMode.Automatic
-        Column2.Width = 20
-        ' 
-        ' Column1
-        ' 
-        Column1.HeaderText = "BAY NO"
-        Column1.Name = "Column1"
-        Column1.ReadOnly = True
-        Column1.SortMode = DataGridViewColumnSortMode.NotSortable
-        ' 
-        ' noo
-        ' 
-        noo.HeaderText = "NO"
-        noo.Name = "noo"
-        noo.ReadOnly = True
-        noo.SortMode = DataGridViewColumnSortMode.NotSortable
-        noo.Width = 40
-        ' 
-        ' fli
-        ' 
-        fli.HeaderText = "FLIGHT"
-        fli.Name = "fli"
-        fli.ReadOnly = True
-        fli.SortMode = DataGridViewColumnSortMode.NotSortable
-        ' 
-        ' Column10
-        ' 
-        Column10.HeaderText = "ROUTE"
-        Column10.Name = "Column10"
-        Column10.ReadOnly = True
-        Column10.SortMode = DataGridViewColumnSortMode.NotSortable
-        Column10.Width = 70
-        ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "E.T.A"
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        ' 
-        ' lines
-        ' 
-        lines.HeaderText = "AIRLINE"
-        lines.Name = "lines"
-        lines.ReadOnly = True
-        lines.SortMode = DataGridViewColumnSortMode.NotSortable
-        ' 
-        ' Column6
-        ' 
-        Column6.HeaderText = "RIC"
-        Column6.Name = "Column6"
-        Column6.ReadOnly = True
-        Column6.SortMode = DataGridViewColumnSortMode.NotSortable
-        Column6.Width = 70
-        ' 
-        ' Column7
-        ' 
-        Column7.HeaderText = "OPERATOR"
-        Column7.Name = "Column7"
-        Column7.ReadOnly = True
-        Column7.SortMode = DataGridViewColumnSortMode.NotSortable
-        Column7.Width = 70
-        ' 
-        ' Column8
-        ' 
-        Column8.HeaderText = "CREWMAN"
-        Column8.Name = "Column8"
-        Column8.ReadOnly = True
-        Column8.SortMode = DataGridViewColumnSortMode.NotSortable
-        Column8.Width = 70
-        ' 
-        ' Column9
-        ' 
-        Column9.HeaderText = "REMARKS"
-        Column9.Name = "Column9"
-        Column9.ReadOnly = True
-        Column9.SortMode = DataGridViewColumnSortMode.NotSortable
-        Column9.Width = 80
-        ' 
-        ' Column3
-        ' 
-        Column3.HeaderText = "Is Confirm"
-        Column3.Name = "Column3"
-        Column3.ReadOnly = True
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "DATE"
-        Column5.Name = "Column5"
-        Column5.ReadOnly = True
         ' 
         ' Panel12
         ' 
@@ -1022,6 +925,101 @@ Partial Class UserControlTimeTable
         ContextMenuStrip1.Name = "ContextMenuStrip1"
         ContextMenuStrip1.Size = New Size(61, 4)
         ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = ""
+        Column2.Name = "Column2"
+        Column2.ReadOnly = True
+        Column2.Resizable = DataGridViewTriState.True
+        Column2.SortMode = DataGridViewColumnSortMode.Automatic
+        Column2.Width = 20
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "BAY NO"
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        Column1.SortMode = DataGridViewColumnSortMode.NotSortable
+        ' 
+        ' noo
+        ' 
+        noo.HeaderText = "NO"
+        noo.Name = "noo"
+        noo.ReadOnly = True
+        noo.SortMode = DataGridViewColumnSortMode.NotSortable
+        noo.Width = 40
+        ' 
+        ' fli
+        ' 
+        fli.HeaderText = "FLIGHT"
+        fli.Name = "fli"
+        fli.ReadOnly = True
+        fli.SortMode = DataGridViewColumnSortMode.NotSortable
+        ' 
+        ' Column10
+        ' 
+        Column10.HeaderText = "ROUTE"
+        Column10.Name = "Column10"
+        Column10.ReadOnly = True
+        Column10.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column10.Width = 70
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "E.T.A"
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        ' 
+        ' lines
+        ' 
+        lines.HeaderText = "AIRLINE"
+        lines.Name = "lines"
+        lines.ReadOnly = True
+        lines.SortMode = DataGridViewColumnSortMode.NotSortable
+        ' 
+        ' Column6
+        ' 
+        Column6.HeaderText = "RIC"
+        Column6.Name = "Column6"
+        Column6.ReadOnly = True
+        Column6.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column6.Width = 70
+        ' 
+        ' Column7
+        ' 
+        Column7.HeaderText = "OPERATOR"
+        Column7.Name = "Column7"
+        Column7.ReadOnly = True
+        Column7.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column7.Width = 70
+        ' 
+        ' Column8
+        ' 
+        Column8.HeaderText = "CREWMAN"
+        Column8.Name = "Column8"
+        Column8.ReadOnly = True
+        Column8.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column8.Width = 70
+        ' 
+        ' Column9
+        ' 
+        Column9.HeaderText = "REMARKS"
+        Column9.Name = "Column9"
+        Column9.ReadOnly = True
+        Column9.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column9.Width = 80
+        ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Is Confirm"
+        Column3.Items.AddRange(New Object() {"Confirmed", "Cancelled"})
+        Column3.Name = "Column3"' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "DATE"
+        Column5.Name = "Column5"
+        Column5.ReadOnly = True
+        ' 
         ' UserControlTimeTable
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1109,6 +1107,21 @@ Partial Class UserControlTimeTable
     Friend WithEvents dgvMain As DataGridView
     Friend WithEvents Panel12 As Panel
     Friend WithEvents btnResizePnl As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label14 As Label
+    Friend WithEvents tbBayNo As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents cboxremarks As ComboBox
+    Friend WithEvents btnUpdateData As FontAwesome.Sharp.IconButton
+    Friend WithEvents cbOPerater As ComboBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents lblSelectedFlight As Label
+    Friend WithEvents lblETAShow As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents lbltoday As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents tbRoute As TextBox
     Friend WithEvents Column2 As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents noo As DataGridViewTextBoxColumn
@@ -1121,20 +1134,5 @@ Partial Class UserControlTimeTable
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewComboBoxColumn
-    Friend WithEvents Label14 As Label
-    Friend WithEvents tbBayNo As TextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents cboxremarks As ComboBox
-    Friend WithEvents btnUpdateData As FontAwesome.Sharp.IconButton
-    Friend WithEvents cbOPerater As ComboBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents lblSelectedFlight As Label
-    Friend WithEvents lblETAShow As Label
-    Friend WithEvents Label16 As Label
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents lbltoday As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents tbRoute As TextBox
 End Class
