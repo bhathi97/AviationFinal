@@ -51,15 +51,4 @@ Public Class LOGINForm
     End Sub
 
 
-
-
-
-
-
-
-
-
-
-    'Handles btnCancel.Click
-
 End Class

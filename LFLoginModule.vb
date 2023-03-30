@@ -56,17 +56,6 @@ Module LFLoginModule
 
                 End If
 
-
-
-
-
-
-
-
-
-
-
-
             Else
                 'login failed
                 Dim queryString2 As String = "SELECT COUNT(*) FROM LOGIN_TABLE WHERE USERNAME = @user"
