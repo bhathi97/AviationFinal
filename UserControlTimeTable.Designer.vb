@@ -917,9 +917,6 @@ Partial Class UserControlTimeTable
         btnPrint.TabIndex = 0
         btnPrint.UseVisualStyleBackColor = False
         ' 
-        ' Timer1
-        ' 
-        ' 
         ' ContextMenuStrip1
         ' 
         ContextMenuStrip1.Name = "ContextMenuStrip1"
@@ -1011,8 +1008,8 @@ Partial Class UserControlTimeTable
         ' 
         ' Column3
         ' 
-        Column3.HeaderText = "Is Confirm"
-        Column3.Items.AddRange(New Object() {"Confirmed", "Cancelled"})
+        Column3.HeaderText = "Is Cancel?"
+        Column3.Items.AddRange(New Object() {"NO", "YES"})
         Column3.Name = "Column3"' 
         ' Column5
         ' 

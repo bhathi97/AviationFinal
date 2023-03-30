@@ -20,6 +20,13 @@ Public Class UserControlTimeTable
 
 
 
+
+
+
+
+
+
+
     'Handles MyBase.Load
     Private Sub UserControlTimeTable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = DateTime.Today 'load today
@@ -245,7 +252,7 @@ Public Class UserControlTimeTable
 
                 Dim menu As New ContextMenuStrip() ' Create a new context menu strip
                 menu.Items.Add("Add New Row").Name = "AddRow" ' Add an item to add a new row
-                menu.Items.Add("Delete Selected Row").Name = "DeleteRow" ' Add an item to delete the selected row
+                'menu.Items.Add("Delete Selected Row").Name = "DeleteRow" ' Add an item to delete the selected row
 
                 AddHandler menu.ItemClicked, AddressOf ContextMenuStrip1_ItemClicked ' Add a handler for the menu item clicked event
                 menu.Show(dgvMain, e.Location) ' Show the context menu strip at the clicked location

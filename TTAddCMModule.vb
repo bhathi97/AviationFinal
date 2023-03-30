@@ -10,11 +10,18 @@ Module TTAddCMModule
         If itemCount <> 1 Then
 
             For i As Integer = 0 To dgv.Rows.Count - 1
-                If flag < itemCount Then
-                    dgv.Rows(i).Cells("Column8").Value = lb.Items(flag).ToString()
-                    flag += 1
-                    If flag = itemCount Then flag = 0 ' reset flag if it reaches the end of the ListView
 
+                If dgv.Rows(i).Cells("Column3") IsNot Nothing AndAlso dgv.Rows(i).Cells("Column3").Value <> "YES" Then
+
+                    If flag < itemCount Then
+                        dgv.Rows(i).Cells("Column8").Value = lb.Items(flag).ToString()
+                        flag += 1
+                        If flag = itemCount Then flag = 0 ' reset flag if it reaches the end of the ListView
+
+                    End If
+
+                Else
+                    dgv.Rows(i).Cells("Column6").Value = ""
                 End If
             Next
 
@@ -26,7 +33,14 @@ Module TTAddCMModule
 
             For i As Integer = 0 To dgv.RowCount - 1
 
-                dgv.Rows(i).Cells("Column8").Value = lb.Items(0).ToString()
+                If dgv.Rows(i).Cells("Column3") IsNot Nothing AndAlso dgv.Rows(i).Cells("Column3").Value <> "YES" Then
+
+                    dgv.Rows(i).Cells("Column8").Value = lb.Items(0).ToString()
+
+                Else
+                    dgv.Rows(i).Cells("Column6").Value = ""
+                End If
+
             Next
 
         End If
