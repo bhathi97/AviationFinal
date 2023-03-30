@@ -199,6 +199,7 @@ Partial Class CharterAddForm
         Name = "CharterAddForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "CHARTER"
+        TopMost = True
         ResumeLayout(False)
         PerformLayout()
     End Sub

@@ -9,6 +9,15 @@ Public Class CharterAddForm
     ' Handles MyBase.Load
     Private Sub CharterAddForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        ' Loop through all the open forms in the application
+        For Each form As Form In Application.OpenForms
+            ' Check if the form is not the topmost form
+            If form IsNot Me Then
+                ' Disable the form
+                form.Enabled = False
+            End If
+        Next
+
         lblAirLineChar.Visible = False
         cbEtaMCha.Enabled = False
 
@@ -102,5 +111,21 @@ Public Class CharterAddForm
             loadcbSTD1(cbEtaMCha)
         End If
 
+    End Sub
+
+    'Handles MyBase.FormClosed
+    Private Sub CharterAddForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Try
+            ' Loop through all the open forms in the application
+            For Each form As Form In Application.OpenForms
+                ' Check if the form is not the topmost form and if it was previously disabled
+                If form IsNot Me AndAlso Not form.Enabled Then
+                    ' Enable the form
+                    form.Enabled = True
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
