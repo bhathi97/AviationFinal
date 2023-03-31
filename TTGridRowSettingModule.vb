@@ -13,7 +13,11 @@ Module TTGridRowSettingModule
 
             Case "AddRow"
                 Dim Form As New CharterAddForm()
+                Form.MyDataGridView = dgvMain 'pass the datagrid view as a property
                 Form.Show()
+
+
+
 
 
                 ' Update the NO column values

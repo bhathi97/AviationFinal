@@ -109,6 +109,11 @@ Module TTAddChaToDBModule
             connsql.Close()
             MsgBox(" Successfully Added To The Table")
             'loadToGrid1()
+
+            'now load back to the grid
+
+
+
         End If
 
     End Sub

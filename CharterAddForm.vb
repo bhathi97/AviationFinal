@@ -3,6 +3,8 @@ Imports DocumentFormat.OpenXml.Drawing
 
 Public Class CharterAddForm
 
+    Public Property MyDataGridView As DataGridView
+
     Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
     Dim connsql As New SqlConnection(str)
 
@@ -116,6 +118,15 @@ Public Class CharterAddForm
     'Handles MyBase.FormClosed
     Private Sub CharterAddForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Try
+
+
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
             ' Loop through all the open forms in the application
             For Each form As Form In Application.OpenForms
                 ' Check if the form is not the topmost form and if it was previously disabled
@@ -124,8 +135,19 @@ Public Class CharterAddForm
                     form.Enabled = True
                 End If
             Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
+
         End Try
     End Sub
+
+    '    Private Function loadBack(dgv As DataGridView)
+
+
+
+
+    '   Return
+    '
+    '  End Function
+
+
+
 End Class
