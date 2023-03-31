@@ -31,21 +31,32 @@ Module TTDataPassToPrintFModule
 
         ' Add rows to the DataTable and load data into the existing columns of the DataTable
         For Each row As DataGridViewRow In dgvMain.Rows
-            ' Add a new row to the DataTable
-            Dim newRow As DataRow = data.Rows.Add()
 
-            ' Set the values for each column in the new row
-            newRow("Column1") = row.Cells("Column1").Value
-            newRow("Column2") = row.Cells("noo").Value
-            newRow("Column3") = row.Cells("fli").Value
-            newRow("Column4") = row.Cells("Column4").Value
-            newRow("Column5") = row.Cells("lines").Value
-            newRow("Column6") = row.Cells("Column6").Value
-            newRow("Column7") = row.Cells("Column7").Value
-            newRow("Column8") = row.Cells("Column8").Value
-            newRow("Column9") = row.Cells("Column9").Value
-            newRow("Column10") = row.Cells("Column10").Value
+
+            If row.Cells("Column3").Value <> "YES" Then
+                ' Set the values for each column in the new row
+
+                ' Add a new row to the DataTable
+                Dim newRow As DataRow = data.Rows.Add()
+
+                newRow("Column1") = row.Cells("Column1").Value
+                newRow("Column2") = row.Cells("noo").Value
+                newRow("Column3") = row.Cells("fli").Value
+                newRow("Column4") = row.Cells("Column4").Value
+                newRow("Column5") = row.Cells("lines").Value
+                newRow("Column6") = row.Cells("Column6").Value
+                newRow("Column7") = row.Cells("Column7").Value
+                newRow("Column8") = row.Cells("Column8").Value
+                newRow("Column9") = row.Cells("Column9").Value
+                newRow("Column10") = row.Cells("Column10").Value
+
+            End If
+
+
+
         Next
+
+
 
 
         Form.Data = data 'datatable in printformWindow 
