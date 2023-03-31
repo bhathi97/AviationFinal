@@ -1,6 +1,4 @@
 ﻿
-Imports DocumentFormat.OpenXml.Wordprocessing
-
 Module TTAddRICModule
 
     Public Sub addRIC(lb As ListBox, dgv As DataGridView)

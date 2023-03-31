@@ -21,7 +21,7 @@ Module TTAddCMModule
                     End If
 
                 Else
-                    dgv.Rows(i).Cells("Column6").Value = ""
+                    dgv.Rows(i).Cells("Column8").Value = ""
                 End If
             Next
 
@@ -38,7 +38,7 @@ Module TTAddCMModule
                     dgv.Rows(i).Cells("Column8").Value = lb.Items(0).ToString()
 
                 Else
-                    dgv.Rows(i).Cells("Column6").Value = ""
+                    dgv.Rows(i).Cells("Column8").Value = ""
                 End If
 
             Next

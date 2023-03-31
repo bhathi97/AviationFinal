@@ -53,7 +53,7 @@ Partial Class CharterAddForm
         btnNewChar.IconColor = Color.White
         btnNewChar.IconFont = FontAwesome.Sharp.IconFont.Auto
         btnNewChar.IconSize = 25
-        btnNewChar.Location = New Point(164, 314)
+        btnNewChar.Location = New Point(122, 322)
         btnNewChar.Name = "btnNewChar"
         btnNewChar.Size = New Size(166, 29)
         btnNewChar.TabIndex = 41
@@ -67,7 +67,7 @@ Partial Class CharterAddForm
         lblAirLineChar.BackColor = SystemColors.ControlLightLight
         lblAirLineChar.BorderStyle = BorderStyle.FixedSingle
         lblAirLineChar.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        lblAirLineChar.Location = New Point(224, 125)
+        lblAirLineChar.Location = New Point(182, 133)
         lblAirLineChar.Name = "lblAirLineChar"
         lblAirLineChar.Size = New Size(164, 23)
         lblAirLineChar.TabIndex = 40
@@ -76,7 +76,7 @@ Partial Class CharterAddForm
         ' 
         Label21.AutoSize = True
         Label21.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label21.Location = New Point(92, 253)
+        Label21.Location = New Point(50, 261)
         Label21.Name = "Label21"
         Label21.Size = New Size(36, 15)
         Label21.TabIndex = 38
@@ -84,7 +84,7 @@ Partial Class CharterAddForm
         ' cbAirCodeCha
         ' 
         cbAirCodeCha.FormattingEnabled = True
-        cbAirCodeCha.Location = New Point(224, 96)
+        cbAirCodeCha.Location = New Point(182, 104)
         cbAirCodeCha.Name = "cbAirCodeCha"
         cbAirCodeCha.Size = New Size(164, 23)
         cbAirCodeCha.TabIndex = 37
@@ -93,7 +93,7 @@ Partial Class CharterAddForm
         ' 
         Label22.AutoSize = True
         Label22.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label22.Location = New Point(301, 168)
+        Label22.Location = New Point(259, 176)
         Label22.Name = "Label22"
         Label22.Size = New Size(10, 15)
         Label22.TabIndex = 36
@@ -101,7 +101,7 @@ Partial Class CharterAddForm
         ' cbEtaMCha
         ' 
         cbEtaMCha.FormattingEnabled = True
-        cbEtaMCha.Location = New Point(317, 165)
+        cbEtaMCha.Location = New Point(275, 173)
         cbEtaMCha.Name = "cbEtaMCha"
         cbEtaMCha.Size = New Size(71, 23)
         cbEtaMCha.TabIndex = 35
@@ -109,7 +109,7 @@ Partial Class CharterAddForm
         ' cbEtaHCha
         ' 
         cbEtaHCha.FormattingEnabled = True
-        cbEtaHCha.Location = New Point(224, 165)
+        cbEtaHCha.Location = New Point(182, 173)
         cbEtaHCha.Name = "cbEtaHCha"
         cbEtaHCha.Size = New Size(71, 23)
         cbEtaHCha.TabIndex = 34
@@ -118,7 +118,7 @@ Partial Class CharterAddForm
         ' 
         Label23.AutoSize = True
         Label23.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.Location = New Point(92, 170)
+        Label23.Location = New Point(50, 178)
         Label23.Name = "Label23"
         Label23.Size = New Size(89, 15)
         Label23.TabIndex = 33
@@ -127,14 +127,14 @@ Partial Class CharterAddForm
         ' 
         Label24.AutoSize = True
         Label24.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label24.Location = New Point(90, 101)
+        Label24.Location = New Point(48, 109)
         Label24.Name = "Label24"
         Label24.Size = New Size(115, 15)
         Label24.TabIndex = 30
         Label24.Text = "AIRLINE CATEGORY"' 
         ' tbFlightCha
         ' 
-        tbFlightCha.Location = New Point(224, 50)
+        tbFlightCha.Location = New Point(182, 58)
         tbFlightCha.Name = "tbFlightCha"
         tbFlightCha.Size = New Size(165, 23)
         tbFlightCha.TabIndex = 43
@@ -143,7 +143,7 @@ Partial Class CharterAddForm
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(91, 53)
+        Label1.Location = New Point(49, 61)
         Label1.Name = "Label1"
         Label1.Size = New Size(69, 15)
         Label1.TabIndex = 42
@@ -153,7 +153,7 @@ Partial Class CharterAddForm
         lblDateCha.BackColor = SystemColors.ControlLightLight
         lblDateCha.BorderStyle = BorderStyle.FixedSingle
         lblDateCha.FlatStyle = FlatStyle.Flat
-        lblDateCha.Location = New Point(224, 252)
+        lblDateCha.Location = New Point(182, 260)
         lblDateCha.Name = "lblDateCha"
         lblDateCha.Size = New Size(164, 23)
         lblDateCha.TabIndex = 44
@@ -164,7 +164,7 @@ Partial Class CharterAddForm
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(92, 214)
+        Label2.Location = New Point(50, 222)
         Label2.Name = "Label2"
         Label2.Size = New Size(105, 15)
         Label2.TabIndex = 45
@@ -172,7 +172,7 @@ Partial Class CharterAddForm
         ' cbDipTimeCha
         ' 
         cbDipTimeCha.FormattingEnabled = True
-        cbDipTimeCha.Location = New Point(224, 211)
+        cbDipTimeCha.Location = New Point(182, 219)
         cbDipTimeCha.Name = "cbDipTimeCha"
         cbDipTimeCha.Size = New Size(164, 23)
         cbDipTimeCha.TabIndex = 46
@@ -181,7 +181,7 @@ Partial Class CharterAddForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(492, 411)
+        ClientSize = New Size(404, 411)
         Controls.Add(cbDipTimeCha)
         Controls.Add(Label2)
         Controls.Add(lblDateCha)
@@ -196,9 +196,12 @@ Partial Class CharterAddForm
         Controls.Add(cbEtaHCha)
         Controls.Add(Label23)
         Controls.Add(Label24)
+        MaximumSize = New Size(420, 450)
         Name = "CharterAddForm"
+        Opacity = 0.9R
+        ShowIcon = False
         StartPosition = FormStartPosition.CenterScreen
-        Text = "CHARTER"
+        Text = "CHARTER FLIGHT ADD"
         TopMost = True
         ResumeLayout(False)
         PerformLayout()
