@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.DirectoryServices.ActiveDirectory
+Imports System.Globalization
 Imports DocumentFormat.OpenXml.Drawing
 
 Public Class CharterAddForm
@@ -63,38 +64,79 @@ Public Class CharterAddForm
             'Dim eta1 As String = cbEtaHCha.Text & ":" & cbEtaMCha.Text & ":00"
             '  Dim eta2 As DateTime = DateTime.ParseExact(eta1, "HH:mm:ss", CultureInfo.InvariantCulture)
             '  Dim eta3 As TimeSpan = eta2.TimeOfDay ' ETA
-            If TypeOf _dgv.DataSource Is DataView Then
-                Dim dataView As DataView = DirectCast(_dgv.DataSource, DataView)
+            ' Cast the DataSource to a DataView
+            Dim dataView As DataView = DirectCast(_dgv.DataSource, DataView)
 
-                ' Add new row to the DataView
-
-                Dim myTable As New DataTable()
-                Dim myColumn5 As New DataColumn("Column5", GetType(Date))
-                Dim myColumn4 As New DataColumn("Column4", GetType(TimeSpan))
-
-                myTable.Columns.Add(myColumn5)
-                myTable.Columns.Add(myColumn4)
-
-                Dim newRow As DataRow = myTable.NewRow()
-
-                newRow("Column5") = DateTime.Now.Date
-                newRow("Column4") = TimeSpan.Parse(cbEtaHCha.Text)
-
-                'Note: The format of the time string in cbEtaHCha.Text must match the format expected by TimeSpan.Parse, for example "HH:mm:ss". If the format does not match, an exception will be thrown.
-
-                ' newRow("fli") = tbFlightCha.Text
-                ' newRow("lines") = cbAirCodeCha.Text
-
-                myTable.Rows.Add(newRow)
+            ' Get the DataTable from the DataView
+            Dim table As DataTable = dataView.Table
 
 
-                ' Sort the rows based on column 3
-                'dataView.Sort = "Column3 ASC"
-            End If
 
-            ' Refresh the DataGridView to display the new row and sorted data
-            _dgv.Refresh()
 
+
+
+
+
+
+
+
+
+
+            ' Create a string variable to hold the column names
+            '            Dim columnNames As String = ""
+
+            ' Iterate through the columns of the DataTable and add each column name to the string variable
+            'For Each column As DataColumn In table.Columns
+            '   columnNames += column.ColumnName + vbNewLine 'add column name to string and add newline for formatting
+            'Next
+            '
+            ' Display the column names in a message box
+            '        MessageBox.Show("Column names:" & vbNewLine & columnNames)
+
+
+
+            '            Dim columnNamesaa As String = ""
+            '
+            '           For Each column As DataGridViewColumn In _dgv.Columns
+            '          columnNamesaa += column.HeaderText + vbCrLf
+            '         Next
+
+            ' Display the column names in a message box
+            '         MessageBox.Show("Column names:" & vbNewLine & columnNamesaa)
+
+
+
+
+
+
+
+
+
+
+            ' Create a new row
+            Dim newRow As DataRow = table.NewRow()
+
+            newRow("DATE") = DateTime.Now.Date 'add date
+            newRow("fli") = tbFlightCha.Text & "-" & cbAirCodeCha.Text 'add fligth no
+
+            Dim std As String = cbEtaHCha.Text & ":" & cbEtaMCha.Text & ":00"
+            Dim dt As DateTime = DateTime.ParseExact(std, "HH:mm:ss", CultureInfo.InvariantCulture)
+            Dim stdTime As TimeSpan = dt.TimeOfDay
+
+            Dim dipT As String = cbDipTimeCha.Text & ":00"
+            Dim dipTime As DateTime = DateTime.ParseExact(dipT, "HH:mm:ss", CultureInfo.InvariantCulture)
+            Dim sTime As TimeSpan = dipTime.TimeOfDay
+
+            Dim eta As TimeSpan = stdTime - sTime
+
+            newRow("ETA") = eta 'add eta
+            newRow("lines") = lblAirLineChar.Text 'airlines
+
+            ' Add the new row to the DataTable
+            table.Rows.Add(newRow)
+
+            ' Sort the rows based on column 3 if needed
+            ' dataView.Sort = "Column3 ASC"
 
             'dgvMain.Columns("Column5").DataPropertyName = "DATE"
             'dgvMain.Columns("Column4").DataPropertyName = "ETA"
