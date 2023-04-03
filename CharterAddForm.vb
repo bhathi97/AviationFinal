@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.DirectoryServices.ActiveDirectory
 Imports DocumentFormat.OpenXml.Drawing
 
 Public Class CharterAddForm
@@ -46,15 +47,15 @@ Public Class CharterAddForm
     'the DataGridView, create a reference To the user control Object
 
     'Private _dv As DataView
-    ' Private _dgv As DataGridView
+    Private _dgv As DataGridView
 
     ''pass by reference
     'ByRef dv As DataView
-    ' Public Sub New(ByRef dgvMain As DataGridView)
-    '     InitializeComponent()
-    '     '_dv = dv
-    '     _dgv = dgvMain
-    ' End Sub
+    Public Sub New(ByRef dgvMain As DataGridView)
+        InitializeComponent()
+        '_dv = dv
+        _dgv = dgvMain
+    End Sub
 
     'Handles btnNewCharter.Click
     Private Sub btnNewCharter_Click(sender As Object, e As EventArgs) Handles btnNewChar.Click
@@ -62,13 +63,69 @@ Public Class CharterAddForm
             'Dim eta1 As String = cbEtaHCha.Text & ":" & cbEtaMCha.Text & ":00"
             '  Dim eta2 As DateTime = DateTime.ParseExact(eta1, "HH:mm:ss", CultureInfo.InvariantCulture)
             '  Dim eta3 As TimeSpan = eta2.TimeOfDay ' ETA
+            If TypeOf _dgv.DataSource Is DataView Then
+                Dim dataView As DataView = DirectCast(_dgv.DataSource, DataView)
 
-            'Dim newRow As DataRowView = CType(_dgv.DataSource, DataView).AddNew()
-            ' Dim rowIndex As Integer = _dgv.Rows.Add(newRow)
+                ' Add new row to the DataView
+
+                Dim myTable As New DataTable()
+                Dim myColumn5 As New DataColumn("Column5", GetType(Date))
+                Dim myColumn4 As New DataColumn("Column4", GetType(TimeSpan))
+
+                myTable.Columns.Add(myColumn5)
+                myTable.Columns.Add(myColumn4)
+
+                Dim newRow As DataRow = myTable.NewRow()
+
+                newRow("Column5") = DateTime.Now.Date
+                newRow("Column4") = TimeSpan.Parse(cbEtaHCha.Text)
+
+                'Note: The format of the time string in cbEtaHCha.Text must match the format expected by TimeSpan.Parse, for example "HH:mm:ss". If the format does not match, an exception will be thrown.
+
+                ' newRow("fli") = tbFlightCha.Text
+                ' newRow("lines") = cbAirCodeCha.Text
+
+                myTable.Rows.Add(newRow)
+
+
+                ' Sort the rows based on column 3
+                'dataView.Sort = "Column3 ASC"
+            End If
+
+            ' Refresh the DataGridView to display the new row and sorted data
+            _dgv.Refresh()
+
+
+            'dgvMain.Columns("Column5").DataPropertyName = "DATE"
+            'dgvMain.Columns("Column4").DataPropertyName = "ETA"
+            'dgvMain.Columns("fli").DataPropertyName = "fli"
+            'dgvMain.Columns("lines").DataPropertyName = "lines"
+            'Dim rowIndex As Integer = _dgv.Rows.Add(newRow)
             ' _dgv.Rows(rowIndex).Selected = True
 
-            '            newRow.EndEdit()
-            TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
+            '
+            '
+            '
+            '
+            '
+            '  newRow.EndEdit()
+
+
+
+
+            'TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
+
+
+
+
+
+
+
+
+
+
+
+            'add new row
 
 
 

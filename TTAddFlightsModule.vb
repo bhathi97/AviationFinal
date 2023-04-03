@@ -83,6 +83,31 @@ Module TTAddFlightsModule
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
+
+
+
+
+
+
+                    ' Assign the DefaultView to the DataSource property of the DataGridView
+                    dgvMain.DataSource = table.DefaultView
+
+                    ' Store the data in a variable
+                    Dim dataView As DataView = dgvMain.DataSource
+
+                    ' Break data binding
+                    dgvMain.DataSource = Nothing
+
+                    ' Assign the stored data back to the DataGridView
+                    dgvMain.DataSource = dataView
+
+
+
+
+
+
+
+
                     ' Get the row count of the DataGridView control
                     Dim rowCount As Integer = dgvMain.RowCount
                     ' Loop through each row in the DataGridView control and add the number to the column
@@ -150,8 +175,28 @@ Module TTAddFlightsModule
                     table.DefaultView.Sort = "Date ASC, ETA ASC"
 
 
+
+
+
+
+
+
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
+
+                    ' Store the data in a variable
+                    Dim dataView As DataView = dgvMain.DataSource
+
+                    ' Break data binding
+                    dgvMain.DataSource = Nothing
+
+                    ' Assign the stored data back to the DataGridView
+                    dgvMain.DataSource = dataView
+
+
+
+
+
 
                     'get row count
                     Dim rowCount As Integer = dgvMain.RowCount
