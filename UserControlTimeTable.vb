@@ -202,6 +202,7 @@ Public Class UserControlTimeTable
             MsgBox(ex.Message)
         Finally
             connsql.Close()
+            btnPlaneAdd.Enabled = False
         End Try
     End Sub
 
@@ -353,13 +354,20 @@ Public Class UserControlTimeTable
         End Try
     End Sub
 
+    ' Handles btnRefresh.Click
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        Try
+            Dim result As DialogResult = MessageBox.Show("Do you want to proceed? All changed data will discard", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
+            If result = DialogResult.Yes Then
+                btnPlaneAdd.Enabled = True
+            Else
+                'no action
+            End If
+        Catch ex As Exception
 
-
-
-
-
-
+        End Try
+    End Sub
 End Class
 
 

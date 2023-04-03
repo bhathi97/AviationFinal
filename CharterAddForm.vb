@@ -61,57 +61,10 @@ Public Class CharterAddForm
     'Handles btnNewCharter.Click
     Private Sub btnNewCharter_Click(sender As Object, e As EventArgs) Handles btnNewChar.Click
         Try
-            'Dim eta1 As String = cbEtaHCha.Text & ":" & cbEtaMCha.Text & ":00"
-            '  Dim eta2 As DateTime = DateTime.ParseExact(eta1, "HH:mm:ss", CultureInfo.InvariantCulture)
-            '  Dim eta3 As TimeSpan = eta2.TimeOfDay ' ETA
-            ' Cast the DataSource to a DataView
             Dim dataView As DataView = DirectCast(_dgv.DataSource, DataView)
 
             ' Get the DataTable from the DataView
             Dim table As DataTable = dataView.Table
-
-
-
-
-
-
-
-
-
-
-
-
-
-            ' Create a string variable to hold the column names
-            '            Dim columnNames As String = ""
-
-            ' Iterate through the columns of the DataTable and add each column name to the string variable
-            'For Each column As DataColumn In table.Columns
-            '   columnNames += column.ColumnName + vbNewLine 'add column name to string and add newline for formatting
-            'Next
-            '
-            ' Display the column names in a message box
-            '        MessageBox.Show("Column names:" & vbNewLine & columnNames)
-
-
-
-            '            Dim columnNamesaa As String = ""
-            '
-            '           For Each column As DataGridViewColumn In _dgv.Columns
-            '          columnNamesaa += column.HeaderText + vbCrLf
-            '         Next
-
-            ' Display the column names in a message box
-            '         MessageBox.Show("Column names:" & vbNewLine & columnNamesaa)
-
-
-
-
-
-
-
-
-
 
             ' Create a new row
             Dim newRow As DataRow = table.NewRow()
@@ -135,43 +88,8 @@ Public Class CharterAddForm
             ' Add the new row to the DataTable
             table.Rows.Add(newRow)
 
-            ' Sort the rows based on column 3 if needed
-            ' dataView.Sort = "Column3 ASC"
 
-            'dgvMain.Columns("Column5").DataPropertyName = "DATE"
-            'dgvMain.Columns("Column4").DataPropertyName = "ETA"
-            'dgvMain.Columns("fli").DataPropertyName = "fli"
-            'dgvMain.Columns("lines").DataPropertyName = "lines"
-            'Dim rowIndex As Integer = _dgv.Rows.Add(newRow)
-            ' _dgv.Rows(rowIndex).Selected = True
-
-            '
-            '
-            '
-            '
-            '
-            '  newRow.EndEdit()
-
-
-
-
-            'TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
-
-
-
-
-
-
-
-
-
-
-
-            'add new row
-
-
-
-
+            TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
 
 
         Catch ex As Exception

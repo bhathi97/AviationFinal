@@ -23,9 +23,9 @@ Partial Class UserControlTimeTable
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         Panel1 = New Panel()
         Panel7 = New Panel()
@@ -54,6 +54,7 @@ Partial Class UserControlTimeTable
         IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
         Label8 = New Label()
         Panel3 = New Panel()
+        btnRefresh = New FontAwesome.Sharp.IconButton()
         btnPlaneAdd = New FontAwesome.Sharp.IconButton()
         lblShift = New Label()
         lblDay = New Label()
@@ -129,7 +130,7 @@ Partial Class UserControlTimeTable
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(50, 14)
+        Label1.Location = New Point(50, 12)
         Label1.Name = "Label1"
         Label1.Size = New Size(266, 24)
         Label1.TabIndex = 4
@@ -152,7 +153,7 @@ Partial Class UserControlTimeTable
         Panel7.BackColor = Color.WhiteSmoke
         Panel7.Controls.Add(cbGroup)
         Panel7.Controls.Add(Label7)
-        Panel7.Location = New Point(55, 252)
+        Panel7.Location = New Point(55, 240)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(255, 48)
         Panel7.TabIndex = 7
@@ -170,7 +171,7 @@ Partial Class UserControlTimeTable
         Label7.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
         Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.White
-        Label7.Location = New Point(0, 0)
+        Label7.Location = New Point(0, -12)
         Label7.Name = "Label7"
         Label7.Size = New Size(76, 48)
         Label7.TabIndex = 0
@@ -188,7 +189,7 @@ Partial Class UserControlTimeTable
         Panel6.Controls.Add(btnRICRemove)
         Panel6.Controls.Add(lbRIC)
         Panel6.Controls.Add(pnlRIC)
-        Panel6.Location = New Point(56, 527)
+        Panel6.Location = New Point(56, 515)
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(255, 217)
         Panel6.TabIndex = 7
@@ -334,7 +335,7 @@ Partial Class UserControlTimeTable
         pnlCM.Controls.Add(btnCMRemove)
         pnlCM.Controls.Add(lbCM)
         pnlCM.Controls.Add(Panel8)
-        pnlCM.Location = New Point(55, 305)
+        pnlCM.Location = New Point(55, 293)
         pnlCM.Name = "pnlCM"
         pnlCM.Size = New Size(255, 217)
         pnlCM.TabIndex = 6
@@ -472,6 +473,7 @@ Partial Class UserControlTimeTable
         ' Panel3
         ' 
         Panel3.BackColor = Color.WhiteSmoke
+        Panel3.Controls.Add(btnRefresh)
         Panel3.Controls.Add(btnPlaneAdd)
         Panel3.Controls.Add(lblShift)
         Panel3.Controls.Add(lblDay)
@@ -482,10 +484,31 @@ Partial Class UserControlTimeTable
         Panel3.Controls.Add(Label3)
         Panel3.Controls.Add(Label4)
         Panel3.Controls.Add(Label2)
-        Panel3.Location = New Point(55, 59)
+        Panel3.Location = New Point(55, 47)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(255, 187)
         Panel3.TabIndex = 5
+        ' 
+        ' btnRefresh
+        ' 
+        btnRefresh.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnRefresh.BackgroundImageLayout = ImageLayout.None
+        btnRefresh.Cursor = Cursors.Hand
+        btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(CByte(230), CByte(230), CByte(0))
+        btnRefresh.FlatAppearance.BorderSize = 0
+        btnRefresh.FlatAppearance.MouseDownBackColor = Color.White
+        btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(77), CByte(153), CByte(0))
+        btnRefresh.FlatStyle = FlatStyle.Flat
+        btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Retweet
+        btnRefresh.IconColor = Color.White
+        btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnRefresh.IconSize = 20
+        btnRefresh.Location = New Point(201, 144)
+        btnRefresh.Name = "btnRefresh"
+        btnRefresh.Size = New Size(29, 29)
+        btnRefresh.TabIndex = 14
+        btnRefresh.TextAlign = ContentAlignment.MiddleRight
+        btnRefresh.UseVisualStyleBackColor = False
         ' 
         ' btnPlaneAdd
         ' 
@@ -503,7 +526,7 @@ Partial Class UserControlTimeTable
         btnPlaneAdd.IconSize = 25
         btnPlaneAdd.Location = New Point(90, 144)
         btnPlaneAdd.Name = "btnPlaneAdd"
-        btnPlaneAdd.Size = New Size(140, 29)
+        btnPlaneAdd.Size = New Size(107, 29)
         btnPlaneAdd.TabIndex = 13
         btnPlaneAdd.TextAlign = ContentAlignment.MiddleRight
         btnPlaneAdd.UseVisualStyleBackColor = False
@@ -654,35 +677,35 @@ Partial Class UserControlTimeTable
         dgvMain.AllowUserToDeleteRows = False
         dgvMain.BackgroundColor = SystemColors.ActiveCaption
         dgvMain.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = SystemColors.Control
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = SystemColors.Control
+        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
+        dgvMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         dgvMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvMain.Columns.AddRange(New DataGridViewColumn() {Column2, Column1, noo, fli, Column10, Column4, lines, Column6, Column7, Column8, Column9, Column3, Column5})
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = Color.WhiteSmoke
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
-        dgvMain.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = Color.WhiteSmoke
+        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = Color.Black
+        DataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
+        dgvMain.DefaultCellStyle = DataGridViewCellStyle8
         dgvMain.Dock = DockStyle.Fill
         dgvMain.Location = New Point(5, 5)
         dgvMain.Name = "dgvMain"
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = SystemColors.Control
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = SystemColors.Control
+        DataGridViewCellStyle9.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle9.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = DataGridViewTriState.True
+        dgvMain.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         dgvMain.RowHeadersWidth = 4
         dgvMain.RowTemplate.Height = 25
         dgvMain.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -952,7 +975,7 @@ Partial Class UserControlTimeTable
         btnResizePnl.Name = "btnResizePnl"
         btnResizePnl.Size = New Size(244, 27)
         btnResizePnl.TabIndex = 0
-        btnResizePnl.Text = "UPDATE TABLE ROWS"
+        btnResizePnl.Text = "     UPDATE TABLE ROWS"
         btnResizePnl.TextImageRelation = TextImageRelation.ImageBeforeText
         btnResizePnl.UseVisualStyleBackColor = False
         ' 
@@ -1137,4 +1160,5 @@ Partial Class UserControlTimeTable
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewComboBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents btnRefresh As FontAwesome.Sharp.IconButton
 End Class
