@@ -86,7 +86,7 @@ Public Class CharterAddForm
             Else ' if the standard time is later than the dip time, subtract the two times
                 eta = stdTime - sTime
             End If
-
+            z
             newRow("ETA") = eta 'add eta
             newRow("lines") = lblAirLineChar.Text 'airlines
 
