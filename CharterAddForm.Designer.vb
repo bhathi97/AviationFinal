@@ -120,9 +120,9 @@ Partial Class CharterAddForm
         Label23.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label23.Location = New Point(50, 178)
         Label23.Name = "Label23"
-        Label23.Size = New Size(89, 15)
+        Label23.Size = New Size(91, 15)
         Label23.TabIndex = 33
-        Label23.Text = "E.T.A (hh : mm)"' 
+        Label23.Text = "S.T.D (hh : mm)"' 
         ' Label24
         ' 
         Label24.AutoSize = True

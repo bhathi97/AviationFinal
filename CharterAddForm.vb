@@ -80,15 +80,18 @@ Public Class CharterAddForm
             Dim dipTime As DateTime = DateTime.ParseExact(dipT, "HH:mm:ss", CultureInfo.InvariantCulture)
             Dim sTime As TimeSpan = dipTime.TimeOfDay
 
-            Dim eta As TimeSpan = stdTime - sTime
+            Dim eta As TimeSpan
+            If stdTime <= sTime Then ' if the standard time is earlier or the same as the dip time, add 1 day to the std time
+                eta = stdTime.Add(TimeSpan.FromDays(1)) - sTime
+            Else ' if the standard time is later than the dip time, subtract the two times
+                eta = stdTime - sTime
+            End If
 
             newRow("ETA") = eta 'add eta
             newRow("lines") = lblAirLineChar.Text 'airlines
 
             ' Add the new row to the DataTable
             table.Rows.Add(newRow)
-
-
 
             'save aded data to database
             TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
@@ -98,9 +101,9 @@ Public Class CharterAddForm
             cbEtaHCha.SelectedIndex = -1
             cbEtaMCha.SelectedIndex = -1
             cbDipTimeCha.SelectedIndex = -1
-            lblDateCha.Text = String.Empty
-
-
+            'lblDateCha.Text = String.Empty
+            tbFlightCha.Text = String.Empty
+            cbEtaHCha.SelectedIndex = -1
 
 
         Catch ex As Exception

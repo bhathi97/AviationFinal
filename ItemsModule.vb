@@ -94,7 +94,7 @@ Module ItemsModule
 
         Try
 
-            For i As Integer = 0 To 24
+            For i As Integer = 0 To 23
                 Dim formattedNumber As String = i.ToString("D2")
                 cb.Items.Add(formattedNumber.ToString())
             Next
@@ -212,13 +212,13 @@ Module ItemsModule
                         sb.Append(i.ToString("D2"))
                         cb.Items.Add(sb.ToString())
                     Next
-                    For i As Integer = 19 To 24
+                    For i As Integer = 19 To 23
                         sb.Clear()
                         sb.Append(i.ToString("D2"))
                         cb.Items.Add(sb.ToString())
                     Next
                 Case currentHour >= 19 AndAlso currentHour < 24 'evening shift | evening part
-                    For i As Integer = currentHour To 24
+                    For i As Integer = currentHour To 23
                         sb.Clear()
                         sb.Append(i.ToString("D2"))
                         cb.Items.Add(sb.ToString())
