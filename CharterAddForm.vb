@@ -89,13 +89,33 @@ Public Class CharterAddForm
             table.Rows.Add(newRow)
 
 
+
+            'save aded data to database
             TTAddChaToDBModule.saveChar(tbFlightCha, cbAirCodeCha, cbEtaHCha, cbEtaMCha, cbDipTimeCha, lblDateCha, connsql)
+
+            'clear data to add new 
+            cbAirCodeCha.SelectedIndex = -1
+            cbEtaHCha.SelectedIndex = -1
+            cbEtaMCha.SelectedIndex = -1
+            cbDipTimeCha.SelectedIndex = -1
+            lblDateCha.Text = String.Empty
+
+
 
 
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             connsql.Close()
+
+            ' Get the row count of the DataGridView control
+            Dim rowCount As Integer = _dgv.RowCount
+            ' Loop through each row in the DataGridView control and add the number to the column
+            For i As Integer = 0 To rowCount - 1
+                _dgv.Rows(i).Cells("noo").Value = i + 1
+            Next
+
+
         End Try
 
 
