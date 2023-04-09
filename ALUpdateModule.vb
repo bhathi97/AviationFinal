@@ -28,7 +28,7 @@ Module ALUpdateModule
             Dim count As Integer = Convert.ToInt32(commandc.ExecuteScalar())
             connsql.Close()
 
-            If count > 0 Then
+            If count > 1 Then
                 MsgBox("Airline is already exists in database")
             Else
                 connsql.Open()

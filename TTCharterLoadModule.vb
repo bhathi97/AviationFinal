@@ -9,14 +9,6 @@ Module TTCharterLoadModule
             'Add new columns to the DataTable
             dt.Columns.Add("Column4", GetType(TimeSpan))
 
-
-
-
-
-
-
-
-
             ' Load the new data into a DataTable
             connsql.Open()
             Dim newCmd As New SqlCommand("SELECT * FROM NEW_TABLE", connsql)
