@@ -105,7 +105,14 @@ Public Class CharterAddForm
 
     'Handles MyBase.FormClosed
     Private Sub CharterAddForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-
+        ' Loop through all the open forms in the application
+        For Each form As Form In Application.OpenForms
+            ' Check if the form is not the topmost form and if it was previously disabled
+            If form IsNot Me AndAlso Not form.Enabled Then
+                ' Enable the form
+                form.Enabled = True
+            End If
+        Next
     End Sub
 
     '    Private Function loadBack(dgv As DataGridView)

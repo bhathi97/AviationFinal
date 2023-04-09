@@ -11,7 +11,7 @@ Module TTAddCMModule
 
             For i As Integer = 0 To dgv.Rows.Count - 1
 
-                If dgv.Rows(i).Cells("Column3") IsNot Nothing AndAlso dgv.Rows(i).Cells("Column3").Value <> "YES" Then
+                If dgv.Rows(i).Cells("Column3") IsNot Nothing AndAlso dgv.Rows(i).Cells("Column3").Value <> "YES" AndAlso dgv.Rows(i).Cells("Column2").Value <> True Then
 
                     If flag < itemCount Then
                         dgv.Rows(i).Cells("Column8").Value = lb.Items(flag).ToString()
@@ -20,9 +20,12 @@ Module TTAddCMModule
 
                     End If
 
+                ElseIf dgv.Rows(i).Cells("Column2").Value = True Then
+
                 Else
                     dgv.Rows(i).Cells("Column8").Value = ""
                 End If
+
             Next
 
             'loop thruogh the table rows
