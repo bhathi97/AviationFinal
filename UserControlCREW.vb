@@ -3,6 +3,19 @@ Imports System.Data.SqlClient
 
 Public Class UserControlCREW
 
+    Private _SelectedID As Integer
+
+    Public Property SelectedId As Integer
+        Get
+            Return _SelectedID
+        End Get
+        Set(value As Integer)
+            _SelectedID = value
+        End Set
+    End Property
+
+
+
     Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
     Dim connsql As New SqlConnection(str)
 
@@ -38,7 +51,7 @@ Public Class UserControlCREW
 
         Try
             'save data 
-            CMUpdateModule.UpdateCrewmanDetail(lblSelectedID, tbName, cbGroup, cbPosition, connsql)
+            CMUpdateModule.UpdateCrewmanDetail(_SelectedID, tbName, cbGroup, cbPosition, connsql)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
         Catch ex As Exception
@@ -53,7 +66,8 @@ Public Class UserControlCREW
     'Handles dgvCrew.CellClick
     Private Sub dgvCrew_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCrew.CellClick
         Try
-            CMIDSelectModule.selectID(dgvCrew, tbName, cbGroup, cbPosition, lblSelectedID)
+            CMIDSelectModule.SelectID(dgvCrew, tbName, cbGroup, cbPosition)
+            _SelectedID = CMIDSelectModule.SelectedId
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -64,7 +78,7 @@ Public Class UserControlCREW
     Private Sub btnDeleteCM_Click(sender As Object, e As EventArgs) Handles btnDeleteCM.Click
         Try
             'delete the selected
-            CMDeleteModule.deleteCrewmanDetail(connsql, lblSelectedID, tbName, cbGroup, cbPosition)
+            CMDeleteModule.deleteCrewmanDetail(connsql, _SelectedID, tbName, cbGroup, cbPosition)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
 

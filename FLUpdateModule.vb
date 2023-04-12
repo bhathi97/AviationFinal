@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
 Imports System.Globalization
+Imports System.Text.RegularExpressions
 
 Module FLUpdateModule
     '========================================> Update flight details
@@ -23,6 +24,15 @@ Module FLUpdateModule
                 cmd.Connection = connsql
                 cmd.Transaction = transaction1
                 cmd.CommandType = CommandType.Text
+
+                ' Validate Flight_No
+                Dim flightNoRegex As New Regex("^[0-9]+$") ' Only allow digits 0-9
+                If Not flightNoRegex.IsMatch(tbflightNo.Text) Then
+                    ' Flight_No contains non-numeric characters
+                    MessageBox.Show("Flight number should only contain numbers.")
+                    Return ' Exit the method without executing the SQL commands
+                End If
+
 
                 ' Update first table
                 cmd.CommandText = "UPDATE FLIGHT_MASTER_TABLE SET FLIGHT_NO = @Flight_No,AIRLINE_CODE = @Airline_Code  WHERE FID = @FID"

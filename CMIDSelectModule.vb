@@ -1,20 +1,35 @@
 ﻿
 Module CMIDSelectModule
 
-    Public Sub selectID(dgvCrew As DataGridView, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, lbl As Label)
+    Private _selectedId As Integer
+
+    Public Property SelectedId As Integer
+        Get
+            Return _selectedId
+        End Get
+        Set(value As Integer)
+            _selectedId = value
+        End Set
+    End Property
+
+    Public Sub SelectID(ByVal dataGridView As DataGridView, ByVal nameTextBox As TextBox, ByVal groupComboBox As ComboBox, ByVal positionComboBox As ComboBox)
         ' Get the selected row data
-        Dim selectedRow As DataGridViewRow = dgvCrew.CurrentRow
+        Dim selectedRow As DataGridViewRow = dataGridView.CurrentRow
 
         ' Get the values of the cells in the selected row
-        Dim Sid As Object = selectedRow.Cells(0).Value
-        Dim Sname As Object = selectedRow.Cells(1).Value
-        Dim Sgroup As Object = selectedRow.Cells(2).Value
-        Dim Sposition As Object = selectedRow.Cells(3).Value
+        Dim idValue As Object = selectedRow.Cells(0).Value
+        Dim nameValue As Object = selectedRow.Cells(1).Value
+        Dim groupValue As Object = selectedRow.Cells(2).Value
+        Dim positionValue As Object = selectedRow.Cells(3).Value
 
-        tbName.Text = Sname
-        cbGroup.Text = Sgroup
-        cbPosition.Text = Sposition
-        lbl.Text = Sid
+        ' Set the values of the TextBox and ComboBox controls
+        nameTextBox.Text = nameValue
+        groupComboBox.Text = groupValue
+        positionComboBox.Text = positionValue
+
+        ' Save the selected ID value for later use
+        SelectedId = CInt(idValue)
     End Sub
+
 
 End Module

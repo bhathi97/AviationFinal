@@ -3,10 +3,10 @@ Imports System.Data.SqlClient
 
 Module CMUpdateModule
 
-    Public Sub UpdateCrewmanDetail(lbl As Label, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
+    Public Sub UpdateCrewmanDetail(selectID As Integer, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
 
         'Check whether id is null or empty
-        If String.IsNullOrEmpty(lbl.ToString) Then
+        If String.IsNullOrEmpty(selectID) Then
 
             'check whether all the fields are empty
         ElseIf String.IsNullOrEmpty(tbName.Text) Then
@@ -23,19 +23,27 @@ Module CMUpdateModule
 
         Else
             ' open database connection 
-            connsql.Open()
+
             Dim namen As String
             namen = tbName.Text
-            Dim idn As Integer = Integer.Parse(lbl.Text)
 
+
+            'validate the name field
+            If Not System.Text.RegularExpressions.Regex.IsMatch(namen, "^[A-Z]{1,10}$") Then
+                MsgBox("Name should be in uppercase letters only and maximum length is 10 characters")
+                tbName.Focus()
+                Exit Sub
+            End If
+
+            connsql.Open()
             Dim queryString As String = "SELECT COUNT(*) FROM CREWMEMBERS_MASTER_TABLE WHERE Name = @userInput and ID != @id "
             Dim commandc As New SqlCommand(queryString, connsql)
             commandc.Parameters.AddWithValue("@userInput", namen)
-            commandc.Parameters.AddWithValue("@id", idn)
+            commandc.Parameters.AddWithValue("@id", selectID)
             Dim count As Integer = Convert.ToInt32(commandc.ExecuteScalar())
             connsql.Close()
 
-            If count > 0 Then
+            If count > 1 Then
                 MsgBox("Crewmen name already exists in database")
             Else
                 connsql.Open()
@@ -43,7 +51,7 @@ Module CMUpdateModule
                 cmd.Parameters.AddWithValue("@Name", tbName.Text)
                 cmd.Parameters.AddWithValue("@Group", cbGroup.Text)
                 cmd.Parameters.AddWithValue("@Position", cbPosition.Text)
-                cmd.Parameters.AddWithValue("@lblSelectedID", lbl.Text)
+                cmd.Parameters.AddWithValue("@lblSelectedID", selectID)
                 'confirmation DialogBox
                 Dim result As DialogResult = MessageBox.Show("Do you want to change Crewmen Name ?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 

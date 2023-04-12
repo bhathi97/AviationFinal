@@ -1,6 +1,20 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class FlightMasterFORM
+
+
+    Private _selectedCode As String
+
+    Public Property SelectedCode As String
+        Get
+            Return _selectedCode
+        End Get
+        Set(value As String)
+            _selectedCode = value
+        End Set
+    End Property
+
+
     Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
     Dim connsql As New SqlConnection(str)
 
@@ -37,7 +51,8 @@ Public Class FlightMasterFORM
     'Handles dgvAir.CellClick
     Private Sub dgvAir_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAir.CellClick
         Try
-            ALSelectModule.selectDataRow(dgvAir, tbCode, tbName, lblCode)
+            ALSelectModule.selectDataRow(dgvAir, tbCode, tbName)
+            SelectedCode = ALSelectModule.SelectedCode
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -49,7 +64,8 @@ Public Class FlightMasterFORM
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Try
             'update table
-            ALUpdateModule.UpdateAirLineDetail(tbCode, tbName, lblCode, connsql)
+            ALUpdateModule.UpdateAirLineDetail(tbCode, tbName, SelectedCode, connsql)
+
             'load to grid
             ALLoadToGridModule.showInGrid(connsql, dgvAir)
 

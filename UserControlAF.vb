@@ -65,7 +65,7 @@ Public Class UserControlAF
     End Sub
 
     'Handles dgvFlight.CellClick
-    Private Sub dgvFlight_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvFlight.CellClick
+    Private Sub dgvFlight_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         Try
             'select and load to the form
             FLSelectModule.selectDataLoad(dgvFlight, lblID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)

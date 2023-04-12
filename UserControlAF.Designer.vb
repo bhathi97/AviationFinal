@@ -49,6 +49,7 @@ Partial Class UserControlAF
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
+        Panel3 = New Panel()
         dgvFlight = New DataGridView()
         fid1 = New DataGridViewTextBoxColumn()
         fno = New DataGridViewTextBoxColumn()
@@ -340,12 +341,22 @@ Partial Class UserControlAF
         ' 
         Panel2.BackColor = SystemColors.ActiveCaption
         Panel2.Controls.Add(dgvFlight)
+        Panel2.Controls.Add(Panel3)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(478, 0)
         Panel2.Name = "Panel2"
         Panel2.Padding = New Padding(10)
         Panel2.Size = New Size(683, 531)
         Panel2.TabIndex = 1
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = SystemColors.ButtonHighlight
+        Panel3.Dock = DockStyle.Top
+        Panel3.Location = New Point(10, 10)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(663, 100)
+        Panel3.TabIndex = 1
         ' 
         ' dgvFlight
         ' 
@@ -372,7 +383,7 @@ Partial Class UserControlAF
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         dgvFlight.DefaultCellStyle = DataGridViewCellStyle2
         dgvFlight.Dock = DockStyle.Fill
-        dgvFlight.Location = New Point(10, 10)
+        dgvFlight.Location = New Point(10, 110)
         dgvFlight.Name = "dgvFlight"
         dgvFlight.ReadOnly = True
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -387,8 +398,8 @@ Partial Class UserControlAF
         dgvFlight.RowTemplate.Height = 25
         dgvFlight.RowTemplate.ReadOnly = True
         dgvFlight.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvFlight.Size = New Size(663, 511)
-        dgvFlight.TabIndex = 0
+        dgvFlight.Size = New Size(663, 411)
+        dgvFlight.TabIndex = 1
         ' 
         ' fid1
         ' 
@@ -476,6 +487,10 @@ Partial Class UserControlAF
     Friend WithEvents btnSaveFlight As FontAwesome.Sharp.IconButton
     Friend WithEvents btnUpdateFlight As FontAwesome.Sharp.IconButton
     Friend WithEvents btnDeleteFlight As FontAwesome.Sharp.IconButton
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblAddNewAC As Label
+    Friend WithEvents lblID As Label
+    Friend WithEvents Panel3 As Panel
     Friend WithEvents dgvFlight As DataGridView
     Friend WithEvents fid1 As DataGridViewTextBoxColumn
     Friend WithEvents fno As DataGridViewTextBoxColumn
@@ -484,7 +499,4 @@ Partial Class UserControlAF
     Friend WithEvents dipart As DataGridViewTextBoxColumn
     Friend WithEvents eta As DataGridViewTextBoxColumn
     Friend WithEvents dt As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents lblAddNewAC As Label
-    Friend WithEvents lblID As Label
 End Class

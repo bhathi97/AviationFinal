@@ -1,5 +1,6 @@
 ﻿Imports DocumentFormat.OpenXml.Bibliography
 Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 
 Module CMSaveModule
 
@@ -17,6 +18,10 @@ Module CMSaveModule
         ElseIf String.IsNullOrEmpty(cbPosition.Text) Then
             MsgBox("Select the Position")
             cbPosition.Focus()
+
+        ElseIf Not Regex.IsMatch(tbName.Text, "^[A-Z]{1,10}$") Then ' Validate name
+            MsgBox("Crewmen name should be in uppercase only and not exceed 10 letters")
+            tbName.Focus()
 
         Else
             'when all the fields are filled
@@ -43,17 +48,24 @@ Module CMSaveModule
                 group = cbGroup.Text
                 position = cbPosition.Text
 
-                Dim sql As String = "INSERT INTO CREWMEMBERS_MASTER_TABLE (Name, [Group], Position) VALUES (@Name, @Group, @Position)"
-                Dim command As New SqlCommand(sql, connsql)
-                command.Parameters.AddWithValue("@Name", name)
-                command.Parameters.AddWithValue("@Group", group)
-                command.Parameters.AddWithValue("@Position", position)
+                Dim result As DialogResult = MessageBox.Show("Do You Want To Add  " & name & " Crewmen and " & position & " Position ?", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
-                command.ExecuteNonQuery()
+                If result = DialogResult.OK Then
 
-                'connection close
-                connsql.Close()
-                MsgBox(name & " Successfully Added To The Table")
+
+
+                    Dim sql As String = "INSERT INTO CREWMEMBERS_MASTER_TABLE (Name, [Group], Position) VALUES (@Name, @Group, @Position)"
+                    Dim command As New SqlCommand(sql, connsql)
+                    command.Parameters.AddWithValue("@Name", name)
+                    command.Parameters.AddWithValue("@Group", group)
+                    command.Parameters.AddWithValue("@Position", position)
+
+                    command.ExecuteNonQuery()
+
+                    'connection close
+                    connsql.Close()
+                    MsgBox(name & " Successfully Added To The Table")
+                End If
 
             End If
 

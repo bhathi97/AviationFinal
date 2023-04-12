@@ -6,12 +6,12 @@ Imports System.Data.SqlClient
 
 Module CMDeleteModule
 
-    Public Sub deleteCrewmanDetail(connsql As SqlConnection, lbl As Label, name As TextBox, group As ComboBox, position As ComboBox)
-        If String.IsNullOrEmpty(lbl.ToString) Then
+    Public Sub deleteCrewmanDetail(connsql As SqlConnection, selecID As Integer, name As TextBox, group As ComboBox, position As ComboBox)
+        If String.IsNullOrEmpty(selecID) Then
         Else 'if seleced id is not null
             connsql.Open()
             Dim cmd As New SqlCommand("DELETE FROM CREWMEMBERS_MASTER_TABLE WHERE ID = @ID", connsql)
-            cmd.Parameters.AddWithValue("@ID", lbl.Text)
+            cmd.Parameters.AddWithValue("@ID", selecID)
 
             Dim result As DialogResult = MessageBox.Show("Do you want to delete Crewman " + name.Text + "?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -24,7 +24,7 @@ Module CMDeleteModule
                 name.Text = ""
                 group.SelectedIndex = -1
                 position.SelectedIndex = -1
-                lbl.Text = ""
+
 
             End If
 

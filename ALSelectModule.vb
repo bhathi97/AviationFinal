@@ -1,7 +1,19 @@
 ﻿
 Module ALSelectModule
 
-    Public Sub selectDataRow(dgvAir As DataGridView, tbCode As TextBox, tbName As TextBox, lblCode As Label)
+    Private _selectedCode As String
+
+    Public Property SelectedCode As String
+        Get
+            Return _selectedCode
+        End Get
+        Set(value As String)
+            _selectedCode = value
+        End Set
+    End Property
+
+
+    Public Sub selectDataRow(dgvAir As DataGridView, tbCode As TextBox, tbName As TextBox)
 
         ' Get the selected row data
         Dim selectedRow As DataGridViewRow = dgvAir.CurrentRow
@@ -13,7 +25,7 @@ Module ALSelectModule
         tbCode.Text = ACode
         tbName.Text = AName
 
-        lblCode.Text = ACode
+        SelectedCode = ACode
 
     End Sub
 
