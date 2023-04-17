@@ -1,4 +1,9 @@
-﻿Public Class PRINTForm
+﻿Imports System.Data.SqlClient
+
+Public Class PRINTForm
+
+    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Dim connsql As New SqlConnection(str)
 
     Public Property Data As DataTable
 
@@ -23,7 +28,7 @@
         Try
             'print
             PFPrintDocModule.CreatePDFDOcument(dgPrint, PictureBox2, dateShower, shiftShower, dayShower, shiftTimeShower)
-
+            PFLoadDataToDatabaseModule.LoadGridDataToDatabaseTable(dgPrint, connsql, dateShower)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
