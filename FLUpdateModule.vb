@@ -75,18 +75,24 @@ Module FLUpdateModule
                 cmd.Parameters.AddWithValue("@Date", selectedDate)
                 cmd.Parameters.AddWithValue("@ETA", eta)
 
-                cmd.ExecuteNonQuery()
+                ' Show confirmation message box
+                Dim result As DialogResult = MessageBox.Show("Do you want to update flight details ?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                ' Commit transaction if all commands succeed
-                transaction1.Commit()
-
-                ' Show success message
-                Dim result As DialogResult = MessageBox.Show("Do you want to change ?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If result = DialogResult.Yes Then
-                    ' User clicked Yes
-                    MsgBox("Successfully Updated ")
+                    ' Commit transaction if user clicked Yes
+                    transaction1.Commit()
+                    ' Execute the SQL command
+                    cmd.ExecuteNonQuery()
+                    ' Show success message
+                    MsgBox("Successfully  Updated.")
+                ElseIf result = DialogResult.No Then
+                    ' Roll back the transaction if user clicked No
+                    transaction1.Rollback()
+
                 End If
-                connsql.Close()
+
+                ' Close the connection
+                connsql.Close()
             Catch ex As Exception
                 ' Roll back the transaction if any error occurs
                 transaction1.Rollback()

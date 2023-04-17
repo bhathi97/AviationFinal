@@ -20,7 +20,7 @@ Public Class UserControlTimeTable
 
 
     'Handles MyBase.Load
-    Private Sub UserControlTimeTable_Load(sender As Object, e As EventArgs)
+    Private Sub UserControlTimeTable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpDate.Value = DateTime.Today 'load today
         CrewmanAddingSelectGroup(cbGroup) 'load group
         TTAddingshift(cbShiftTime) 'load shift Time
@@ -52,17 +52,17 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles dtpDate.ValueChanged
-    Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs)
+    Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpDate.ValueChanged
         changeDayLbl(dtpDate, lblDay) 'load day
     End Sub
 
     'Handles cbShiftTime.SelectedIndexChanged
-    Private Sub cbShiftTime_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub cbShiftTime_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbShiftTime.SelectedIndexChanged
         changeShift(cbShiftTime, lblShift)
     End Sub
 
     'Handles cbGroup.SelectedIndexChanged
-    Private Sub cbGroup_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub cbGroup_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbGroup.SelectedIndexChanged
 
         Try
             TTLoadDataToListBoxesModule.LoadDataToListBoxes(cbGroup, lbCM, lbRIC, connsql)
@@ -76,7 +76,7 @@ Public Class UserControlTimeTable
 
     'CREWMEN order change ------------------------------
     'Handles lbCM.MouseDown
-    Private Sub lbCM_MouseDown(sender As Object, e As MouseEventArgs)
+    Private Sub lbCM_MouseDown(sender As Object, e As MouseEventArgs) Handles lbCM.MouseDown
         Try
             TTOrderChangingModule.dragWantedItem(e, lbCM)
         Catch ex As Exception
@@ -85,7 +85,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles lbCM.DragEnter
-    Private Sub lbCM_DragEnter(sender As Object, e As DragEventArgs)
+    Private Sub lbCM_DragEnter(sender As Object, e As DragEventArgs) Handles lbCM.DragEnter
         Try
             dragOverOtherItems(e)
         Catch ex As Exception
@@ -94,7 +94,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles lbCM.DragOver
-    Private Sub lbCM_DragOver(sender As Object, e As DragEventArgs)
+    Private Sub lbCM_DragOver(sender As Object, e As DragEventArgs) Handles lbCM.DragOver
         Try
             dropWantedItem(e, lbCM)
         Catch ex As Exception
@@ -103,14 +103,14 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles lbCM.GiveFeedback
-    Private Sub lbCM_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs)
+    Private Sub lbCM_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs) Handles lbCM.GiveFeedback
         e.UseDefaultCursors = False ' Change the cursor to the drag cursor during the drag operation.
         Cursor.Current = Cursors.NoMoveVert ' Change this to the cursor you want to use.
     End Sub
 
     'RIC order change ------------------------------
     'Handles lbRIC.MouseDown
-    Private Sub lbRIC_MouseDown(sender As Object, e As MouseEventArgs)
+    Private Sub lbRIC_MouseDown(sender As Object, e As MouseEventArgs) Handles lbRIC.MouseDown
         Try
             dragWantedItem(e, lbRIC)
         Catch ex As Exception
@@ -119,7 +119,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles lbRIC.DragEnter
-    Private Sub lbRIC_DragEnter(sender As Object, e As DragEventArgs)
+    Private Sub lbRIC_DragEnter(sender As Object, e As DragEventArgs) Handles lbRIC.DragEnter
         Try
             dragOverOtherItems(e)
         Catch ex As Exception
@@ -128,7 +128,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles lbRIC.DragOver
-    Private Sub lbRIC_DragOver(sender As Object, e As DragEventArgs)
+    Private Sub lbRIC_DragOver(sender As Object, e As DragEventArgs) Handles lbRIC.DragOver
         Try
             dropWantedItem(e, lbRIC)
         Catch ex As Exception
@@ -138,7 +138,7 @@ Public Class UserControlTimeTable
 
 
     'Handles lbRIC.GiveFeedback
-    Private Sub lbRIC_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs)
+    Private Sub lbRIC_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs) Handles lbRIC.GiveFeedback
         e.UseDefaultCursors = False ' Change the cursor to the drag cursor during the drag operation.
         Cursor.Current = Cursors.NoMoveVert ' Change this to the cursor you want to use.
     End Sub
@@ -148,7 +148,7 @@ Public Class UserControlTimeTable
 
 
     'Handles btnCMRemove.Click
-    Private Sub btnCMRemove_Click(sender As Object, e As EventArgs)
+    Private Sub btnCMRemove_Click(sender As Object, e As EventArgs) Handles btnCMRemove.Click
         Try
             TTAddOrRemoveModule.remove(lbCM, lbRemovedCM)
         Catch ex As Exception
@@ -158,7 +158,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles btnAddAgainCM.Click
-    Private Sub btnAddAgainCM_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddAgainCM_Click(sender As Object, e As EventArgs) Handles btnAddAgainCM.Click
         Try
             TTAddOrRemoveModule.remove(lbRemovedCM, lbCM)
         Catch ex As Exception
@@ -167,7 +167,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles btnRICRemove.Click
-    Private Sub btnRICRemove_Click(sender As Object, e As EventArgs)
+    Private Sub btnRICRemove_Click(sender As Object, e As EventArgs) Handles btnRICRemove.Click
         Try
             TTAddOrRemoveModule.remove(lbRIC, lbRemovedRIC)
         Catch ex As Exception
@@ -176,7 +176,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles btnAddAgainRIC.Click
-    Private Sub btnAddAgainRIC_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddAgainRIC_Click(sender As Object, e As EventArgs) Handles btnAddAgainRIC.Click
         Try
             TTAddOrRemoveModule.remove(lbRemovedRIC, lbRIC)
         Catch ex As Exception
@@ -185,7 +185,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles btnPlaneAdd.Click
-    Private Sub btnPlaneAdd_Click(sender As Object, e As EventArgs)
+    Private Sub btnPlaneAdd_Click(sender As Object, e As EventArgs) Handles btnPlaneAdd.Click
         Try
             TTAddFlightsModule.addToTable(connsql, lblShift, dtpDate, dgvMain)
 
@@ -203,7 +203,7 @@ Public Class UserControlTimeTable
     '------------------------------------------------------
     'add crewman
     'Handles btnAddCMToTable.Click
-    Private Sub btnAddCMToTable_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddCMToTable_Click(sender As Object, e As EventArgs) Handles btnAddCMToTable.Click
         Try
             addCM(lbCM, dgvMain)
         Catch ex As Exception
@@ -214,7 +214,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles btnAddRICToTable.Click
-    Private Sub btnAddRICToTable_Click(sender As Object, e As EventArgs)
+    Private Sub btnAddRICToTable_Click(sender As Object, e As EventArgs) Handles btnAddRICToTable.Click
         Try
             addRIC(lbRIC, dgvMain)
         Catch ex As Exception
@@ -225,7 +225,7 @@ Public Class UserControlTimeTable
     End Sub
 
     'Handles btnPrint.Click
-    Private Sub btnPrint_Click(sender As Object, e As EventArgs)
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         Try
             TTDataPassToPrintFModule.loadPrint(dtpDate, cbShiftTime, lblDay, lblShift, dgvMain)
         Catch ex As Exception
@@ -236,7 +236,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles dgvMain.MouseUp
-    Private Sub dgvMain_MouseUp(sender As Object, e As MouseEventArgs)
+    Private Sub dgvMain_MouseUp(sender As Object, e As MouseEventArgs) Handles dgvMain.MouseUp
         If e.Button = MouseButtons.Right Then ' Check if the right mouse button was clicked
             Dim hti As DataGridView.HitTestInfo = dgvMain.HitTest(e.X, e.Y)
             If hti.RowIndex >= 0 Then ' Check if the clicked area is in a valid row
@@ -259,7 +259,7 @@ Public Class UserControlTimeTable
 
 
     'Handles ContextMenuStrip1.ItemClicked
-    Private Sub ContextMenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs)
+    Private Sub ContextMenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ContextMenuStrip1.ItemClicked
         Try
             ' Disable the main form
             Me.Enabled = False
@@ -276,13 +276,13 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles Timer1.Tick
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ' Update the label text with the current time
         lblTime.Text = DateTime.Now.ToString("HH:mm")
     End Sub
 
     ' Handles btnResizePnl.Click
-    Private Sub btnResizePnl_Click(sender As Object, e As EventArgs)
+    Private Sub btnResizePnl_Click(sender As Object, e As EventArgs) Handles btnResizePnl.Click
         If Panel12.Width = 250 Then
             Panel12.Width = 30 ' Set new width 
             btnResizePnl.IconChar = FontAwesome.Sharp.IconChar.AngleLeft
@@ -295,7 +295,7 @@ Public Class UserControlTimeTable
 
 
     'Handles lblTime.TextChanged
-    Private Sub lblTime_TextChanged(sender As Object, e As EventArgs)
+    Private Sub lblTime_TextChanged(sender As Object, e As EventArgs) Handles lblTime.TextChanged
         'get row count
         'Dim rowCount As Integer = dgvMain.RowCount
         checkBoxValueSet(dgvMain, lblTime, lbltoday)
@@ -303,7 +303,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles dgvMain.CellClick
-    Private Sub dgvMain_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub dgvMain_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMain.CellClick
 
 
         'Get the selected row data
@@ -330,7 +330,7 @@ Public Class UserControlTimeTable
 
 
     'Handles btnUpdateData.Click
-    Private Sub btnUpdateData_Click(sender As Object, e As EventArgs)
+    Private Sub btnUpdateData_Click(sender As Object, e As EventArgs) Handles btnUpdateData.Click
         Try
             For Each row As DataGridViewRow In dgvMain.Rows
                 If Not row.IsNewRow AndAlso row.Cells(3).Value IsNot Nothing AndAlso row.Cells(3).Value.ToString() = lblSelectedFlight.Text AndAlso row.Cells(5).Value IsNot Nothing AndAlso row.Cells(5).Value.ToString() = lblETAShow.Text Then
@@ -347,7 +347,7 @@ Public Class UserControlTimeTable
     End Sub
 
     ' Handles btnRefresh.Click
-    Private Sub btnRefresh_Click(sender As Object, e As EventArgs)
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         Try
             Dim result As DialogResult = MessageBox.Show("Do you want to proceed? All changed data will discard", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
