@@ -13,6 +13,7 @@ Module PFLoadDataToDatabaseModule
             ' add new column for lbl data
             dt.Columns.Add("lbl_data", GetType(String))
             dt.Columns.Add("time", GetType(DateTime))
+            dt.Columns.Add("super", GetType(String))
 
             'load data to virtual table
             For Each row As DataGridViewRow In dgv.Rows
@@ -24,10 +25,11 @@ Module PFLoadDataToDatabaseModule
                 ' set lbl data for each row
                 newRow("lbl_data") = lbl.Text
                 newRow("time") = DateTime.Now
+                newRow("super") = MAINFORM.lblUser.Text
             Next
 
             ' Next, load the data into a database table
-            Dim sql As String = "INSERT INTO RECORD_TABLE ([BAY NO], NO, FLIGHT,ROUTE, ETA, AIRLINES, RIC, OPERATOR, CREWMAN, REMARKS, DATE,TIME) VALUES (@Column1, @Column2, @Column3,@Column10, @Column4, @Column5,@Column6, @Column7, @Column8,@Column9, @lbl_data,@time)"
+            Dim sql As String = "INSERT INTO RECORD_TABLE ([BAY NO], NO, FLIGHT,ROUTE, ETA, AIRLINES, RIC, OPERATOR, CREWMAN, REMARKS, DATE,TIME, SUPERVISOR) VALUES (@Column1, @Column2, @Column3,@Column10, @Column4, @Column5,@Column6, @Column7, @Column8,@Column9, @lbl_data,@time, @super)"
             Using cmd As New SqlCommand(sql, conn)
                 For Each row As DataRow In dt.Rows
                     cmd.Parameters.Clear()
@@ -45,8 +47,12 @@ Module PFLoadDataToDatabaseModule
                     ' add parameter for lbl data
                     cmd.Parameters.AddWithValue("@lbl_data", row("lbl_data"))
 
-                    'add parameter for tome now
+                    'add parameter for time now
                     cmd.Parameters.AddWithValue("@time", row("time"))
+
+                    'add supervisor for each
+                    cmd.Parameters.AddWithValue("@super", row("super"))
+
                     conn.Open()
                     cmd.ExecuteNonQuery()
                     conn.Close()
