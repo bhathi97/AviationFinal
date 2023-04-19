@@ -3,7 +3,8 @@ Imports PdfSharpCore.Pdf.Content.Objects
 
 Public Class UserControlAdminSetting
 
-    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
     Dim connsql As New SqlConnection(str)
 
     'Handles MyBase.Load

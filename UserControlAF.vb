@@ -5,8 +5,25 @@ Imports PdfSharpCore.Pdf.Content.Objects
 
 Public Class UserControlAF
 
-    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
     Dim connsql As New SqlConnection(str)
+
+
+    'id
+    Private _selectedID As Integer
+
+    Public Property SelectedID As Integer
+        Get
+            Return _selectedID
+        End Get
+        Set(value As Integer)
+            _selectedID = value
+        End Set
+    End Property
+
+
+
     'Handles MyBase.Load
     Private Sub UserControlAF_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblAName.Visible = False
@@ -65,10 +82,12 @@ Public Class UserControlAF
     End Sub
 
     'Handles dgvFlight.CellClick
-    Private Sub dgvFlight_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub dgvFlight_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvFlight.CellClick
         Try
             'select and load to the form
-            FLSelectModule.selectDataLoad(dgvFlight, lblID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            FLSelectModule.selectDataLoad(dgvFlight, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            'SELECTED id load to property
+            SelectedID = FLSelectModule.SelectedID
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -81,7 +100,7 @@ Public Class UserControlAF
     Private Sub btnUpdateFlight_Click(sender As Object, e As EventArgs) Handles btnUpdateFlight.Click
         Try
             'update
-            FLUpdateModule.updateFlight(connsql, lblID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            FLUpdateModule.updateFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
             'load to the grid
             FLLoadToGridModule.load(connsql, dgvFlight)
         Catch ex As Exception

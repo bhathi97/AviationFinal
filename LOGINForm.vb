@@ -4,8 +4,9 @@ Imports PdfSharpCore.Pdf.Content.Objects
 
 Public Class LOGINForm
 
-    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
-    Dim connsql As New SqlConnection(str)
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
+    Dim connsql As New SqlConnection(Str)
 
     'Handles MyBase.Load
     Private Sub LOGINForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

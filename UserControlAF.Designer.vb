@@ -49,7 +49,6 @@ Partial Class UserControlAF
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
-        Panel3 = New Panel()
         dgvFlight = New DataGridView()
         fid1 = New DataGridViewTextBoxColumn()
         fno = New DataGridViewTextBoxColumn()
@@ -58,6 +57,7 @@ Partial Class UserControlAF
         dipart = New DataGridViewTextBoxColumn()
         eta = New DataGridViewTextBoxColumn()
         dt = New DataGridViewTextBoxColumn()
+        Panel3 = New Panel()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
@@ -349,15 +349,6 @@ Partial Class UserControlAF
         Panel2.Size = New Size(683, 531)
         Panel2.TabIndex = 1
         ' 
-        ' Panel3
-        ' 
-        Panel3.BackColor = SystemColors.ButtonHighlight
-        Panel3.Dock = DockStyle.Top
-        Panel3.Location = New Point(10, 10)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(663, 100)
-        Panel3.TabIndex = 1
-        ' 
         ' dgvFlight
         ' 
         dgvFlight.AllowUserToAddRows = False
@@ -383,7 +374,7 @@ Partial Class UserControlAF
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         dgvFlight.DefaultCellStyle = DataGridViewCellStyle2
         dgvFlight.Dock = DockStyle.Fill
-        dgvFlight.Location = New Point(10, 110)
+        dgvFlight.Location = New Point(10, 80)
         dgvFlight.Name = "dgvFlight"
         dgvFlight.ReadOnly = True
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -398,7 +389,7 @@ Partial Class UserControlAF
         dgvFlight.RowTemplate.Height = 25
         dgvFlight.RowTemplate.ReadOnly = True
         dgvFlight.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvFlight.Size = New Size(663, 411)
+        dgvFlight.Size = New Size(663, 441)
         dgvFlight.TabIndex = 1
         ' 
         ' fid1
@@ -448,6 +439,15 @@ Partial Class UserControlAF
         dt.Name = "dt"
         dt.ReadOnly = True
         dt.Width = 150
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = SystemColors.ButtonHighlight
+        Panel3.Dock = DockStyle.Top
+        Panel3.Location = New Point(10, 10)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(663, 70)
+        Panel3.TabIndex = 1
         ' 
         ' UserControlAF
         ' 

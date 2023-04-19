@@ -14,7 +14,8 @@ Public Class UserControlTimeTable
 
     ' Private dataTable As DataTable ' Declare a private variable to store the data table of the DataGridView
 
-    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
     Dim connsql As New SqlConnection(str)
 
 

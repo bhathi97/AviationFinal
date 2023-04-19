@@ -2,7 +2,8 @@
 
 Public Class PRINTForm
 
-    Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
     Dim connsql As New SqlConnection(str)
 
     Public Property Data As DataTable

@@ -1,7 +1,18 @@
 ﻿Module FLSelectModule
 
+    Private _selectedID As Integer
+
+    Public Property SelectedID As Integer
+        Get
+            Return _selectedID
+        End Get
+        Set(value As Integer)
+            _selectedID = value
+        End Set
+    End Property
+
+
     Public Sub selectDataLoad(dgv As DataGridView,
-                              lbselectID As Label,
                               tbflightNo As TextBox,
                               cbarlinecategory As ComboBox,
                               cbStd As ComboBox,
@@ -30,9 +41,11 @@
         Dim dipartime As String = dipH & ":" & dipM
 
         ' Populate the form controls with the selected row data
-        lbselectID.Text = Sid.ToString()
+        'lbselectID.Text = Sid.ToString()
         tbflightNo.Text = flightNo.ToString()
         cbarlinecategory.Text = ACateogry.ToString()
+
+        SelectedID = Sid '****************
 
         cbStd.Text = hours ' Get the time in hours
         cbStd1.Text = min ' Get the minutes

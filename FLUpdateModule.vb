@@ -6,7 +6,7 @@ Imports System.Text.RegularExpressions
 Module FLUpdateModule
     '========================================> Update flight details
     Public Sub updateFlight(connsql As SqlConnection,
-                            lbselectID As Label,
+                            lbselectID As Integer,
                             tbflightNo As TextBox,
                             cbarlinecategory As ComboBox,
                             cbStd As ComboBox,
@@ -37,7 +37,7 @@ Module FLUpdateModule
                 ' Update first table
                 cmd.CommandText = "UPDATE FLIGHT_MASTER_TABLE SET FLIGHT_NO = @Flight_No,AIRLINE_CODE = @Airline_Code  WHERE FID = @FID"
 
-                cmd.Parameters.AddWithValue("@FID", lbselectID.Text)
+                cmd.Parameters.AddWithValue("@FID", lbselectID)
                 cmd.Parameters.AddWithValue("@Flight_No", tbflightNo.Text)
                 cmd.Parameters.AddWithValue("@Airline_Code", cbarlinecategory.Text)
 
@@ -69,7 +69,7 @@ Module FLUpdateModule
 
                 Console.WriteLine("ETA: " & eta.ToString("hh\:mm\:ss")) ' output the ETA in the format hh:mm:ss
 
-                cmd.Parameters.AddWithValue("@FID", lbselectID.Text)
+                cmd.Parameters.AddWithValue("@FID", lbselectID)
                 cmd.Parameters.AddWithValue("@STD", stdTime)
                 cmd.Parameters.AddWithValue("@DIP", dipartime)
                 cmd.Parameters.AddWithValue("@Date", selectedDate)
@@ -104,7 +104,7 @@ Module FLUpdateModule
         connsql.Close()
 
         'clear data entering fields
-        lbselectID.Text = ""
+        lbselectID = 0
         tbflightNo.Text = ""
         cbarlinecategory.SelectedIndex = -1
         cbStd.SelectedIndex = -1

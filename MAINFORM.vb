@@ -11,19 +11,30 @@ Public Class MAINFORM
     'Define a string variable to store the state of the sidebar (open or close)
     Dim sidebarState As String = "Open"
 
+
+    '***************************************************************
+    Private UserControlTT As New UserControlTimeTable()
+    Private UserControlC As New UserControlCREW()
+    Private UserControlAS As New UserControlAdminSetting()
+    Private USerControlAF As New UserControlAF()
+    '***************************************************************
+
+
+
     'Handles MyBase.Load
     Private Sub MAINFORM_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WindowState = FormWindowState.Maximized
         PanelMenu.Width = 50
 
-        'load USER CONTROL when open the form
-        Dim userControlTT As New UserControlTimeTable()
-        userControlTT.Dock = DockStyle.Fill
-        PanelLoad.Controls.Add(userControlTT)
-        userControlTT.BringToFront()
+        If Not Me.Controls.Contains(UserControlTT) Then
+            Me.Controls.Add(UserControlTT)
+            UserControlTT.Dock = DockStyle.Fill
+            PanelLoad.Controls.Add(UserControlTT)
+        End If
 
 
-        btnShedule.Enabled = False
+        UserControlTT.BringToFront()
+
 
     End Sub
 
@@ -60,15 +71,14 @@ Public Class MAINFORM
     Private Sub btnFlight_Click(sender As Object, e As EventArgs) Handles btnFlight.Click
 
         Try
-            Dim userControlAF As New UserControlAF()
-            userControlAF.Dock = DockStyle.Fill
-            PanelLoad.Controls.Add(userControlAF)
-            userControlAF.BringToFront()
 
-            btnShedule.Enabled = True
-            btnFlight.Enabled = False
-            btnCrew.Enabled = True
-            btnAdminSetting.Enabled = True
+            If Not Me.Controls.Contains(USerControlAF) Then
+                Me.Controls.Add(USerControlAF)
+                USerControlAF.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(USerControlAF)
+            End If
+
+            USerControlAF.BringToFront()
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -81,16 +91,14 @@ Public Class MAINFORM
     Private Sub btnCrew_Click(sender As Object, e As EventArgs) Handles btnCrew.Click
 
         Try
-            Dim userControlC As New UserControlCREW()
-            userControlC.Dock = DockStyle.Fill
-            PanelLoad.Controls.Add(userControlC)
-            userControlC.BringToFront()
 
+            If Not Me.Controls.Contains(UserControlC) Then
+                Me.Controls.Add(UserControlC)
+                UserControlC.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(UserControlC)
+            End If
 
-            btnShedule.Enabled = True
-            btnFlight.Enabled = True
-            btnCrew.Enabled = False
-            btnAdminSetting.Enabled = True
+            UserControlC.BringToFront()
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -98,40 +106,17 @@ Public Class MAINFORM
 
     End Sub
 
-    'Handles btnShedule.Click
-    Private Sub btnShedule_Click(sender As Object, e As EventArgs) Handles btnShedule.Click
-        Try
-
-            Dim userControlTT As New UserControlTimeTable()
-            userControlTT.Dock = DockStyle.Fill
-            PanelLoad.Controls.Add(userControlTT)
-            userControlTT.BringToFront()
-
-            btnShedule.Enabled = False
-            btnFlight.Enabled = True
-            btnCrew.Enabled = True
-            btnAdminSetting.Enabled = True
-
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
-
-    End Sub
 
     'Handles btnAdminSetting.Click
     Private Sub btnAdminSetting_Click(sender As Object, e As EventArgs) Handles btnAdminSetting.Click
         Try
-            Dim userControlAD As New UserControlAdminSetting()
-            userControlAD.Dock = DockStyle.Fill
-            PanelLoad.Controls.Add(userControlAD)
-            userControlAD.BringToFront()
+            If Not Me.Controls.Contains(UserControlAS) Then
+                Me.Controls.Add(UserControlAS)
+                UserControlAS.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(UserControlAS)
+            End If
 
-            btnShedule.Enabled = True
-            btnFlight.Enabled = True
-            btnCrew.Enabled = True
-            btnAdminSetting.Enabled = False
+            UserControlAS.BringToFront()
 
 
         Catch ex As Exception
@@ -170,6 +155,24 @@ Public Class MAINFORM
                 ' If the user clicks No, cancel the form closing event.
                 e.Cancel = True
             End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    'Handles btnShedule.Click
+    Private Sub btnShedule_Click(sender As Object, e As EventArgs) Handles btnShedule.Click
+        Try
+
+            If Not Me.Controls.Contains(UserControlTT) Then
+                Me.Controls.Add(UserControlTT)
+                UserControlTT.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(UserControlTT)
+            End If
+
+            UserControlTT.BringToFront()
 
         Catch ex As Exception
             MsgBox(ex.Message)

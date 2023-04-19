@@ -244,6 +244,7 @@ Partial Class UserControlAdminSetting
         dgvUserDetails.AllowUserToAddRows = False
         dgvUserDetails.AllowUserToDeleteRows = False
         dgvUserDetails.BackgroundColor = SystemColors.ActiveCaption
+        dgvUserDetails.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = SystemColors.Control
         DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
