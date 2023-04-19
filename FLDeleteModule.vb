@@ -19,41 +19,38 @@ Module FLDeleteModule
                 Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the record?", "Confirmation", MessageBoxButtons.OKCancel)
                 If result = DialogResult.OK Then
                     connsql.Open()
-                    Using transaction As SqlTransaction = connsql.BeginTransaction()
-                        Try
-                            Dim cmd As New SqlCommand()
-                            cmd.Connection = connsql
-                            cmd.Transaction = transaction
 
-                            cmd.CommandText = "DELETE FROM FLIGHT_MASTER_TABLE WHERE FID = @FID"
-                            cmd.Parameters.AddWithValue("@FID", lbselectID)
-                            cmd.ExecuteNonQuery()
+                    Try
 
-                            cmd.CommandText = "DELETE FROM FLIGHT_TIME_TABLE WHERE FID = @FID"
-                            cmd.ExecuteNonQuery()
+                        Dim cmd As New SqlCommand("DELETE FROM FLIGHT_TIME_TABLE WHERE FID = @FID", connsql)
+                        cmd.Parameters.AddWithValue("@FID", lbselectID)
+                        cmd.ExecuteNonQuery()
 
-                            transaction.Commit()
-                            MsgBox("Record deleted successfully.")
-                        Catch ex As SqlException
-                            transaction.Rollback()
-                            MsgBox("SQL Error occurred: " & ex.Message)
-                        Catch ex As Exception
-                            transaction.Rollback()
-                            MsgBox("SQL Error occurred: " & ex.Message)
-                        End Try
-                    End Using
+
+                        Dim cmd0 As New SqlCommand("DELETE FROM FLIGHT_MASTER_TABLE WHERE FID = @FID", connsql)
+                        cmd0.Parameters.AddWithValue("@FID", lbselectID)
+                        cmd0.ExecuteNonQuery()
+
+                        MsgBox("Record deleted successfully.")
+
+                    Catch ex As SqlException
+                        MsgBox("SQL Error occurred: " & ex.Message)
+                    End Try
+
                     connsql.Close()
                 End If
             End If
         Catch ex As Exception
             MsgBox("SQL Error occurred: " & ex.Message)
+        Finally
+            connsql.Close()
         End Try
 
 
 
 
         'clear data entering fields
-        lbselectID = 0
+
         tbflightNo.Text = ""
         cbarlinecategory.SelectedIndex = -1
         cbStd.SelectedIndex = -1
