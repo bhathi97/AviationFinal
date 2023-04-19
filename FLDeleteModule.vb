@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Module FLDeleteModule
 
     Public Sub deleteFlight(connsql As SqlConnection,
-                            lbselectID As Label,
+                            lbselectID As Integer,
                             tbflightNo As TextBox,
                             cbarlinecategory As ComboBox,
                             cbStd As ComboBox,
@@ -13,7 +13,7 @@ Module FLDeleteModule
                             dtp As DateTimePicker)
 
         Try
-            If String.IsNullOrWhiteSpace(lbselectID.Text) Then
+            If String.IsNullOrWhiteSpace(lbselectID) Then
                 ' No ID selected
             Else
                 Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the record?", "Confirmation", MessageBoxButtons.OKCancel)
@@ -26,7 +26,7 @@ Module FLDeleteModule
                             cmd.Transaction = transaction
 
                             cmd.CommandText = "DELETE FROM FLIGHT_MASTER_TABLE WHERE FID = @FID"
-                            cmd.Parameters.AddWithValue("@FID", lbselectID.Text)
+                            cmd.Parameters.AddWithValue("@FID", lbselectID)
                             cmd.ExecuteNonQuery()
 
                             cmd.CommandText = "DELETE FROM FLIGHT_TIME_TABLE WHERE FID = @FID"
@@ -53,7 +53,7 @@ Module FLDeleteModule
 
 
         'clear data entering fields
-        lbselectID.Text = ""
+        lbselectID = 0
         tbflightNo.Text = ""
         cbarlinecategory.SelectedIndex = -1
         cbStd.SelectedIndex = -1

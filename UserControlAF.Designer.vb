@@ -26,7 +26,6 @@ Partial Class UserControlAF
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
-        lblID = New Label()
         lblAddNewAC = New Label()
         PictureBox1 = New PictureBox()
         btnDeleteFlight = New FontAwesome.Sharp.IconButton()
@@ -67,7 +66,6 @@ Partial Class UserControlAF
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
-        Panel1.Controls.Add(lblID)
         Panel1.Controls.Add(lblAddNewAC)
         Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteFlight)
@@ -96,15 +94,6 @@ Partial Class UserControlAF
         Panel1.Size = New Size(478, 531)
         Panel1.TabIndex = 0
         ' 
-        ' lblID
-        ' 
-        lblID.AutoSize = True
-        lblID.ForeColor = SystemColors.ControlLight
-        lblID.Location = New Point(101, 421)
-        lblID.Name = "lblID"
-        lblID.Size = New Size(47, 15)
-        lblID.TabIndex = 21
-        lblID.Text = "Label10"' 
         ' lblAddNewAC
         ' 
         lblAddNewAC.AutoSize = True
@@ -489,7 +478,6 @@ Partial Class UserControlAF
     Friend WithEvents btnDeleteFlight As FontAwesome.Sharp.IconButton
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblAddNewAC As Label
-    Friend WithEvents lblID As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents dgvFlight As DataGridView
     Friend WithEvents fid1 As DataGridViewTextBoxColumn

@@ -110,10 +110,11 @@ Public Class UserControlAF
         End Try
     End Sub
 
+    'Handles btnDeleteFlight.Click
     Private Sub btnDeleteFlight_Click(sender As Object, e As EventArgs) Handles btnDeleteFlight.Click
         Try
             'delete
-            FLDeleteModule.deleteFlight(connsql, lblID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            FLDeleteModule.deleteFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
             'load to the grid
             FLLoadToGridModule.load(connsql, dgvFlight)
         Catch ex As Exception
