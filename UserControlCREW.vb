@@ -52,7 +52,7 @@ Public Class UserControlCREW
 
         Try
             'save data 
-            CMUpdateModule.UpdateCrewmanDetail(_SelectedID, tbName, cbGroup, cbPosition, connsql)
+            CMUpdateModule.UpdateCrewmanDetail(SelectedId, tbName, cbGroup, cbPosition, connsql)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
         Catch ex As Exception
@@ -79,7 +79,7 @@ Public Class UserControlCREW
     Private Sub btnDeleteCM_Click(sender As Object, e As EventArgs) Handles btnDeleteCM.Click
         Try
             'delete the selected
-            CMDeleteModule.deleteCrewmanDetail(connsql, _SelectedID, tbName, cbGroup, cbPosition)
+            CMDeleteModule.deleteCrewmanDetail(connsql, SelectedId, tbName, cbGroup, cbPosition)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
 

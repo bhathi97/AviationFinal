@@ -36,7 +36,6 @@ Public Class UserControlAF
         FLLoadToGridModule.load(connsql, dgvFlight)
 
 
-
     End Sub
 
     ' Handles lblAddNewAC.Click
