@@ -53,9 +53,9 @@ Module TTAddFlightsModule
                             reader.Read()
 
                             ' Get flight information
-                            Dim fNo As Integer = reader("FLIGHT_NO")
+                            Dim fNo As String = reader("FLIGHT_NO")
                             Dim fCode As String = reader("AIRLINE_CODE")
-                            Dim flight As String = fNo.ToString + "-" + fCode
+                            Dim flight As String = fNo + "-" + fCode
 
                             ' Set the value of the "Flight" column in the current row
                             row("Fli") = flight
@@ -84,11 +84,6 @@ Module TTAddFlightsModule
                     dgvMain.DataSource = table.DefaultView
 
 
-
-
-
-
-
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
@@ -100,13 +95,6 @@ Module TTAddFlightsModule
 
                     ' Assign the stored data back to the DataGridView
                     dgvMain.DataSource = dataView
-
-
-
-
-
-
-
 
                     ' Get the row count of the DataGridView control
                     Dim rowCount As Integer = dgvMain.RowCount
@@ -174,13 +162,6 @@ Module TTAddFlightsModule
                     ' Set the Sort property of the DefaultView of the DataTable
                     table.DefaultView.Sort = "Date ASC, ETA ASC"
 
-
-
-
-
-
-
-
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
@@ -192,11 +173,6 @@ Module TTAddFlightsModule
 
                     ' Assign the stored data back to the DataGridView
                     dgvMain.DataSource = dataView
-
-
-
-
-
 
                     'get row count
                     Dim rowCount As Integer = dgvMain.RowCount

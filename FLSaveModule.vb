@@ -50,9 +50,9 @@ Module FLSaveModule
 
         Else
             'insert data to the database
-            Dim flightNo As Integer
+            Dim flightNo As String
             Dim ACateogry As String
-            flightNo = Integer.Parse(tbFlightNo.Text)
+            flightNo = tbFlightNo.Text
             ACateogry = cbarlinecategory.Text
 
             'insert flight no, airline code to the flight master table + generate fid
