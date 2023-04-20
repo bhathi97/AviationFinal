@@ -83,7 +83,6 @@ Module TTAddFlightsModule
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 
-
                     ' Assign the DefaultView to the DataSource property of the DataGridView
                     dgvMain.DataSource = table.DefaultView
 

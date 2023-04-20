@@ -8,5 +8,4 @@ Public Class DatabaseConnection
         End Get
     End Property
 
-
 End Class
