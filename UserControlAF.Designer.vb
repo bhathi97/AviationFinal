@@ -22,9 +22,10 @@ Partial Class UserControlAF
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
         lblAddNewAC = New Label()
         PictureBox1 = New PictureBox()
@@ -56,11 +57,32 @@ Partial Class UserControlAF
         dipart = New DataGridViewTextBoxColumn()
         eta = New DataGridViewTextBoxColumn()
         dt = New DataGridViewTextBoxColumn()
+        Panel4 = New Panel()
+        dgvSearch = New DataGridView()
+        Panel6 = New Panel()
+        Panel7 = New Panel()
+        Label10 = New Label()
         Panel3 = New Panel()
+        Panel5 = New Panel()
+        btnSearch = New FontAwesome.Sharp.IconButton()
+        tbSearch = New TextBox()
+        fid = New DataGridViewTextBoxColumn()
+        fno1 = New DataGridViewTextBoxColumn()
+        alc1 = New DataGridViewTextBoxColumn()
+        std = New DataGridViewTextBoxColumn()
+        dipart1 = New DataGridViewTextBoxColumn()
+        eta1 = New DataGridViewTextBoxColumn()
+        dt1 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(dgvFlight, ComponentModel.ISupportInitialize).BeginInit()
+        Panel4.SuspendLayout()
+        CType(dgvSearch, ComponentModel.ISupportInitialize).BeginInit()
+        Panel6.SuspendLayout()
+        Panel7.SuspendLayout()
+        Panel3.SuspendLayout()
+        Panel5.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
@@ -330,6 +352,7 @@ Partial Class UserControlAF
         ' 
         Panel2.BackColor = SystemColors.ActiveCaption
         Panel2.Controls.Add(dgvFlight)
+        Panel2.Controls.Add(Panel4)
         Panel2.Controls.Add(Panel3)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(478, 0)
@@ -344,42 +367,42 @@ Partial Class UserControlAF
         dgvFlight.AllowUserToDeleteRows = False
         dgvFlight.BackgroundColor = SystemColors.ActiveCaption
         dgvFlight.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = SystemColors.Control
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        dgvFlight.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = SystemColors.Control
+        DataGridViewCellStyle5.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        dgvFlight.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         dgvFlight.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvFlight.Columns.AddRange(New DataGridViewColumn() {fid1, fno, alc, std1, dipart, eta, dt})
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        dgvFlight.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = SystemColors.Window
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        dgvFlight.DefaultCellStyle = DataGridViewCellStyle6
         dgvFlight.Dock = DockStyle.Fill
-        dgvFlight.Location = New Point(10, 80)
+        dgvFlight.Location = New Point(10, 48)
         dgvFlight.Name = "dgvFlight"
         dgvFlight.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        dgvFlight.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = SystemColors.Control
+        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
+        dgvFlight.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         dgvFlight.RowHeadersWidth = 4
         dgvFlight.RowTemplate.Height = 25
         dgvFlight.RowTemplate.ReadOnly = True
         dgvFlight.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvFlight.Size = New Size(663, 441)
-        dgvFlight.TabIndex = 1
+        dgvFlight.Size = New Size(663, 296)
+        dgvFlight.TabIndex = 3
         ' 
         ' fid1
         ' 
@@ -429,14 +452,160 @@ Partial Class UserControlAF
         dt.ReadOnly = True
         dt.Width = 150
         ' 
+        ' Panel4
+        ' 
+        Panel4.BackColor = SystemColors.ActiveCaption
+        Panel4.Controls.Add(dgvSearch)
+        Panel4.Controls.Add(Panel6)
+        Panel4.Dock = DockStyle.Bottom
+        Panel4.Location = New Point(10, 344)
+        Panel4.Name = "Panel4"
+        Panel4.Padding = New Padding(6)
+        Panel4.Size = New Size(663, 177)
+        Panel4.TabIndex = 3
+        ' 
+        ' dgvSearch
+        ' 
+        dgvSearch.AllowUserToAddRows = False
+        dgvSearch.AllowUserToDeleteRows = False
+        dgvSearch.BackgroundColor = SystemColors.ActiveCaption
+        dgvSearch.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = SystemColors.Control
+        DataGridViewCellStyle8.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.True
+        dgvSearch.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        dgvSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvSearch.Columns.AddRange(New DataGridViewColumn() {fid, fno1, alc1, std, dipart1, eta1, dt1})
+        dgvSearch.Dock = DockStyle.Fill
+        dgvSearch.Location = New Point(6, 32)
+        dgvSearch.Name = "dgvSearch"
+        dgvSearch.ReadOnly = True
+        dgvSearch.RowHeadersWidth = 4
+        dgvSearch.RowTemplate.Height = 25
+        dgvSearch.Size = New Size(651, 139)
+        dgvSearch.TabIndex = 3
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Controls.Add(Panel7)
+        Panel6.Dock = DockStyle.Top
+        Panel6.Location = New Point(6, 6)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(651, 26)
+        Panel6.TabIndex = 2
+        ' 
+        ' Panel7
+        ' 
+        Panel7.Controls.Add(Label10)
+        Panel7.Dock = DockStyle.Left
+        Panel7.Location = New Point(0, 0)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(200, 26)
+        Panel7.TabIndex = 1
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Location = New Point(0, 5)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(88, 15)
+        Label10.TabIndex = 0
+        Label10.Text = "Search Results"' 
         ' Panel3
         ' 
-        Panel3.BackColor = SystemColors.ButtonHighlight
+        Panel3.BackColor = SystemColors.ActiveCaption
+        Panel3.Controls.Add(Panel5)
         Panel3.Dock = DockStyle.Top
         Panel3.Location = New Point(10, 10)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(663, 70)
+        Panel3.Size = New Size(663, 38)
         Panel3.TabIndex = 1
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Controls.Add(btnSearch)
+        Panel5.Controls.Add(tbSearch)
+        Panel5.Dock = DockStyle.Right
+        Panel5.Location = New Point(413, 0)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(250, 38)
+        Panel5.TabIndex = 2
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnSearch.Cursor = Cursors.Hand
+        btnSearch.FlatAppearance.BorderSize = 0
+        btnSearch.FlatStyle = FlatStyle.Flat
+        btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass
+        btnSearch.IconColor = Color.WhiteSmoke
+        btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto
+        btnSearch.IconSize = 20
+        btnSearch.ImageAlign = ContentAlignment.MiddleRight
+        btnSearch.Location = New Point(219, 4)
+        btnSearch.Name = "btnSearch"
+        btnSearch.Size = New Size(30, 30)
+        btnSearch.TabIndex = 3
+        btnSearch.UseVisualStyleBackColor = False
+        ' 
+        ' tbSearch
+        ' 
+        tbSearch.Location = New Point(19, 7)
+        tbSearch.Name = "tbSearch"
+        tbSearch.Size = New Size(197, 23)
+        tbSearch.TabIndex = 2
+        ' 
+        ' fid
+        ' 
+        fid.HeaderText = "FID"
+        fid.Name = "fid"
+        fid.ReadOnly = True
+        fid.Width = 80
+        ' 
+        ' fno1
+        ' 
+        fno1.HeaderText = "FLIGHT NO"
+        fno1.Name = "fno1"
+        fno1.ReadOnly = True
+        ' 
+        ' alc1
+        ' 
+        alc1.FillWeight = 150F
+        alc1.HeaderText = "AIRLINE CATEGORY"
+        alc1.Name = "alc1"
+        alc1.ReadOnly = True
+        alc1.Width = 150
+        ' 
+        ' std
+        ' 
+        std.HeaderText = "S.T.D"
+        std.Name = "std"
+        std.ReadOnly = True
+        ' 
+        ' dipart1
+        ' 
+        dipart1.FillWeight = 120F
+        dipart1.HeaderText = "DEPARTURE TIME"
+        dipart1.Name = "dipart1"
+        dipart1.ReadOnly = True
+        dipart1.Width = 150
+        ' 
+        ' eta1
+        ' 
+        eta1.HeaderText = "E.T.A"
+        eta1.Name = "eta1"
+        eta1.ReadOnly = True
+        ' 
+        ' dt1
+        ' 
+        dt1.HeaderText = "DATE"
+        dt1.Name = "dt1"
+        dt1.ReadOnly = True
         ' 
         ' UserControlAF
         ' 
@@ -452,6 +621,14 @@ Partial Class UserControlAF
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         CType(dgvFlight, ComponentModel.ISupportInitialize).EndInit()
+        Panel4.ResumeLayout(False)
+        CType(dgvSearch, ComponentModel.ISupportInitialize).EndInit()
+        Panel6.ResumeLayout(False)
+        Panel7.ResumeLayout(False)
+        Panel7.PerformLayout()
+        Panel3.ResumeLayout(False)
+        Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -487,4 +664,19 @@ Partial Class UserControlAF
     Friend WithEvents dipart As DataGridViewTextBoxColumn
     Friend WithEvents eta As DataGridViewTextBoxColumn
     Friend WithEvents dt As DataGridViewTextBoxColumn
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents btnSearch As FontAwesome.Sharp.IconButton
+    Friend WithEvents tbSearch As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents dgvSearch As DataGridView
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents fid As DataGridViewTextBoxColumn
+    Friend WithEvents fno1 As DataGridViewTextBoxColumn
+    Friend WithEvents alc1 As DataGridViewTextBoxColumn
+    Friend WithEvents std As DataGridViewTextBoxColumn
+    Friend WithEvents dipart1 As DataGridViewTextBoxColumn
+    Friend WithEvents eta1 As DataGridViewTextBoxColumn
+    Friend WithEvents dt1 As DataGridViewTextBoxColumn
 End Class

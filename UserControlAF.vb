@@ -130,4 +130,14 @@ Public Class UserControlAF
             MsgBox(ex)
         End Try
     End Sub
+
+    ' Handles btnSearch.Click
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Try
+            AFSearchModule.SearchbyID(connsql, dgvSearch, tbSearch)
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
+    End Sub
 End Class
