@@ -334,7 +334,7 @@ Public Class UserControlTimeTable
     Private Sub btnUpdateData_Click(sender As Object, e As EventArgs) Handles btnUpdateData.Click
         Try
             For Each row As DataGridViewRow In dgvMain.Rows
-                If Not row.IsNewRow AndAlso row.Cells(3).Value IsNot Nothing AndAlso row.Cells(3).Value.ToString() = lblSelectedFlight.Text AndAlso row.Cells(5).Value IsNot Nothing AndAlso row.Cells(5).Value.ToString() = lblETAShow.Text Then
+                If Not row.IsNewRow AndAlso row.Cells(3).Value IsNot Nothing AndAlso row.Cells(3).Value.ToString() = lblSelectedFlight.Text AndAlso row.Cells(5).Value IsNot Nothing AndAlso row.Cells(5).Value.ToString() = lblETAShow.Text AndAlso row.Cells(0).Value <> True Then
                     row.Cells(1).Value = tbBayNo.Text
                     row.Cells(8).Value = cbOPerater.Text
                     row.Cells(10).Value = cboxremarks.Text

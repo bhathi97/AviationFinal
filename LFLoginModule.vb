@@ -76,6 +76,7 @@ Module LFLoginModule
             End If
 
             connsql.Close()
+
         End If
 
     End Sub

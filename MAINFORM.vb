@@ -6,6 +6,22 @@ Imports System.Windows.Forms
 
 Public Class MAINFORM
 
+    '*********************************
+    'to seperate logout and close function
+    'when logout, pass some value
+    Private _logout As Boolean = False ' Initialize to False by default
+
+    Public Property Logout As Boolean
+        Get
+            Return _logout
+        End Get
+        Set(ByVal value As Boolean)
+            _logout = value
+        End Set
+    End Property
+
+    '**********************************
+
     Private gridDataOfTTUserControl As DataTable ' to store grid data of TT user control 
 
     'Define a string variable to store the state of the sidebar (open or close)
@@ -127,11 +143,25 @@ Public Class MAINFORM
 
     'Handles btnLogout.Click
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+
         Try
             Dim result As DialogResult = MessageBox.Show("Do you want to Log Out?", "LOGOUT", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
+
+                Logout = True
+
                 LOGINForm.Show()
-                Me.Close()
+                LOGINForm.tbUName.Text = ""
+                LOGINForm.tbPS.Text = ""
+                LOGINForm.tbUName.Focus()
+
+                For Each form As Form In Application.OpenForms
+                    If form.Name <> "LOGINForm" Then
+                        form.Close()
+                    End If
+                Next
+
+
             End If
         Catch ex As Exception
 
@@ -142,23 +172,27 @@ Public Class MAINFORM
     'Handles MyBase.FormClosing
     Private Sub MAINFORM_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         ' Prompt the user to confirm the application shutdown.
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-        Try
-            ' If the user clicks Yes, exit the application.
-            If result = DialogResult.OK Then
+        If Logout <> True Then
 
-                For Each f As Form In Application.OpenForms
-                    f.Close()
-                Next
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+            Try
+                ' If the user clicks Yes, exit the application.
+                If result = DialogResult.OK Then
 
-            Else
-                ' If the user clicks No, cancel the form closing event.
-                e.Cancel = True
-            End If
+                    For Each f As Form In Application.OpenForms
+                        f.Close()
+                    Next
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+                Else
+                    ' If the user clicks No, cancel the form closing event.
+                    e.Cancel = True
+                End If
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End If
 
     End Sub
 
