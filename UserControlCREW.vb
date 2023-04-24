@@ -14,6 +14,19 @@ Public Class UserControlCREW
         End Set
     End Property
 
+    '*************************
+    Public Property UserCrew As String
+        Get
+            Return _userCrew
+        End Get
+        Set(value As String)
+            _userCrew = value
+        End Set
+    End Property
+
+    Private _userCrew As String
+    '*************************
+
 
 
     'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
@@ -34,7 +47,7 @@ Public Class UserControlCREW
 
         Try
             'add data to the database table
-            CMSaveModule.saveCrewman(tbName, cbGroup, cbPosition, connsql)
+            CMSaveModule.saveCrewman(tbName, cbGroup, cbPosition, connsql, _userCrew)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
 
@@ -52,7 +65,7 @@ Public Class UserControlCREW
 
         Try
             'save data 
-            CMUpdateModule.UpdateCrewmanDetail(SelectedId, tbName, cbGroup, cbPosition, connsql)
+            CMUpdateModule.UpdateCrewmanDetail(SelectedId, tbName, cbGroup, cbPosition, connsql, _userCrew)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
         Catch ex As Exception
@@ -79,7 +92,7 @@ Public Class UserControlCREW
     Private Sub btnDeleteCM_Click(sender As Object, e As EventArgs) Handles btnDeleteCM.Click
         Try
             'delete the selected
-            CMDeleteModule.deleteCrewmanDetail(connsql, SelectedId, tbName, cbGroup, cbPosition)
+            CMDeleteModule.deleteCrewmanDetail(connsql, SelectedId, tbName, cbGroup, cbPosition, _userCrew)
             'load data to the grid
             CMLoadToGridModule.showInGrid(connsql, dgvCrew)
 

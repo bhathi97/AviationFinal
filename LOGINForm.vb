@@ -8,6 +8,7 @@ Public Class LOGINForm
     Public str As String = DatabaseConnection.ConnectionString
     Dim connsql As New SqlConnection(Str)
 
+
     'Handles MyBase.Load
     Private Sub LOGINForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' hide password when typing

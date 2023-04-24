@@ -35,6 +35,19 @@ Public Class MAINFORM
     Private USerControlAF As New UserControlAF()
     '***************************************************************
 
+    '************************** to save user
+    Public Property User As String
+        Get
+            Return _user
+        End Get
+        Set(value As String)
+            _user = value
+        End Set
+    End Property
+
+    Private _user As String
+
+    '**************************
 
 
     'Handles MyBase.Load
@@ -42,8 +55,10 @@ Public Class MAINFORM
         WindowState = FormWindowState.Maximized
         PanelMenu.Width = 50
 
+
         If Not Me.Controls.Contains(UserControlTT) Then
             Me.Controls.Add(UserControlTT)
+
             UserControlTT.Dock = DockStyle.Fill
             PanelLoad.Controls.Add(UserControlTT)
         End If
@@ -110,6 +125,7 @@ Public Class MAINFORM
 
             If Not Me.Controls.Contains(UserControlC) Then
                 Me.Controls.Add(UserControlC)
+                UserControlC.UserCrew = User
                 UserControlC.Dock = DockStyle.Fill
                 PanelLoad.Controls.Add(UserControlC)
             End If

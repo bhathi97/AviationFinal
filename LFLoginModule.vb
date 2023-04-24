@@ -45,12 +45,17 @@ Module LFLoginModule
                     form.btnCrew.Hide()
                     form.btnFlight.Hide()
                     form.btnAdminSetting.Hide()
+                    form.User = namen
                     form.Show()
                     obj.Hide()
+
+
+
                 ElseIf typeValue = "ADMIN" Then
                     'login successful
                     Dim form As New MAINFORM()
                     form.lblUser.Text = namen
+                    form.User = namen
                     form.Show()
                     obj.Hide()
 

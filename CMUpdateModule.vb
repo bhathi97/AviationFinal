@@ -3,11 +3,11 @@ Imports System.Data.SqlClient
 
 Module CMUpdateModule
 
-    Private _editr As String = MAINFORM.lblUser.Text
-    Private _time As TimeSpan = DateTime.Now.TimeOfDay
-    Private _date As DateTime = DateTime.Today
+    Public Sub UpdateCrewmanDetail(selectID As Integer, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection, user As String)
 
-    Public Sub UpdateCrewmanDetail(selectID As Integer, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
+        Dim _editr As String = user
+        Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+        Dim _date As DateTime = DateTime.Today
 
         'Check whether id is null or empty
         If String.IsNullOrEmpty(selectID) Then
@@ -59,7 +59,7 @@ Module CMUpdateModule
                 Dim cmd As New SqlCommand("UPDATE CREWMEMBERS_MASTER_TABLE SET Name = @Name,[Group] = @Group ,  position = @Position  WHERE ID = @lblSelectedID", connsql)
                 cmd.Parameters.AddWithValue("@Name", Uname)
                 cmd.Parameters.AddWithValue("@Group", Ugroup)
-                cmd.Parameters.AddWithValue("@Position", Ugroup)
+                cmd.Parameters.AddWithValue("@Position", Uposition)
                 cmd.Parameters.AddWithValue("@lblSelectedID", selectID)
                 'confirmation DialogBox
                 Dim result As DialogResult = MessageBox.Show("Do you want to change Crewmen Name ?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)

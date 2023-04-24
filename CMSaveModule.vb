@@ -4,11 +4,14 @@ Imports System.Text.RegularExpressions
 
 Module CMSaveModule
 
-    Private _editr As String = MAINFORM.lblUser.Text
-    Private _time As TimeSpan = DateTime.Now.TimeOfDay
-    Private _date As DateTime = DateTime.Today
 
-    Public Sub saveCrewman(tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
+
+    Public Sub saveCrewman(tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection, user As String)
+
+        Dim _editr As String = user
+        Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+        Dim _date As DateTime = DateTime.Today
+
 
         ' check whether all the fields are empty
         If String.IsNullOrEmpty(tbName.Text) Then
