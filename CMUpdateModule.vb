@@ -3,6 +3,10 @@ Imports System.Data.SqlClient
 
 Module CMUpdateModule
 
+    Private _editr As String = MAINFORM.lblUser.Text
+    Private _time As TimeSpan = DateTime.Now.TimeOfDay
+    Private _date As DateTime = DateTime.Today
+
     Public Sub UpdateCrewmanDetail(selectID As Integer, tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
 
         'Check whether id is null or empty
@@ -47,18 +51,39 @@ Module CMUpdateModule
                 MsgBox("Crewmen name already exists in database")
             Else
                 connsql.Open()
+
+                Dim Uname As String = tbName.Text
+                Dim Ugroup As String = cbGroup.Text
+                Dim Uposition As String = cbPosition.Text
+
                 Dim cmd As New SqlCommand("UPDATE CREWMEMBERS_MASTER_TABLE SET Name = @Name,[Group] = @Group ,  position = @Position  WHERE ID = @lblSelectedID", connsql)
-                cmd.Parameters.AddWithValue("@Name", tbName.Text)
-                cmd.Parameters.AddWithValue("@Group", cbGroup.Text)
-                cmd.Parameters.AddWithValue("@Position", cbPosition.Text)
+                cmd.Parameters.AddWithValue("@Name", Uname)
+                cmd.Parameters.AddWithValue("@Group", Ugroup)
+                cmd.Parameters.AddWithValue("@Position", Ugroup)
                 cmd.Parameters.AddWithValue("@lblSelectedID", selectID)
                 'confirmation DialogBox
                 Dim result As DialogResult = MessageBox.Show("Do you want to change Crewmen Name ?", "Update Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
                     'if User clicked Yes
-                    MsgBox(tbName.Text & "Successfully Updated")
+
                     cmd.ExecuteNonQuery()
+
+                    Dim sqlSv As String = "INSERT INTO CREWMEMBERS_HISTORY_TABLE (ID, NAME, [GROUP], POSITION, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@id, @name, @group, @position, @editor, @time, @date, @edit)"
+                    Dim command2 As New SqlCommand(sqlSv, connsql)
+
+                    command2.Parameters.AddWithValue("@id", selectID)
+                    command2.Parameters.AddWithValue("@name", Uname)
+                    command2.Parameters.AddWithValue("@group", Ugroup)
+                    command2.Parameters.AddWithValue("@position", Uposition)
+                    command2.Parameters.AddWithValue("@editor", _editr)
+                    command2.Parameters.AddWithValue("@time", _time)
+                    command2.Parameters.AddWithValue("@date", _date)
+                    command2.Parameters.AddWithValue("@edit", "UPDATE")
+
+                    command2.ExecuteNonQuery()
+
+                    MsgBox(tbName.Text & "Successfully Updated")
 
                 End If
                 connsql.Close()

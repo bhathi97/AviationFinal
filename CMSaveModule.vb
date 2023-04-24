@@ -4,6 +4,10 @@ Imports System.Text.RegularExpressions
 
 Module CMSaveModule
 
+    Private _editr As String = MAINFORM.lblUser.Text
+    Private _time As TimeSpan = DateTime.Now.TimeOfDay
+    Private _date As DateTime = DateTime.Today
+
     Public Sub saveCrewman(tbName As TextBox, cbGroup As ComboBox, cbPosition As ComboBox, connsql As SqlConnection)
 
         ' check whether all the fields are empty
@@ -54,13 +58,34 @@ Module CMSaveModule
 
 
 
-                    Dim sql As String = "INSERT INTO CREWMEMBERS_MASTER_TABLE (Name, [Group], Position) VALUES (@Name, @Group, @Position)"
+                    Dim sql As String = "INSERT INTO CREWMEMBERS_MASTER_TABLE (NAME, [GROUP], POSITION) VALUES (@Name, @Group, @Position)"
                     Dim command As New SqlCommand(sql, connsql)
                     command.Parameters.AddWithValue("@Name", name)
                     command.Parameters.AddWithValue("@Group", group)
                     command.Parameters.AddWithValue("@Position", position)
 
+
                     command.ExecuteNonQuery()
+
+                    Dim sqlId As String = "SELECT TOP 1 ID FROM CREWMEMBERS_MASTER_TABLE ORDER BY ID DESC"
+                    Dim command1 As New SqlCommand(sqlId, connsql)
+                    Dim idSave As String = command1.ExecuteScalar.ToString 'load id
+                    'Dim editby As String = MAINFORM.lblUser.Text 'assuming editor is the logged user
+                    'MsgBox(idSave)
+
+                    Dim sqlSv As String = "INSERT INTO CREWMEMBERS_HISTORY_TABLE (ID, NAME, [GROUP], POSITION, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@id, @name, @group, @position, @editor, @time, @date, @edit)"
+                    Dim command2 As New SqlCommand(sqlSv, connsql)
+                    command2.Parameters.AddWithValue("@id", idSave)
+                    command2.Parameters.AddWithValue("@name", name)
+                    command2.Parameters.AddWithValue("@group", group)
+                    command2.Parameters.AddWithValue("@position", position)
+                    command2.Parameters.AddWithValue("@editor", _editr)
+                    command2.Parameters.AddWithValue("@time", _time)
+                    command2.Parameters.AddWithValue("@date", _date)
+                    command2.Parameters.AddWithValue("@edit", "NEW")
+
+                    command2.ExecuteNonQuery()
+
 
                     'connection close
                     connsql.Close()

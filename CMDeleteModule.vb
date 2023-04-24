@@ -6,6 +6,10 @@ Imports System.Data.SqlClient
 
 Module CMDeleteModule
 
+    Private _editr As String = MAINFORM.lblUser.Text
+    Private _time As TimeSpan = DateTime.Now.TimeOfDay
+    Private _date As DateTime = DateTime.Today
+
     Public Sub deleteCrewmanDetail(connsql As SqlConnection, selecID As Integer, name As TextBox, group As ComboBox, position As ComboBox)
         If String.IsNullOrEmpty(selecID) Then
         Else 'if seleced id is not null
@@ -18,6 +22,22 @@ Module CMDeleteModule
             If result = DialogResult.Yes Then
                 'if User clicked Yes
                 cmd.ExecuteNonQuery()
+
+
+                Dim sqlSv As String = "INSERT INTO CREWMEMBERS_HISTORY_TABLE (ID, NAME, [GROUP], POSITION, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@id, @name, @group, @position, @editor, @time, @date, @edit)"
+                Dim command2 As New SqlCommand(sqlSv, connsql)
+
+                command2.Parameters.AddWithValue("@id", selecID)
+                command2.Parameters.AddWithValue("@name", name.Text)
+                command2.Parameters.AddWithValue("@group", group.Text)
+                command2.Parameters.AddWithValue("@position", position.Text)
+                command2.Parameters.AddWithValue("@editor", _editr)
+                command2.Parameters.AddWithValue("@time", _time)
+                command2.Parameters.AddWithValue("@date", _date)
+                command2.Parameters.AddWithValue("@edit", "DELETE")
+
+                command2.ExecuteNonQuery()
+
                 MsgBox(name.Text & " IS Successfully Deleted ")
 
                 'Clear the values in text boxes, combo boxes, and label
