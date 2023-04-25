@@ -10,7 +10,7 @@ Public Class UserControlAF
     Dim connsql As New SqlConnection(str)
 
 
-    'id
+    '*************************************id
     Private _selectedID As Integer
 
     Public Property SelectedID As Integer
@@ -21,7 +21,22 @@ Public Class UserControlAF
             _selectedID = value
         End Set
     End Property
+    '**************************************
 
+    '************************************** to get user
+
+    Public Property UserAF As String
+        Get
+            Return _userAF
+        End Get
+        Set(value As String)
+            _userAF = value
+        End Set
+    End Property
+
+    Private _userAF As String
+
+    '**************************************************
 
 
     'Handles MyBase.Load
@@ -67,7 +82,7 @@ Public Class UserControlAF
     Private Sub btnSaveFlight_Click(sender As Object, e As EventArgs) Handles btnSaveFlight.Click
         Try
             'save data to the database tables
-            FLSaveModule.flightSave(tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate, connsql)
+            FLSaveModule.flightSave(tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate, connsql, UserAF)
             'load to the grid
             FLLoadToGridModule.load(connsql, dgvFlight)
 

@@ -1,5 +1,6 @@
 ﻿Imports DocumentFormat.OpenXml.Bibliography
 Imports DocumentFormat.OpenXml.VariantTypes
+Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Data.SqlClient
 Imports System.Globalization
 
@@ -11,8 +12,12 @@ Module FLSaveModule
                           cbStd1 As ComboBox,
                           cbDT As ComboBox,
                           dtpDate As DateTimePicker,
-                          connsql As SqlConnection
-                          )
+                          connsql As SqlConnection,
+                          users As String)
+
+
+        Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+        Dim _date As DateTime = DateTime.Today
 
         'check whether all the fields are empty
         If String.IsNullOrEmpty(tbFlightNo.Text) Then
@@ -74,7 +79,27 @@ Module FLSaveModule
                 Dim command2 As New SqlCommand("SELECT TOP 1 FID FROM FLIGHT_MASTER_TABLE ORDER BY FID DESC", connsql)
                 connsql.Open()
                 Dim fid As String = command2.ExecuteScalar().ToString()
+
+
+                '********************************** save in the history table
+
+                Dim sqlSv As String = "INSERT INTO FLIGHT_MASTER_HISTORY_TABLE (FID, FLIGHT_NO, AIRLINE_CODE, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@fid, @fno, @ac, @editor, @time, @date, @edit)"
+                Dim commandSv As New SqlCommand(sqlSv, connsql)
+                commandSv.Parameters.AddWithValue("@fid", fid)
+                commandSv.Parameters.AddWithValue("@fno", flightNo)
+                commandSv.Parameters.AddWithValue("@ac", ACateogry)
+                commandSv.Parameters.AddWithValue("@editor", users)
+                commandSv.Parameters.AddWithValue("@time", _time)
+                commandSv.Parameters.AddWithValue("@date", _date)
+                commandSv.Parameters.AddWithValue("@edit", "NEW")
+
+                commandSv.ExecuteNonQuery()
+
+                '************************************************************
                 connsql.Close()
+
+
+
                 'insert std,dep time,date to the flight time table
                 ' Create a query to retrieve the rows of the selected id from both tables
                 Dim query As String = "SELECT * FROM FLIGHT_MASTER_TABLE INNER JOIN FLIGHT_TIME_TABLE ON FLIGHT_MASTER_TABLE.FID = FLIGHT_TIME_TABLE.FID WHERE 
@@ -118,6 +143,24 @@ Module FLSaveModule
                 com.Parameters.AddWithValue("@Date", selectedDate)
                 com.Parameters.AddWithValue("@ETA", eta)
                 com.ExecuteNonQuery()
+
+                '********************************************** history save
+                Dim sqlSv1 As String = "INSERT INTO FLIGHT_TIME_HISTORY_TABLE (FID, STD, [DIP_TIME], DATE, ETA, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@fid, @std, @dtime, @date, @eta, @editor, @etime, @edate, @edit)"
+                Dim commandSv1 As New SqlCommand(sqlSv1, connsql)
+                commandSv1.Parameters.AddWithValue("@fid", fid)
+                commandSv1.Parameters.AddWithValue("@std", stdTime)
+                commandSv1.Parameters.AddWithValue("@dtime", dipartime)
+                commandSv1.Parameters.AddWithValue("@date", selectedDate)
+                commandSv1.Parameters.AddWithValue("@eta", eta)
+                commandSv1.Parameters.AddWithValue("@editor", users)
+                commandSv1.Parameters.AddWithValue("@etime", _time)
+                commandSv1.Parameters.AddWithValue("@edate", _date)
+                commandSv1.Parameters.AddWithValue("@edit", "NEW")
+
+                commandSv1.ExecuteNonQuery()
+
+                '***********************************************************
+
 
                 'connection close
                 connsql.Close()

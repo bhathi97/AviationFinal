@@ -105,6 +105,7 @@ Public Class MAINFORM
 
             If Not Me.Controls.Contains(USerControlAF) Then
                 Me.Controls.Add(USerControlAF)
+                USerControlAF.UserAF = User 'load user to the instance
                 USerControlAF.Dock = DockStyle.Fill
                 PanelLoad.Controls.Add(USerControlAF)
             End If
