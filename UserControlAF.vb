@@ -1,5 +1,6 @@
 ﻿
 Imports System.Data.SqlClient
+Imports DocumentFormat.OpenXml.Drawing.Diagrams
 Imports DocumentFormat.OpenXml.Wordprocessing
 Imports PdfSharpCore.Pdf.Content.Objects
 
@@ -37,7 +38,6 @@ Public Class UserControlAF
     Private _userAF As String
 
     '**************************************************
-
 
     'Handles MyBase.Load
     Private Sub UserControlAF_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -103,6 +103,7 @@ Public Class UserControlAF
 
         Catch ex As Exception
             MsgBox(ex.Message)
+
         Finally
             connsql.Close()
         End Try
@@ -112,7 +113,7 @@ Public Class UserControlAF
     Private Sub btnUpdateFlight_Click(sender As Object, e As EventArgs) Handles btnUpdateFlight.Click
         Try
             'update
-            FLUpdateModule.updateFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            FLUpdateModule.updateFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate, UserAF)
             'load to the grid
             FLLoadToGridModule.load(connsql, dgvFlight)
         Catch ex As Exception
@@ -126,7 +127,7 @@ Public Class UserControlAF
     Private Sub btnDeleteFlight_Click(sender As Object, e As EventArgs) Handles btnDeleteFlight.Click
         Try
             'delete
-            FLDeleteModule.deleteFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, dpDate)
+            FLDeleteModule.deleteFlight(connsql, SelectedID, tbflightNo, cbairlinecategory, cbStd, cbStd1, cbDT, UserAF)
             'load to the grid
             FLLoadToGridModule.load(connsql, dgvFlight)
         Catch ex As Exception

@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 Imports System.Globalization
 Imports System.Text.RegularExpressions
+Imports DocumentFormat.OpenXml.Spreadsheet
 
 Module FLUpdateModule
     '========================================> Update flight details
@@ -12,7 +13,11 @@ Module FLUpdateModule
                             cbStd As ComboBox,
                             cbStd1 As ComboBox,
                             cbDT As ComboBox,
-                            dtp As DateTimePicker)
+                            dtp As DateTimePicker,
+                            users As String)
+
+        Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+        Dim _date As DateTime = DateTime.Today
 
         ' Open database connection 
         connsql.Open()
@@ -43,6 +48,8 @@ Module FLUpdateModule
 
                 cmd.ExecuteNonQuery()
 
+
+
                 ' Update second table
                 cmd.CommandText = "UPDATE FLIGHT_TIME_TABLE SET STD = @STD, [DIP_TIME] = @DIP , DATE = @Date, ETA = @ETA  WHERE FID = @FID"
 
@@ -67,7 +74,6 @@ Module FLUpdateModule
                     eta = stdTime - sTime
                 End If
 
-                Console.WriteLine("ETA: " & eta.ToString("hh\:mm\:ss")) ' output the ETA in the format hh:mm:ss
 
                 cmd.Parameters.AddWithValue("@FID", lbselectID)
                 cmd.Parameters.AddWithValue("@STD", stdTime)
@@ -83,6 +89,45 @@ Module FLUpdateModule
                     transaction1.Commit()
                     ' Execute the SQL command
                     cmd.ExecuteNonQuery()
+
+
+                    '********************************** save in the history table
+
+                    Dim sqlSv As String = "INSERT INTO FLIGHT_MASTER_HISTORY_TABLE (FID, FLIGHT_NO, AIRLINE_CODE, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@fid, @fno, @ac, @editor, @time, @date, @edit)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@fid", lbselectID)
+                    commandSv.Parameters.AddWithValue("@fno", tbflightNo.Text)
+                    commandSv.Parameters.AddWithValue("@ac", cbarlinecategory.Text)
+                    commandSv.Parameters.AddWithValue("@editor", users)
+                    commandSv.Parameters.AddWithValue("@time", _time)
+                    commandSv.Parameters.AddWithValue("@date", _date)
+                    commandSv.Parameters.AddWithValue("@edit", "UPDATE")
+
+                    commandSv.ExecuteNonQuery()
+
+                    '************************************************************
+
+
+
+                    '********************************************** history save
+                    Dim sqlSv1 As String = "INSERT INTO FLIGHT_TIME_HISTORY_TABLE (FID, STD, [DIP_TIME], DATE, ETA, EDITOR, EDIT_TIME, EDIT_DATE, EDIT) VALUES (@fid, @std, @dtime, @date, @eta, @editor, @etime, @edate, @edit)"
+                    Dim commandSv1 As New SqlCommand(sqlSv1, connsql)
+                    commandSv1.Parameters.AddWithValue("@fid", lbselectID)
+                    commandSv1.Parameters.AddWithValue("@std", stdTime)
+                    commandSv1.Parameters.AddWithValue("@dtime", dipartime)
+                    commandSv1.Parameters.AddWithValue("@date", selectedDate)
+                    commandSv1.Parameters.AddWithValue("@eta", eta)
+                    commandSv1.Parameters.AddWithValue("@editor", users)
+                    commandSv1.Parameters.AddWithValue("@etime", _time)
+                    commandSv1.Parameters.AddWithValue("@edate", _date)
+                    commandSv1.Parameters.AddWithValue("@edit", "UPDATE")
+
+                    commandSv1.ExecuteNonQuery()
+
+                    '***********************************************************
+
+
+
                     ' Show success message
                     MsgBox("Successfully  Updated.")
                 ElseIf result = DialogResult.No Then

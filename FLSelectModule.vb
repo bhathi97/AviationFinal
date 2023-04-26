@@ -11,14 +11,13 @@
         End Set
     End Property
 
-
     Public Sub selectDataLoad(dgv As DataGridView,
-                              tbflightNo As TextBox,
-                              cbarlinecategory As ComboBox,
-                              cbStd As ComboBox,
-                              cbStd1 As ComboBox,
-                              cbDT As ComboBox,
-                              dtpDate As DateTimePicker)
+                                  tbflightNo As TextBox,
+                                  cbarlinecategory As ComboBox,
+                                  cbStd As ComboBox,
+                                  cbStd1 As ComboBox,
+                                  cbDT As ComboBox,
+                                  dtpDate As DateTimePicker)
         Dim selectedRow As DataGridViewRow = dgv.CurrentRow
 
         ' Get the values of the cells in the selected row
@@ -53,9 +52,7 @@
         cbDT.Text = dipartime.ToString()
         dtpDate.Value = Date.Parse(selectedDate.ToString()) ' Set the date only to the DateTimePicker
 
-    End Sub
-
-
+    End Sub
 
 
 End Module
