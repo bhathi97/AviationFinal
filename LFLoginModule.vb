@@ -45,13 +45,14 @@ Module LFLoginModule
                 comType.Parameters.AddWithValue("@password", pass)
                 Dim typeValue As String = comType.ExecuteScalar().ToString()
 
-                If typeValue = "USER" Then
+                'SUPERVISOR CAN ACCESS TIME TABLE ONLY
+                If typeValue = "SUPERVISOR" Then
 
                     'save in the history table - ******************************
                     Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
                     Dim commandSv As New SqlCommand(sqlSv, connsql)
                     commandSv.Parameters.AddWithValue("@uname", namen)
-                    commandSv.Parameters.AddWithValue("@utype", "USER") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@utype", "SUPERVISOR") '************************************************ logiging user type
                     commandSv.Parameters.AddWithValue("@etime", _time)
                     commandSv.Parameters.AddWithValue("@edate", _date)
                     commandSv.Parameters.AddWithValue("@activity", "LOGIN")
@@ -59,25 +60,27 @@ Module LFLoginModule
                     '***********************************************************
 
                     'login successful
+
                     Dim form As New MAINFORM()
                     form.lblUser.Text = namen
                     form.btnCrew.Hide()
                     form.btnFlight.Hide()
                     form.btnAdminSetting.Hide()
                     form.User = namen
+                    form.UserTypes = "SUPERVISOR"
                     form.Show()
                     obj.Hide()
 
 
-
-                ElseIf typeValue = "ADMIN" Then
+                    ' ADMINISTRATOR CAN ACCESS ALL
+                ElseIf typeValue = "ADMINISTRATOR" Then
 
 
                     'save in the history table - ******************************
                     Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
                     Dim commandSv As New SqlCommand(sqlSv, connsql)
                     commandSv.Parameters.AddWithValue("@uname", namen)
-                    commandSv.Parameters.AddWithValue("@utype", "ADMIN") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@utype", "ADMINISTRATOR") '************************************************ logiging user type
                     commandSv.Parameters.AddWithValue("@etime", _time)
                     commandSv.Parameters.AddWithValue("@edate", _date)
                     commandSv.Parameters.AddWithValue("@activity", "LOGIN")
@@ -85,9 +88,64 @@ Module LFLoginModule
                     '***********************************************************
 
                     'login successful
+
+
                     Dim form As New MAINFORM()
                     form.lblUser.Text = namen
                     form.User = namen
+                    form.UserTypes = "ADMINISTRATOR"
+                    form.Show()
+                    obj.Hide()
+
+                    'SUPORTER CAN ACCESS PLANE AND CREWMEMBERS ONLY
+
+                ElseIf typeValue = "SUPORTER" Then
+
+
+                    'save in the history table - ******************************
+                    Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@uname", namen)
+                    commandSv.Parameters.AddWithValue("@utype", "SUPORTER") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@etime", _time)
+                    commandSv.Parameters.AddWithValue("@edate", _date)
+                    commandSv.Parameters.AddWithValue("@activity", "LOGIN")
+                    commandSv.ExecuteNonQuery()
+                    '***********************************************************
+
+                    'login successful
+
+                    Dim form As New MAINFORM()
+                    form.lblUser.Text = namen
+                    form.User = namen
+                    form.UserTypes = "SUPORTER"
+                    form.btnShedule.Hide()
+                    form.btnAdminSetting.Hide()
+                    form.Show()
+                    obj.Hide()
+
+                    'OPERATOR CAN ACCESS PLANE, CREWMEMBERS, AND LOGIN
+                ElseIf typeValue = "OPERATOR" Then
+
+
+                    'save in the history table - ******************************
+                    Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@uname", namen)
+                    commandSv.Parameters.AddWithValue("@utype", "OPERATOR") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@etime", _time)
+                    commandSv.Parameters.AddWithValue("@edate", _date)
+                    commandSv.Parameters.AddWithValue("@activity", "LOGIN")
+                    commandSv.ExecuteNonQuery()
+                    '***********************************************************
+
+                    'login successful
+
+                    Dim form As New MAINFORM()
+                    form.lblUser.Text = namen
+                    form.User = namen
+                    form.UserTypes = "OPERATOR"
+                    form.btnShedule.Hide()
                     form.Show()
                     obj.Hide()
 

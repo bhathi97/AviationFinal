@@ -3,6 +3,7 @@
 Imports System.Windows.Controls
 Imports System.Windows.Forms
 Imports System.Data.SqlClient
+Imports DocumentFormat.OpenXml.Bibliography
 
 Public Class MAINFORM
 
@@ -59,21 +60,60 @@ Public Class MAINFORM
     '**************************
 
 
+    '*********************************
+    'TO SAVE USER TYPE
+    Private _userTypes As String
+
+    Public Property UserTypes As String
+        Get
+            Return _userTypes
+        End Get
+        Set(ByVal value As String)
+            _userTypes = value
+        End Set
+    End Property
+
+
     'Handles MyBase.Load
     Private Sub MAINFORM_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WindowState = FormWindowState.Maximized
         PanelMenu.Width = 50
 
+        If UserTypes = "ADMINISTRATOR" Or UserTypes = "SUPERVISOR" Then
+            If Not Me.Controls.Contains(UserControlTT) Then
+                Me.Controls.Add(UserControlTT)
 
-        If Not Me.Controls.Contains(UserControlTT) Then
-            Me.Controls.Add(UserControlTT)
+                UserControlTT.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(UserControlTT)
+            End If
 
-            UserControlTT.Dock = DockStyle.Fill
-            PanelLoad.Controls.Add(UserControlTT)
+
+            UserControlTT.BringToFront()
+
+        ElseIf UserTypes = "SUPORTER" Or UserTypes = "OPERATOR" Then
+
+            If Not Me.Controls.Contains(USerControlAF) Then
+                Me.Controls.Add(USerControlAF)
+                USerControlAF.UserAF = User 'load user to the instance
+                USerControlAF.Dock = DockStyle.Fill
+                PanelLoad.Controls.Add(USerControlAF)
+            End If
+
+            USerControlAF.BringToFront()
+
+
         End If
 
 
-        UserControlTT.BringToFront()
+
+
+
+
+
+
+
+
+
 
 
     End Sub
