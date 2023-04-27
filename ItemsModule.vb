@@ -136,8 +136,11 @@ Module ItemsModule
 
     Public Sub loadUserTypes(cb As ComboBox)
         Try
-            cb.Items.Add("USER") 'add to combo box
-            cb.Items.Add("ADMIN")
+            cb.Items.Add("ADMINISTRATOR")
+            cb.Items.Add("SUPERVISOR")
+            cb.Items.Add("OPERATOR")
+            cb.Items.Add("SUPORTER") 'add to combo box
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
