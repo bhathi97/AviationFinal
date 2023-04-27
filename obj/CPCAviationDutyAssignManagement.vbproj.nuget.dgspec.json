@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\randi\\source\\repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj": {}
+    "C:\\Users\\bhath\\Source\\Repos\\AviationFinal427\\CPCAviationDutyAssignManagement.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\randi\\source\\repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj": {
+    "C:\\Users\\bhath\\Source\\Repos\\AviationFinal427\\CPCAviationDutyAssignManagement.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\randi\\source\\repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj",
+        "projectUniqueName": "C:\\Users\\bhath\\Source\\Repos\\AviationFinal427\\CPCAviationDutyAssignManagement.vbproj",
         "projectName": "CPCAviationDutyAssignManagement",
-        "projectPath": "C:\\Users\\randi\\source\\repos\\AviationFinal\\CPCAviationDutyAssignManagement.vbproj",
-        "packagesPath": "C:\\Users\\randi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\randi\\source\\repos\\AviationFinal\\obj\\",
+        "projectPath": "C:\\Users\\bhath\\Source\\Repos\\AviationFinal427\\CPCAviationDutyAssignManagement.vbproj",
+        "packagesPath": "C:\\Users\\bhath\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bhath\\Source\\Repos\\AviationFinal427\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\randi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
