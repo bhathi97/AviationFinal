@@ -241,8 +241,6 @@ Public Class MAINFORM
 
                     End Try
 
-
-
                     For Each f As Form In Application.OpenForms
                         f.Close()
                     Next
