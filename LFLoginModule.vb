@@ -1,5 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
+Imports DocumentFormat.OpenXml.Spreadsheet
+Imports System.Windows.Forms.AxHost
 
 Module LFLoginModule
 
@@ -19,10 +21,15 @@ Module LFLoginModule
             'when all the fields are filled
             'Open database connection 
             connsql.Open()
-            Dim namen As String
-            Dim pass As String
+            Dim namen As String 'login user
+            Dim pass As String 'login passward
             namen = tbUName.Text
             pass = tbPS.Text
+
+
+            Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+            Dim _date As DateTime = DateTime.Today
+
 
             'check whether the USER name and PASSWORD are correct
             Dim queryString As String = "SELECT COUNT(*) FROM LOGIN_TABLE WHERE USERNAME = @user AND PASSWORD = @password"
@@ -39,6 +46,18 @@ Module LFLoginModule
                 Dim typeValue As String = comType.ExecuteScalar().ToString()
 
                 If typeValue = "USER" Then
+
+                    'save in the history table - ******************************
+                    Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@uname", namen)
+                    commandSv.Parameters.AddWithValue("@utype", "USER") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@etime", _time)
+                    commandSv.Parameters.AddWithValue("@edate", _date)
+                    commandSv.Parameters.AddWithValue("@activity", "LOGIN")
+                    commandSv.ExecuteNonQuery()
+                    '***********************************************************
+
                     'login successful
                     Dim form As New MAINFORM()
                     form.lblUser.Text = namen
@@ -52,6 +71,19 @@ Module LFLoginModule
 
 
                 ElseIf typeValue = "ADMIN" Then
+
+
+                    'save in the history table - ******************************
+                    Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@uname", namen)
+                    commandSv.Parameters.AddWithValue("@utype", "ADMIN") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@etime", _time)
+                    commandSv.Parameters.AddWithValue("@edate", _date)
+                    commandSv.Parameters.AddWithValue("@activity", "LOGIN")
+                    commandSv.ExecuteNonQuery()
+                    '***********************************************************
+
                     'login successful
                     Dim form As New MAINFORM()
                     form.lblUser.Text = namen

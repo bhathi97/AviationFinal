@@ -1,10 +1,19 @@
 ﻿
 'Imports System.Windows
 Imports System.Windows.Controls
-Imports DocumentFormat.OpenXml.Drawing.Diagrams
 Imports System.Windows.Forms
+Imports System.Data.SqlClient
 
 Public Class MAINFORM
+
+
+    Dim _time As TimeSpan = DateTime.Now.TimeOfDay
+    Dim _date As DateTime = DateTime.Today
+
+
+    'Public str As String = "Data Source=DESKTOP-KHI8921;Initial Catalog=aviationProjectDB;Integrated Security=True"
+    Public str As String = DatabaseConnection.ConnectionString
+    Dim connsql As New SqlConnection(str)
 
     '*********************************
     'to seperate logout and close function
@@ -165,6 +174,24 @@ Public Class MAINFORM
             Dim result As DialogResult = MessageBox.Show("Do you want to Log Out?", "LOGOUT", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
 
+                Try
+                    'save in the history table - ******************************
+                    connsql.Open()
+                    Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                    Dim commandSv As New SqlCommand(sqlSv, connsql)
+                    commandSv.Parameters.AddWithValue("@uname", lblUser.Text)
+                    commandSv.Parameters.AddWithValue("@utype", "") '************************************************ logiging user type
+                    commandSv.Parameters.AddWithValue("@etime", _time)
+                    commandSv.Parameters.AddWithValue("@edate", _date)
+                    commandSv.Parameters.AddWithValue("@activity", "LOGOUT")
+                    commandSv.ExecuteNonQuery()
+                    '***********************************************************
+                Catch ex As Exception
+                Finally
+                    connsql.Close()
+
+                End Try
+
                 Logout = True
 
                 LOGINForm.Show()
@@ -195,6 +222,26 @@ Public Class MAINFORM
             Try
                 ' If the user clicks Yes, exit the application.
                 If result = DialogResult.OK Then
+
+                    Try
+                        'save in the history table - ******************************
+                        connsql.Open()
+                        Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
+                        Dim commandSv As New SqlCommand(sqlSv, connsql)
+                        commandSv.Parameters.AddWithValue("@uname", lblUser.Text)
+                        commandSv.Parameters.AddWithValue("@utype", "") '************************************************ logiging user type
+                        commandSv.Parameters.AddWithValue("@etime", _time)
+                        commandSv.Parameters.AddWithValue("@edate", _date)
+                        commandSv.Parameters.AddWithValue("@activity", "LOGOUT")
+                        commandSv.ExecuteNonQuery()
+                        '***********************************************************
+                    Catch ex As Exception
+                    Finally
+                        connsql.Close()
+
+                    End Try
+
+
 
                     For Each f As Form In Application.OpenForms
                         f.Close()
