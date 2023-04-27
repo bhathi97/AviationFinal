@@ -269,7 +269,7 @@ Public Class MAINFORM
                         Dim sqlSv As String = "INSERT INTO LOGIN_HISTORY_TABLE (USERNAME, TYPE, EDIT_TIME, EDIT_DATE, ACTIVITY) VALUES (@uname, @utype, @etime, @edate, @activity)"
                         Dim commandSv As New SqlCommand(sqlSv, connsql)
                         commandSv.Parameters.AddWithValue("@uname", lblUser.Text)
-                        commandSv.Parameters.AddWithValue("@utype", "") '************************************************ logiging user type
+                        commandSv.Parameters.AddWithValue("@utype", "") '*********z*************************************** logiging user type
                         commandSv.Parameters.AddWithValue("@etime", _time)
                         commandSv.Parameters.AddWithValue("@edate", _date)
                         commandSv.Parameters.AddWithValue("@activity", "LOGOUT")
