@@ -58,7 +58,7 @@ Module PFLoadDataToDatabaseModule
                     conn.Close()
 
                 Next
-                MsgBox("Successfully uploaded to the table")
+                'MsgBox("Successfully uploaded to the table")
             End Using
 
         Catch ex As Exception

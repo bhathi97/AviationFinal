@@ -2,12 +2,12 @@
 
 Module ALDeleteModule
 
-    Public Sub deleteAirLineDetail(connsql As SqlConnection, tbCode As TextBox, tbName As TextBox, lblCode As Label)
-        If String.IsNullOrEmpty(lblCode.ToString) Then
+    Public Sub deleteAirLineDetail(connsql As SqlConnection, tbCode As TextBox, tbName As TextBox, selected As String)
+        If String.IsNullOrEmpty(selected) Then
         Else 'if seleced id is not null
             connsql.Open()
             Dim cmd As New SqlCommand("DELETE FROM [AIRLINE_MASTER_TABLE] WHERE [AIRLINE_CODE] = @code", connsql)
-            cmd.Parameters.AddWithValue("@code", lblCode.Text)
+            cmd.Parameters.AddWithValue("@code", selected)
 
             Dim result As DialogResult = MessageBox.Show("Do you want to delete Crewman " + tbCode.Text + "?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -19,7 +19,7 @@ Module ALDeleteModule
                 'Clear the values in text boxes, combo boxes, and label
                 tbCode.Text = ""
                 tbName.Text = ""
-                lblCode.Text = ""
+                selected = ""
 
             End If
 

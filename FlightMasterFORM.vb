@@ -81,7 +81,7 @@ Public Class FlightMasterFORM
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         Try
             'delete
-            deleteAirLineDetail(connsql, tbCode, tbName, lblCode)
+            deleteAirLineDetail(connsql, tbCode, tbName, SelectedCode)
             'load to grid
             ALLoadToGridModule.showInGrid(connsql, dgvAir)
         Catch ex As Exception

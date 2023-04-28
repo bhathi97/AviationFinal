@@ -41,7 +41,7 @@ Public Class UserControlTimeTable
         'dgvMain.DataSource = dataTable ' Set the DataSource of the DataGridView to the dataTable variable
 
         'load update field data
-        addOperators(connsql, cbOPerater)
+        ' addOperators(connsql, cbOPerater)
         remarkAdd(cboxremarks)
 
         'load date
@@ -66,7 +66,7 @@ Public Class UserControlTimeTable
     Private Sub cbGroup_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbGroup.SelectedIndexChanged
 
         Try
-            TTLoadDataToListBoxesModule.LoadDataToListBoxes(cbGroup, lbCM, lbRIC, connsql)
+            TTLoadDataToListBoxesModule.LoadDataToListBoxes(cbGroup, lbCM, lbRIC, connsql, cbOPerater)
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

@@ -15,9 +15,10 @@ Module ALSaveModule
             MsgBox("Fill The Name Field")
             tbName.Focus()
 
-        ElseIf Not Regex.IsMatch(tbCode.Text, "^[A-Z]{1,10}$") Then
-            MsgBox("Airline code should be uppercase letters only with maximum length of 10.")
+        ElseIf Not Regex.IsMatch(tbCode.Text, "^[A-Z0-9]{1,10}$") Then
+            MsgBox("Airline code should be uppercase letters and numbers only with maximum length of 10.")
             tbCode.Focus()
+
 
         ElseIf Not Regex.IsMatch(tbName.Text, "^[A-Z ]{1,50}$") Then
             MsgBox("Airline name should be uppercase letters only with maximum length of 50.")

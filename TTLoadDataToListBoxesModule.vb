@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Module TTLoadDataToListBoxesModule
-    Public Sub LoadDataToListBoxes(cbGroupPicker As ComboBox, lvCrewman As ListBox, lvRic As ListBox, con As SqlConnection)
+    Public Sub LoadDataToListBoxes(cbGroupPicker As ComboBox, lvCrewman As ListBox, lvRic As ListBox, con As SqlConnection, cbOPerater As ComboBox)
 
         'get selected data to a variable'
         Dim var_GroupName As String
@@ -39,6 +39,17 @@ Module TTLoadDataToListBoxesModule
                 lvRic.Items.Add(valueRIC)
             End While
             readerRics.Close()
+
+            'OPERATOR
+            Dim cmdToLoadOP As New SqlCommand("SELECT * FROM [CREWMEMBERS_MASTER_TABLE] WHERE [GROUP] = @GroupName AND POSITION = 'OPERATOR'", con)
+            cmdToLoadOP.Parameters.AddWithValue("@GroupName", var_GroupName)
+
+            Dim readerOP As SqlDataReader = cmdToLoadOP.ExecuteReader()
+            While readerOP.Read()
+                Dim valueOP As String = readerOP("NAME").ToString() 'get values
+                cbOPerater.Items.Add(valueOP)
+            End While
+            readerOP.Close()
 
             con.Close()
 

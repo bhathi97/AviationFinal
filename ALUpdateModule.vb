@@ -26,11 +26,12 @@ Module ALUpdateModule
             End If
 
             ' Validate airline code
-            If Not Regex.IsMatch(tbCode.Text, "^[A-Z]{1,10}$") Then
-                MsgBox("Airline Code should be only uppercase letters and max length 10 letters")
+            If Not Regex.IsMatch(tbCode.Text, "^[A-Z0-9]{1,10}$") Then
+                MsgBox("Airline code should be uppercase letters and numbers only with maximum length of 10.")
                 tbCode.Focus()
                 Return
             End If
+
 
             ' Validate airline name
             If Not Regex.IsMatch(tbName.Text, "^[A-Z]{1,50}$") Then
