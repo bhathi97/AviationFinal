@@ -156,4 +156,13 @@ Public Class UserControlAF
         End Try
 
     End Sub
+
+    ' Handles btnRefreshDataGrid.Click
+    Private Sub btnRefreshDataGrid_Click(sender As Object, e As EventArgs) Handles btnRefreshDataGrid.Click
+        Try
+            FLLoadToGridModule.load(connsql, dgvFlight)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

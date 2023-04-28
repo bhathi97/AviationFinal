@@ -32,6 +32,7 @@ Partial Class UserControlAdminSetting
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
+        btnRefreshDataGrid = New FontAwesome.Sharp.IconButton()
         lblS = New Label()
         tbPassword = New TextBox()
         lblSelectedID = New Label()
@@ -75,7 +76,7 @@ Partial Class UserControlAdminSetting
         btnDeleteUL.IconColor = Color.White
         btnDeleteUL.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnDeleteUL.IconSize = 20
-        btnDeleteUL.Location = New Point(289, 345)
+        btnDeleteUL.Location = New Point(288, 319)
         btnDeleteUL.Name = "btnDeleteUL"
         btnDeleteUL.Size = New Size(150, 35)
         btnDeleteUL.TabIndex = 22
@@ -99,7 +100,7 @@ Partial Class UserControlAdminSetting
         btnUpdateUL.IconColor = Color.White
         btnUpdateUL.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnUpdateUL.IconSize = 20
-        btnUpdateUL.Location = New Point(289, 301)
+        btnUpdateUL.Location = New Point(288, 275)
         btnUpdateUL.Name = "btnUpdateUL"
         btnUpdateUL.Size = New Size(150, 35)
         btnUpdateUL.TabIndex = 21
@@ -123,7 +124,7 @@ Partial Class UserControlAdminSetting
         btnSaveUL.IconColor = Color.White
         btnSaveUL.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnSaveUL.IconSize = 20
-        btnSaveUL.Location = New Point(289, 257)
+        btnSaveUL.Location = New Point(288, 231)
         btnSaveUL.Name = "btnSaveUL"
         btnSaveUL.Size = New Size(150, 35)
         btnSaveUL.TabIndex = 20
@@ -159,6 +160,7 @@ Partial Class UserControlAdminSetting
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(btnRefreshDataGrid)
         Panel1.Controls.Add(lblS)
         Panel1.Controls.Add(tbPassword)
         Panel1.Controls.Add(lblSelectedID)
@@ -179,11 +181,34 @@ Partial Class UserControlAdminSetting
         Panel1.Size = New Size(478, 661)
         Panel1.TabIndex = 1
         ' 
+        ' btnRefreshDataGrid
+        ' 
+        btnRefreshDataGrid.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnRefreshDataGrid.Cursor = Cursors.Hand
+        btnRefreshDataGrid.FlatAppearance.BorderColor = SystemColors.ButtonFace
+        btnRefreshDataGrid.FlatAppearance.BorderSize = 0
+        btnRefreshDataGrid.FlatAppearance.MouseDownBackColor = Color.White
+        btnRefreshDataGrid.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        btnRefreshDataGrid.FlatStyle = FlatStyle.Flat
+        btnRefreshDataGrid.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        btnRefreshDataGrid.ForeColor = Color.White
+        btnRefreshDataGrid.IconChar = FontAwesome.Sharp.IconChar.ArrowsRotate
+        btnRefreshDataGrid.IconColor = Color.White
+        btnRefreshDataGrid.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnRefreshDataGrid.IconSize = 20
+        btnRefreshDataGrid.Location = New Point(403, 366)
+        btnRefreshDataGrid.Name = "btnRefreshDataGrid"
+        btnRefreshDataGrid.Size = New Size(35, 35)
+        btnRefreshDataGrid.TabIndex = 27
+        btnRefreshDataGrid.TextAlign = ContentAlignment.MiddleRight
+        btnRefreshDataGrid.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnRefreshDataGrid.UseVisualStyleBackColor = False
+        ' 
         ' lblS
         ' 
         lblS.AutoSize = True
         lblS.ForeColor = SystemColors.ControlLight
-        lblS.Location = New Point(170, 311)
+        lblS.Location = New Point(166, 274)
         lblS.Name = "lblS"
         lblS.Size = New Size(41, 15)
         lblS.TabIndex = 26
@@ -328,4 +353,5 @@ Partial Class UserControlAdminSetting
     Friend WithEvents Label3 As Label
     Friend WithEvents tbPassword As TextBox
     Friend WithEvents lblS As Label
+    Friend WithEvents btnRefreshDataGrid As FontAwesome.Sharp.IconButton
 End Class

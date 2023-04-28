@@ -67,4 +67,13 @@ Public Class UserControlAdminSetting
 
         End Try
     End Sub
+
+    Private Sub btnRefreshDataGrid_Click(sender As Object, e As EventArgs) Handles btnRefreshDataGrid.Click
+        Try
+            'load
+            ASLoadModule.show(connsql, dgvUserDetails)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

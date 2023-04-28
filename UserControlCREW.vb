@@ -103,4 +103,13 @@ Public Class UserControlCREW
         End Try
 
     End Sub
+
+    ' Handles btnRefreshDataGrid.Click
+    Private Sub btnRefreshDataGrid_Click(sender As Object, e As EventArgs) Handles btnRefreshDataGrid.Click
+        Try
+            CMLoadToGridModule.showInGrid(connsql, dgvCrew) 'load data to the grid
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

@@ -26,6 +26,7 @@ Partial Class UserControlCREW
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
+        btnRefreshDataGrid = New FontAwesome.Sharp.IconButton()
         lblSelectedID = New Label()
         PictureBox1 = New PictureBox()
         btnDeleteCM = New FontAwesome.Sharp.IconButton()
@@ -53,6 +54,7 @@ Partial Class UserControlCREW
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ControlLight
+        Panel1.Controls.Add(btnRefreshDataGrid)
         Panel1.Controls.Add(lblSelectedID)
         Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(btnDeleteCM)
@@ -71,6 +73,29 @@ Partial Class UserControlCREW
         Panel1.Padding = New Padding(10)
         Panel1.Size = New Size(478, 632)
         Panel1.TabIndex = 0
+        ' 
+        ' btnRefreshDataGrid
+        ' 
+        btnRefreshDataGrid.BackColor = Color.FromArgb(CByte(0), CByte(40), CByte(77))
+        btnRefreshDataGrid.Cursor = Cursors.Hand
+        btnRefreshDataGrid.FlatAppearance.BorderColor = SystemColors.ButtonFace
+        btnRefreshDataGrid.FlatAppearance.BorderSize = 0
+        btnRefreshDataGrid.FlatAppearance.MouseDownBackColor = Color.White
+        btnRefreshDataGrid.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        btnRefreshDataGrid.FlatStyle = FlatStyle.Flat
+        btnRefreshDataGrid.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        btnRefreshDataGrid.ForeColor = Color.White
+        btnRefreshDataGrid.IconChar = FontAwesome.Sharp.IconChar.ArrowsRotate
+        btnRefreshDataGrid.IconColor = Color.White
+        btnRefreshDataGrid.IconFont = FontAwesome.Sharp.IconFont.Solid
+        btnRefreshDataGrid.IconSize = 20
+        btnRefreshDataGrid.Location = New Point(404, 364)
+        btnRefreshDataGrid.Name = "btnRefreshDataGrid"
+        btnRefreshDataGrid.Size = New Size(35, 35)
+        btnRefreshDataGrid.TabIndex = 22
+        btnRefreshDataGrid.TextAlign = ContentAlignment.MiddleRight
+        btnRefreshDataGrid.TextImageRelation = TextImageRelation.ImageBeforeText
+        btnRefreshDataGrid.UseVisualStyleBackColor = False
         ' 
         ' lblSelectedID
         ' 
@@ -108,7 +133,7 @@ Partial Class UserControlCREW
         btnDeleteCM.IconColor = Color.White
         btnDeleteCM.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnDeleteCM.IconSize = 20
-        btnDeleteCM.Location = New Point(289, 345)
+        btnDeleteCM.Location = New Point(289, 319)
         btnDeleteCM.Name = "btnDeleteCM"
         btnDeleteCM.Size = New Size(150, 35)
         btnDeleteCM.TabIndex = 22
@@ -132,7 +157,7 @@ Partial Class UserControlCREW
         btnUpdateCM.IconColor = Color.White
         btnUpdateCM.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnUpdateCM.IconSize = 20
-        btnUpdateCM.Location = New Point(289, 301)
+        btnUpdateCM.Location = New Point(289, 275)
         btnUpdateCM.Name = "btnUpdateCM"
         btnUpdateCM.Size = New Size(150, 35)
         btnUpdateCM.TabIndex = 21
@@ -156,7 +181,7 @@ Partial Class UserControlCREW
         btnSaveCM.IconColor = Color.White
         btnSaveCM.IconFont = FontAwesome.Sharp.IconFont.Solid
         btnSaveCM.IconSize = 20
-        btnSaveCM.Location = New Point(289, 257)
+        btnSaveCM.Location = New Point(289, 231)
         btnSaveCM.Name = "btnSaveCM"
         btnSaveCM.Size = New Size(150, 35)
         btnSaveCM.TabIndex = 20
@@ -330,4 +355,5 @@ Partial Class UserControlCREW
     Friend WithEvents AName As DataGridViewTextBoxColumn
     Friend WithEvents AGroup As DataGridViewTextBoxColumn
     Friend WithEvents APosition As DataGridViewTextBoxColumn
+    Friend WithEvents btnRefreshDataGrid As FontAwesome.Sharp.IconButton
 End Class
